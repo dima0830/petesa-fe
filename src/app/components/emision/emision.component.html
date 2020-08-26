@@ -1,0 +1,268 @@
+<div *ngIf="err500" class="alert alert-danger mt-3 animated wobble" role="alert">
+    <div class="d-inline-block p-2 align-middle">
+        <img src="./assets/img/ic_err500.svg" alt="" style="max-width: 90px;">
+    </div>
+    <div class="d-inline-block p-2 align-middle">
+        <h4 class="text-danger m-0">ERROR INTERNO DEL SERVIDOR!</h4>
+        <p class="p-0 m-0">El servidor no ha respondido de la manera esperada. <br> <small class="text-muted"> Por favor póngase en contacto con el departamento de operaciones de Ptesa.</small></p>
+    </div>
+</div>
+
+<div class="jumbotron jumbotron-fluid animated fadeIn fast">
+    <div class="container">
+        <h1 style="color: #00427a;">Emisión <small class="text-muted">Factura Electrónica </small> </h1>
+        <p class="lead text-muted">Realice emisión y carga de facturas. Encuentre y revise documentos emitidos previamente. Analice los resultados de la emisión de facturas. Conozca novedades e imprevistos con el proceso.</p>
+    </div>
+    <button (click)="this.startTutorial()" class="btn btn-help" style="position: absolute; top: 30px; right: 30px;" matTooltip="Guía básica" matTooltipPosition="right">
+        <span class="fa fa-lightbulb-o fa-fw"></span>
+    </button>
+</div>
+<div class="container-fluid" style="min-height: 50vh">
+    <div class="p-0 m-0">
+        <hr id="tope">
+        <div class="row">
+            <div class="col-6">
+                <button class="btn btn-warning btn-lg shadow-sm ml-2 paso1" [disabled]="preloader" matTooltip="Filtrar documentos emitidos" data-toggle="modal" data-target="#modalBuscadorEmision" style="position: relative;"><span *ngIf="withCriteria" matTooltip="Filtros activos" matTooltipPosition="after" class="badge badge-pill badge-danger p-1 animated zoomIn fast" style="position: absolute; top: -10px; right: -10px;"><span class="fa fa-filter fa-fw"></span></span><span class="fa fa-search fa-fw"></span></button>
+                <div class="btn-group btn-group ml-3 paso2" role="group">
+                    <button *ngIf="!displayModeList" class="btn btn-lg btn-primary fondoAzulPtesa" [disabled]="preloader" matTooltip="Ver filas" (click)="changeviewMode()" style="border-radius: 0; color: #565758"><span class="fa fa-list fa-lg"></span></button>
+                    <button *ngIf="displayModeList" class="btn btn-lg btn-primary fondoAzulPtesa" [disabled]="preloader" matTooltip="Ver tarjetas" (click)="changeviewMode()" style="border-radius: 0; color: #565758"><span class="fa fa-th fa-lg"></span></button>
+                </div>
+            </div>
+            <div class="col-6">
+                <div *ngIf="env.overallPermissions.showOutboundFiltersDownload && delBuscador" class="text-right animated slideInLeft" role="group">
+                    <button (click)="resultsDownload()" class="btn btn-warning btn-lg shadow-sm mr-2 paso7" [disabled]="preloader || totalResults === '0'" matTooltip="Descargar Resultados (Excel)"><span *ngIf="!resultsDownloadProcess" class="fa fa-download fa-fw"></span><span *ngIf="resultsDownloadProcess" class="fa fa-spinner fa-pulse fa-fw"></span></button>
+                </div>
+            </div>
+        </div>
+        <hr class="mb-2">
+    </div>
+    <div class="p-2 shadow" style="background-color: rgba(0, 0, 0, 0.1); color: rgba(0, 0, 0, 0.5); border: solid 1px rgba(0, 0, 0, 0.12);">
+        <button class="btn btn-link text-secondary py-0 ml-0 pl-0 paso3" data-toggle="modal" data-target="#modalBuscadorEmision"><span class="fa fa-chevron-right text-light"></span><strong> Documentos encontrados:</strong> {{ totalResults }}</button>
+
+        <button *ngIf="totalResults !== '0'" class="btn btn-link text-secondary py-0 ml-0 pl-0 paso4" data-toggle="modal" data-target="#modalBuscadorEmision"><strong> Orden:</strong> <span *ngIf="filterParameters.invoiceFilterRequest.options.fieldOrder === 'FECHA'"> Fecha de Emisión </span> <span *ngIf="filterParameters.invoiceFilterRequest.options.fieldOrder === 'DOC'"> Número de Documento </span> <span *ngIf="filterParameters.invoiceFilterRequest.options.fieldOrder === 'ADQ'"> Adquiriente </span> <span *ngIf="filterParameters.invoiceFilterRequest.options.fieldOrder === 'VALOR'"> Valor </span> <span *ngIf="filterParameters.invoiceFilterRequest.options.order === 'DESC'" class="fa fa-caret-down"></span><span *ngIf="filterParameters.invoiceFilterRequest.options.order === 'ASC'" class="fa fa-caret-up"></span></button>
+        <button *ngIf="withCriteria" class="btn btn-link text-danger py-0 ml-0 pl-0" data-toggle="modal" data-target="#modalBuscadorEmision"><span class="fa fa-filter"></span> Filtro(s) Activo(s)</button>
+        <div style="max-height: 48px; overflow: hidden; text-overflow: ellipsis;" class="paso5"><span *ngFor="let branchName of arrCurrentBranchesNames" class="badge badge-pill badge-light text-secondary mr-2"> <span class="fa fa-circle" [ngStyle]="{'color': branchName.color}"></span> {{ branchName.name }}</span>
+        </div>
+    </div>
+    <div *ngIf="preloader" class="mt-4">
+        <app-precarga></app-precarga>
+    </div>
+    <div *ngIf="!preloader">
+
+        <div *ngIf="totalResults !== '0'" class="text-center my-4 paso7">
+            <pagination-controls (pageChange)="pageChanged($event)" directionLinks="true" responsive="true" previousLabel="Anterior" nextLabel="Siguiente"></pagination-controls>
+        </div>
+        <div class="paso6">
+            <div *ngIf="displayModeList" class="animated fadeIn">
+                <app-filas style="cursor: pointer;" [invoicesSentArray]="invoicesSentArray" (transportDocumentId)="showTableDetails($event)"></app-filas>
+            </div>
+
+
+            <div [ngClass]="{'shower': !displayModeList, 'hidder': displayModeList}">
+                <div class="row" [@cardAnimation]="invoicesSentArray.length">
+                    <div class="col-xl-3 col-lg-4 col-md-6 mb-4" *ngFor="let factura of invoicesSentArray | paginate: { itemsPerPage: maxResultsPerPage, currentPage: currentPage, totalItems: totalResults }">
+                        <app-tarjetas class="animated fadeIn" style="animation-delay: 0.5s;" [factura]="factura" (transportDocumentId)="showTableDetails($event)"></app-tarjetas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div *ngIf="totalResults !== '0'" class="text-center my-4">
+            <pagination-controls (pageChange)="pageChanged($event)" directionLinks="true" responsive="true" previousLabel="Anterior" nextLabel="Siguiente"></pagination-controls>
+        </div>
+
+        <div *ngIf="totalResults === '0' || totalResults === 0" class="row mt-3 mb-4">
+            <div class="col-sm-6 offset-sm-3 text-center text-secondary">
+                <h3><span class="fa fa-exclamation-triangle fa-3x"></span></h3>
+                <h5>No se encontraron facturas emitidas.</h5>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- Modal Buscador -->
+<div class="modal fade" id="modalBuscadorEmision" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color: #dadada; border-bottom: solid 2px #007bff">
+                <h2 class="modal-title" style="color: #00427a"><span class="fa fa-search fa-lg"></span> Buscador <small class="text-primary">Documentos Emitidos</small></h2>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                     <span aria-hidden="true">&times;</span>
+                 </button>
+            </div>
+            <div class="modal-body">
+                <app-buscador-emision (pasarParametros)="getParameters($event)"></app-buscador-emision>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Detalle -->
+<div class="modal fade" id="modalDetalleDocumento" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color: #dadada; border-bottom: solid 2px #007bff">
+
+                <h2 class="modal-title" style="color: #00427a"><span class="fa fa-search fa-lg"></span> Detalle <small class="text-primary">Documento Emitido</small></h2>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body vh-100" style="position: relative;">
+                <div *ngIf="!detailPreloader" class="py-2 shadow" [ngClass]="{'bg-secondary': currentStatus === 3010 || currentStatus === 3011, 'bg-success': currentStatus === 3012, 'bg-danger': currentStatus === 3014, 'bg-warning': currentStatus !== 3010 && currentStatus !== 3011 && currentStatus !== 3012 && currentStatus !== 3013 && currentStatus !== 3014}"
+                    style="color: #ffffff; width: 200px; transform: rotate(-45deg); position:absolute; top:20px; left: -55px; text-align: center; line-height: 1; z-index: 55555555555555;">
+                    <span style="font-size: 11px;">Estado:</span><br> <span><strong>{{libr.convEstadoDoc(currentStatus)}}</strong></span>
+                </div>
+                <div *ngIf="detailPreloader">
+                    <app-precarga></app-precarga>
+                </div>
+                <div *ngIf="(currentStatus === 3012 &&  3 > rejectReason.length ) || (currentStatus !== 3012 && currentStatus !== 3014)" class="text-center my-4">
+                    &nbsp;
+                </div>
+                <div *ngIf="!detailPreloader && currentStatus === 3014" class="row justify-content-center animated bounce fast">
+                    <div class="col-7">
+                        <div class="alert alert-danger" role="alert">
+                            <h5 class="alert-heading m-0">Motivo de rechazo:</h5>
+                            <hr class="my-1">
+                            <p class="m-0">{{ rejectReason }}</p>
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="!detailPreloader && currentStatus === 3012 && rejectReason.length > 2" class="row justify-content-center animated bounce fast">
+                    <div class="col-7">
+                        <div class="alert alert-light" role="alert">
+                            <h5 class="alert-heading m-0"><span class="fa fa-commenting" aria-hidden="true"></span> Comentarios:</h5>
+                            <hr class="my-1">
+                            <p class="m-0">{{ rejectReason }}</p>
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="!detailPreloader" class="row">
+                    <div class="col-xl-9 col-lg-8 m-0 p-0">
+                        <app-pdfviewer *ngIf="pdfBase64" [cadenaB64]="'data:application/pdf;base64,'+pdfBase64" [zoomPdf]="zoomPdf"></app-pdfviewer>
+                    </div>
+
+                    <!-- Columna derecha -->
+                    <div class="col-xl-3 col-lg-4 p-1 m-0">
+                        <div *ngIf="env.overallPermissions.showOutboundDocumentsDownload">
+                            <div class="text-center p-2 pt-3 mt-0" style="position: relative;">
+                                <div class="p-1 text-primary" style="font-size: 11px; display: inline-block; background-color: #ffffff; position: absolute; top: 0; left: 50%; transform: translate(-50%, -50%);"><span class="fa fa-download"></span> Descargas:</div>
+                                <button (click)="graphRepresentationDownload()" class="btn btn-primary btn-block" style="border-radius: 0;"><span *ngIf="!loaderPdf">PDF</span><span *ngIf="loaderPdf"><span class="fa fa-spinner fa-pulse fa-fw"></span></span>    </button>
+                                <button *ngIf="signedUbl" (click)="signedUblDownload()" class="btn btn-primary btn-block" style="border-radius: 0;"><span *ngIf="!loaderSignedUbl"> UBL / XML <br><span style="font-size: 11px;">Firmado</span></span><span *ngIf="loaderSignedUbl"><span class="fa fa-spinner fa-3x fa-pulse fa-fw"></span></span></button>
+                                <button *ngIf="unsignedUbl" class="btn btn-primary btn-block" style="border-radius: 0;">UBL / XML <br><span style="font-size: 11px;">Sin Firmar</span></button>
+
+                                <div *ngIf="arrApplicationResponseDocs.length > 0" style="position: relative;">
+                                    <div class="p-1 text-primary mt-3" style="font-size: 11px;">Respuestas DIAN <br>Application Response:</div>
+                                    <ul class="list-group">
+                                        <li *ngFor="let appResp of arrApplicationResponseDocs; let i = index" (click)="appResponseDownload(i)" class="list-group-item" style="background-color: #f0f0f0;"> <button class="btn btn-link">AR-{{ appResp.docName }}</button></li>
+                                    </ul>
+                                    <div *ngIf="loaderAR" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(255, 255, 255, 0.7); color: #00427a">
+                                        <div class="afinarCentro">
+                                            <span class="fa fa-spinner fa-pulse fa-3x fa-fw"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div *ngIf="arrAttachedDocs.length > 0" style="position: relative;">
+                                    <div class="p-1 text-primary mt-3" style="font-size: 11px;">Sobre Electrónico: <br>Attached Documents</div>
+                                    <ul class="list-group">
+                                        <li *ngFor="let attachedDoc of arrAttachedDocs; let j = index" (click)="attachedDocumentsDownload(j)" class="list-group-item" style="background-color: #f0f0f0;"> <button class="btn btn-link">AD-{{ attachedDoc.docName}}</button></li>
+                                    </ul>
+                                    <div *ngIf="loaderAD" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(255, 255, 255, 0.7); color: #00427a">
+                                        <div class="afinarCentro">
+                                            <span class="fa fa-spinner fa-pulse fa-3x fa-fw"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div *ngIf="arrBillingDocumentAttachementDocs.length > 0" style="position: relative;">
+                                    <div class="p-1 text-primary mt-3" style="font-size: 11px;">Soportes:</div>
+
+                                    <div *ngIf="arrBillingDocumentAttachementSelected.length > 0" class="text-right mb-2 animated fadeIn">
+                                        <button (click)="deleteConfirm = !deleteConfirm" class="btn btn-danger p-1" style="position: relative;">
+                                            <span class="fa fa-trash fa-fw"></span>
+                                            <span class="badge badge-pill badge-warning p-1 animated zoomIn fast shadow-sm" style="position: absolute; top: -10px; right: -5px;">{{ arrBillingDocumentAttachementSelected.length }}</span>
+                                        </button>
+                                    </div>
+                                    <div *ngIf="deleteConfirm && arrBillingDocumentAttachementSelected.length > 0" class="row mb-2">
+                                        <div class="col-sm-12 mb-1">
+                                            <div class="text-sm-center text-muted" style="line-height: 100%; font-size: 80%;">¿Desea borrar los soportes seleccionados?</div>
+                                        </div>
+                                        <div class="col pr-1">
+                                            <button (click)="deleteConfirm = !deleteConfirm" class="btn btn-sm btn-secondary btn-block animated fadeIn"><span class="fa fa-ban fa-fw"></span> Cancelar</button>
+                                        </div>
+                                        <div class="col pl-1">
+                                            <button (click)="borrarSoporte(arrBillingDocumentAttachementSelected)" class="btn btn-sm btn-danger btn-block animated fadeIn"><span class="fa fa-trash fa-fw"></span> Eliminar</button>
+                                        </div>
+                                    </div>
+
+                                    <ul class="list-group">
+                                        <li *ngFor="let soporte of arrBillingDocumentAttachementDocs; let k = index" class="list-group-item px-4 py-3" style="background-color: #f0f0f0; position: relative; overflow:hidden; text-overflow: ellipsis;">
+                                            <div *ngIf="currentStatus !== 3014 && currentStatus !== 3006" class="form-check abc-checkbox abc-checkbox-danger m-0 p-0" style="position: absolute; top: 0px; left: 10px;;">
+                                                <input class="form-check-input" id="{{k}}" type="checkbox" name="sel{{k}}" [(ngModel)]="soporte.selected" (ngModelChange)="cambioSel($event)">
+                                                <label class="form-check-label" for="{{k}}"></label>
+                                            </div>
+                                            <button (click)="billDocAttDocDownload(k)" class="btn btn-link m-0 p-0">{{ soporte.docName }}</button>
+                                        </li>
+                                    </ul>
+                                    <div *ngIf="loaderAtt || cargandoBorarSop" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(255, 255, 255, 0.7); color: #00427a">
+                                        <div class="afinarCentro">
+                                            <span class="fa fa-spinner fa-pulse fa-3x fa-fw"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- inicio carga soportes -->
+                        <form *ngIf="currentStatus !== 3014 && currentStatus !== 3006" (ngSubmit)="enviarArchivo(loadForm)" #loadForm="ngForm" novalidate>
+                            <div class="border border-primary text-center p-2 pt-3 mt-3" style="position: relative;">
+                                <div class="p-1 text-primary" style="font-size: 11px; display: inline-block; background-color: #ffffff; position: absolute; top: 0; left: 50%; transform: translate(-50%, -50%);"><span class="fa fa-paperclip"></span> Adjuntar Soporte:</div>
+                                <button *ngIf="!showLoadAttachement" (click)="toggleLoadAttachement();" class="btn btn-sm btn-primary"><span class="fa fa-paperclip"></span> Cargar Soporte</button>
+                                <div *ngIf="!cargandoSoporte && showLoadAttachement" class="animated fadeIn">
+                                    <!-- <div class="form-group mb-1">
+                                        <select class="form-control" id="tipoSoporte" name="category" [(ngModel)]="category" #categoryR="ngModel" required [ngClass]="{'is-invalid': categoryR.errors?.required && categoryR.touched}" autofocus>
+                                          <option value="">Tipo de soporte</option>
+                                          <option value="100">Orden de compra</option>
+                                          <option value="100">Remisión</option>
+                                          <option value="100">Contrato</option>
+                                          <option value="100">Soporte</option>
+                                        </select>
+                                    </div> -->
+                                    <!-- <div *ngIf="categoryR.errors?.required && categoryR.touched" class="invalid-feedback d-block">
+                                        Seleccione el tipo de documento que adjuntará.
+                                    </div> -->
+                                    <label class="mt-2" for="archivoCarga" id="contenedorCargaSoporte">
+                                        <p class="mb-0" [ngClass]="{'animated bounce infinite': !file64}"><span class="fa fa-cloud-upload fa-2x"></span></p>
+                                        <p class="m-0" style="line-height: normal">Click para seleccionar un documento</p>
+                                        <div [ngClass]="{'shower': file64, 'hidder': !file64}" class="rounded-pill bg-warning p-2 my-3 shadow animated fadeIn fast" id="contenedorNombreArchivoCargado" style="line-height: 1; font-size: small; font-weight: bold; text-align: center; overflow: hidden; text-overflow: ellipsis;" data-toggle="tooltip" data-placement="bottom" title="filename">{{ filename }}</div>
+                                        <div *ngIf="file64" id="contenedorBotonCargarArchivo" style="text-align: center;">
+                                            <div class="row">
+                                                <div (click)="toggleLoadAttachement();" class="col-sm-6 p-1"> <button class="btn btn-sm btn-danger btn-block"><span class="fa fa-ban"></span> Cancelar</button> </div>
+                                                <div class="col-sm-6 p-1"><button (click)="loadFile()" id="botonCargarArchivo" type="submit" class="btn btn-sm btn-success btn-block" [disabled]="loadForm.invalid"><span class="fa fa-file-o"></span> Adjuntar</button></div>
+                                            </div>
+                                        </div>
+                                    </label>
+                                    <input id="archivoCarga" type="file" style="opacity: 0; padding: 0 !important; margin: 0; font-size: 5px; position: absolute; bottom: -20px; right: 0;" (change)="changeListener($event)" required>
+                                </div>
+                                <app-precarga *ngIf="cargandoSoporte"></app-precarga>
+
+                            </div>
+                        </form>
+                        <!-- fin carga soporte -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-infopie></app-infopie>
+
+<!-- Begin footer -->
+<button *ngIf="env.overallPermissions.showOutboundOperate" type="button" [routerLink]="['/e','cargar']" class="btn btn-circle btn-xl-1 text-light shadow animated fadeInRight fast paso8" matTooltip="Emitir documento" matTooltipPosition="left"><span class="fa fa-paper-plane fa-lg"></span>
+</button>
+<button *ngIf="env.overallPermissions.showTrackSearch" type="button" [routerLink]="['/rastreador']" class="btn btn-circle btn-xl-2 text-light shadow animated fadeInRight fast paso9" matTooltip="Rastreador" matTooltipPosition="left"><span class="fa fa-bullseye fa-lg"></span> 
+</button>
+<!-- End Footer -->

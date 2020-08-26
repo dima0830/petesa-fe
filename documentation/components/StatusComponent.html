@@ -1,0 +1,842 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>portalfe documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">portalfe documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>StatusComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/components/shared/status/status.component.ts</code>
+</p>
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-status</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./status.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./status.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#adqColor">adqColor</a>
+                            </li>
+                            <li>
+                                <a href="#adqStatus">adqStatus</a>
+                            </li>
+                            <li>
+                                <a href="#dianColor">dianColor</a>
+                            </li>
+                            <li>
+                                <a href="#dianStatus">dianStatus</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#lib">lib</a>
+                            </li>
+                            <li>
+                                <a href="#ptesaColor">ptesaColor</a>
+                            </li>
+                            <li>
+                                <a href="#ptesaStatus">ptesaStatus</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#ngOnInit">ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#renderStatus">renderStatus</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#status">status</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(lib: <a href="../components/LibraryComponent.html">LibraryComponent</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/components/shared/status/status.component.ts:16</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>lib</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../components/LibraryComponent.html" target="_self" >LibraryComponent</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+    <section>
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="status"></a>
+                        <b>status</b>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/app/components/shared/status/status.component.ts:10</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <b>
+                            ngOnInit
+                        </b>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="22"
+                            class="link-to-prism">src/app/components/shared/status/status.component.ts:22</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="renderStatus"></a>
+                    <span class="name">
+                        <b>
+                            renderStatus
+                        </b>
+                        <a href="#renderStatus"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>renderStatus(status)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="26"
+                            class="link-to-prism">src/app/components/shared/status/status.component.ts:26</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>status</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="adqColor"></a>
+                        <span class="name">
+                            <b>
+                            adqColor</b>
+                            <a href="#adqColor"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>0</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/components/shared/status/status.component.ts:16</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="adqStatus"></a>
+                        <span class="name">
+                            <b>
+                            adqStatus</b>
+                            <a href="#adqStatus"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>&#x27;&#x27;</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/components/shared/status/status.component.ts:15</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="dianColor"></a>
+                        <span class="name">
+                            <b>
+                            dianColor</b>
+                            <a href="#dianColor"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>0</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/components/shared/status/status.component.ts:14</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="dianStatus"></a>
+                        <span class="name">
+                            <b>
+                            dianStatus</b>
+                            <a href="#dianStatus"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>&#x27;&#x27;</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/components/shared/status/status.component.ts:13</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="lib"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            lib</b>
+                            <a href="#lib"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../components/LibraryComponent.html" target="_self" >LibraryComponent</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/components/shared/status/status.component.ts:18</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="ptesaColor"></a>
+                        <span class="name">
+                            <b>
+                            ptesaColor</b>
+                            <a href="#ptesaColor"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>0</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/components/shared/status/status.component.ts:12</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="ptesaStatus"></a>
+                        <span class="name">
+                            <b>
+                            ptesaStatus</b>
+                            <a href="#ptesaStatus"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>&#x27;&#x27;</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/components/shared/status/status.component.ts:11</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit, Input } from &#x27;@angular/core&#x27;;
+import { LibraryComponent } from &#x27;../../../jslib/library/library.component&#x27;;
+
+@Component({
+  selector: &#x27;app-status&#x27;,
+  templateUrl: &#x27;./status.component.html&#x27;,
+  styleUrls: [&#x27;./status.component.css&#x27;]
+})
+export class StatusComponent implements OnInit {
+  @Input() status;
+  ptesaStatus &#x3D; &#x27;&#x27;;
+  ptesaColor &#x3D; 0; 
+  dianStatus &#x3D; &#x27;&#x27;;
+  dianColor &#x3D; 0;
+  adqStatus &#x3D; &#x27;&#x27;;
+  adqColor &#x3D; 0;
+
+  constructor( public lib: LibraryComponent) { 
+    
+  }
+
+  ngOnInit() {
+    this.renderStatus( this.status );
+  }
+
+  renderStatus( status ){
+    //OJO!!!!   documentStatus y ptesaStatus llegan INVERTIDOS desde el ws
+
+    // analisis de ptesaStatus
+    if( status.documentStatus &#x3D;&#x3D;&#x3D; &#x27;BLOCKED&#x27; ||
+        status.documentStatus &#x3D;&#x3D;&#x3D; &#x27;ERROR&#x27; ) {
+        this.adqColor &#x3D; 1; // red
+    }
+    if( status.documentStatus &#x3D;&#x3D;&#x3D; &#x27;PROCESSING&#x27; ||
+        status.documentStatus &#x3D;&#x3D;&#x3D; &#x27;WAITING_FOR_ATTACHMENTS&#x27; ) {
+        this.adqColor &#x3D; 2; // yellow
+    }
+    if( status.documentStatus &#x3D;&#x3D;&#x3D; &#x27;SUCCESS&#x27; || status.documentStatus &#x3D;&#x3D;&#x3D; &#x27;REJECTED_BY_AP&#x27; ) {
+        this.adqColor &#x3D; 3; // green
+    }
+
+    // analisis de dianStatus
+    if( status.dianStatus &#x3D;&#x3D;&#x3D; &#x27;REJECTED&#x27; ||
+        status.dianStatus &#x3D;&#x3D;&#x3D; &#x27;ERROR&#x27; ) {
+        this.dianColor &#x3D; 1; // red
+    }
+    if( status.dianStatus &#x3D;&#x3D;&#x3D; &#x27;NOT_APPLY&#x27; ) {
+        this.dianColor &#x3D; 0; // blank
+    }
+    if( status.dianStatus &#x3D;&#x3D;&#x3D; &#x27;ACCEPTED&#x27; ) {
+        this.dianColor &#x3D; 3; // green
+    }
+    if( status.dianStatus &#x3D;&#x3D;&#x3D; &#x27;ACCEPTED_WITH_NOTIFICATIONS&#x27; ) {
+        this.dianColor &#x3D; -3; // green + info
+    }
+    // analisis documentStatus / adqStatus
+    if( status.ptesaStatus &#x3D;&#x3D;&#x3D; &#x27;REJECTED&#x27; ||
+        status.ptesaStatus &#x3D;&#x3D;&#x3D; &#x27;ERROR&#x27; ) {
+        this.ptesaColor &#x3D; 1; // red
+    }
+    if( status.ptesaStatus &#x3D;&#x3D;&#x3D; &#x27;NOT_APPLY&#x27; ) {
+        this.ptesaColor &#x3D; 0; // blank
+    }
+    if( status.ptesaStatus &#x3D;&#x3D;&#x3D; &#x27;DELIVERED&#x27; ||
+        status.ptesaStatus &#x3D;&#x3D;&#x3D; &#x27;SENT&#x27; ||
+        status.ptesaStatus &#x3D;&#x3D;&#x3D; &#x27;VIEWED&#x27; ) {
+        this.ptesaColor &#x3D; 2; // blank
+    }
+    if( status.ptesaStatus &#x3D;&#x3D;&#x3D; &#x27;ACCEPTED&#x27; ||
+        status.ptesaStatus &#x3D;&#x3D;&#x3D; &#x27;TACITLY ACCEPTED&#x27; ) {
+        this.ptesaColor &#x3D; 3; // green
+    }
+  }
+
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;!-- &lt;div class&#x3D;&quot;text-center&quot;&gt;
+    &lt;div class&#x3D;&quot;d-inline m-1&quot; matTooltip&#x3D;&quot;Ptesa: {{status.ptesaStatus}}&quot;&gt;
+        &lt;i *ngIf&#x3D;&quot;ptesaColor &#x3D;&#x3D;&#x3D; 0&quot; class&#x3D;&quot;fa fa-circle-thin&quot;&gt;&lt;/i&gt;
+        &lt;i *ngIf&#x3D;&quot;ptesaColor &#x3D;&#x3D;&#x3D; 1&quot; class&#x3D;&quot;fa fa-circle text-danger&quot;&gt;&lt;/i&gt;
+        &lt;i *ngIf&#x3D;&quot;ptesaColor &#x3D;&#x3D;&#x3D; 2&quot; class&#x3D;&quot;fa fa-circle text-warning&quot;&gt;&lt;/i&gt;
+        &lt;i *ngIf&#x3D;&quot;ptesaColor &#x3D;&#x3D;&#x3D; 3&quot; class&#x3D;&quot;fa fa-circle text-success&quot;&gt;&lt;/i&gt;
+    &lt;/div&gt;
+    &lt;div class&#x3D;&quot;d-inline m-1&quot; matTooltip&#x3D;&quot;Dian: {{status.dianStatus}}&quot;&gt;
+        &lt;i *ngIf&#x3D;&quot;dianColor &#x3D;&#x3D;&#x3D; 0&quot; class&#x3D;&quot;fa fa-circle-thin&quot;&gt;&lt;/i&gt;
+        &lt;i *ngIf&#x3D;&quot;dianColor &#x3D;&#x3D;&#x3D; 1&quot; class&#x3D;&quot;fa fa-circle text-danger&quot;&gt;&lt;/i&gt;
+        &lt;i *ngIf&#x3D;&quot;dianColor &#x3D;&#x3D;&#x3D; 2&quot; class&#x3D;&quot;fa fa-circle text-warning&quot;&gt;&lt;/i&gt;
+        &lt;i *ngIf&#x3D;&quot;dianColor &#x3D;&#x3D;&#x3D; 3&quot; class&#x3D;&quot;fa fa-circle text-success&quot;&gt;&lt;/i&gt;
+    &lt;/div&gt;
+    &lt;div class&#x3D;&quot;d-inline m-1&quot; matTooltip&#x3D;&quot;Adq: {{status.documentStatus}}&quot;&gt;
+        &lt;i *ngIf&#x3D;&quot;adqColor &#x3D;&#x3D;&#x3D; 0&quot; class&#x3D;&quot;fa fa-circle-thin&quot;&gt;&lt;/i&gt;
+        &lt;i *ngIf&#x3D;&quot;adqColor &#x3D;&#x3D;&#x3D; 1&quot; class&#x3D;&quot;fa fa-circle text-danger&quot;&gt;&lt;/i&gt;
+        &lt;i *ngIf&#x3D;&quot;adqColor &#x3D;&#x3D;&#x3D; 2&quot; class&#x3D;&quot;fa fa-circle text-warning&quot;&gt;&lt;/i&gt;
+        &lt;i *ngIf&#x3D;&quot;adqColor &#x3D;&#x3D;&#x3D; 3&quot; class&#x3D;&quot;fa fa-circle text-success&quot;&gt;&lt;/i&gt;
+    &lt;/div&gt;
+&lt;/div&gt; --&gt;
+
+&lt;div class&#x3D;&quot;text-center&quot;&gt;
+    &lt;div class&#x3D;&quot;d-inline m-1&quot; matTooltip&#x3D;&quot;Ptesa: {{lib.traducirEstado(status.documentStatus)}}&quot;&gt;
+        &lt;i *ngIf&#x3D;&quot;adqColor &#x3D;&#x3D;&#x3D; 0&quot; class&#x3D;&quot;fa fa-circle-thin&quot;&gt;&lt;/i&gt;
+        &lt;i *ngIf&#x3D;&quot;adqColor &#x3D;&#x3D;&#x3D; 1&quot; class&#x3D;&quot;fa fa-circle text-danger&quot;&gt;&lt;/i&gt;
+        &lt;i *ngIf&#x3D;&quot;adqColor &#x3D;&#x3D;&#x3D; 2&quot; class&#x3D;&quot;fa fa-circle text-warning&quot;&gt;&lt;/i&gt;
+        &lt;i *ngIf&#x3D;&quot;adqColor &#x3D;&#x3D;&#x3D; 3&quot; class&#x3D;&quot;fa fa-circle text-success&quot;&gt;&lt;/i&gt;
+    &lt;/div&gt;
+
+
+
+
+
+    &lt;div class&#x3D;&quot;d-inline m-1&quot; matTooltip&#x3D;&quot;Dian: {{lib.traducirEstado(status.dianStatus)}}&quot;&gt;
+        &lt;i *ngIf&#x3D;&quot;dianColor &#x3D;&#x3D;&#x3D; 0&quot; class&#x3D;&quot;fa fa-circle-thin&quot;&gt;&lt;/i&gt;
+        &lt;i *ngIf&#x3D;&quot;dianColor &#x3D;&#x3D;&#x3D; 1&quot; class&#x3D;&quot;fa fa-circle text-danger&quot;&gt;&lt;/i&gt;
+        &lt;i *ngIf&#x3D;&quot;dianColor &#x3D;&#x3D;&#x3D; 2&quot; class&#x3D;&quot;fa fa-circle text-warning&quot;&gt;&lt;/i&gt;
+        &lt;i *ngIf&#x3D;&quot;dianColor &#x3D;&#x3D;&#x3D; 3&quot; class&#x3D;&quot;fa fa-circle text-success&quot;&gt;&lt;/i&gt;
+        &lt;i *ngIf&#x3D;&quot;dianColor &#x3D;&#x3D;&#x3D; -3&quot; class&#x3D;&quot;fa fa-minus-circle fa-rotate-90 text-success&quot;&gt;&lt;/i&gt;
+    &lt;/div&gt;
+
+
+    &lt;div class&#x3D;&quot;d-inline m-1&quot; matTooltip&#x3D;&quot;Adq: {{lib.traducirEstado(status.ptesaStatus)}}&quot;&gt;
+        &lt;i *ngIf&#x3D;&quot;ptesaColor &#x3D;&#x3D;&#x3D; 0&quot; class&#x3D;&quot;fa fa-circle-thin&quot;&gt;&lt;/i&gt;
+        &lt;i *ngIf&#x3D;&quot;ptesaColor &#x3D;&#x3D;&#x3D; 1&quot; class&#x3D;&quot;fa fa-circle text-danger&quot;&gt;&lt;/i&gt;
+        &lt;i *ngIf&#x3D;&quot;ptesaColor &#x3D;&#x3D;&#x3D; 2&quot; class&#x3D;&quot;fa fa-circle text-warning&quot;&gt;&lt;/i&gt;
+        &lt;i *ngIf&#x3D;&quot;ptesaColor &#x3D;&#x3D;&#x3D; 3&quot; class&#x3D;&quot;fa fa-circle text-success&quot;&gt;&lt;/i&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./status.component.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss"></code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><!-- <div class="text-center">    <div class="d-inline m-1" matTooltip="Ptesa: {{status.ptesaStatus}}">        <i *ngIf="ptesaColor === 0" class="fa fa-circle-thin"></i>        <i *ngIf="ptesaColor === 1" class="fa fa-circle text-danger"></i>        <i *ngIf="ptesaColor === 2" class="fa fa-circle text-warning"></i>        <i *ngIf="ptesaColor === 3" class="fa fa-circle text-success"></i>    </div>    <div class="d-inline m-1" matTooltip="Dian: {{status.dianStatus}}">        <i *ngIf="dianColor === 0" class="fa fa-circle-thin"></i>        <i *ngIf="dianColor === 1" class="fa fa-circle text-danger"></i>        <i *ngIf="dianColor === 2" class="fa fa-circle text-warning"></i>        <i *ngIf="dianColor === 3" class="fa fa-circle text-success"></i>    </div>    <div class="d-inline m-1" matTooltip="Adq: {{status.documentStatus}}">        <i *ngIf="adqColor === 0" class="fa fa-circle-thin"></i>        <i *ngIf="adqColor === 1" class="fa fa-circle text-danger"></i>        <i *ngIf="adqColor === 2" class="fa fa-circle text-warning"></i>        <i *ngIf="adqColor === 3" class="fa fa-circle text-success"></i>    </div></div> --><div class="text-center">    <div class="d-inline m-1" matTooltip="Ptesa: {{lib.traducirEstado(status.documentStatus)}}">        <i *ngIf="adqColor === 0" class="fa fa-circle-thin"></i>        <i *ngIf="adqColor === 1" class="fa fa-circle text-danger"></i>        <i *ngIf="adqColor === 2" class="fa fa-circle text-warning"></i>        <i *ngIf="adqColor === 3" class="fa fa-circle text-success"></i>    </div>    <div class="d-inline m-1" matTooltip="Dian: {{lib.traducirEstado(status.dianStatus)}}">        <i *ngIf="dianColor === 0" class="fa fa-circle-thin"></i>        <i *ngIf="dianColor === 1" class="fa fa-circle text-danger"></i>        <i *ngIf="dianColor === 2" class="fa fa-circle text-warning"></i>        <i *ngIf="dianColor === 3" class="fa fa-circle text-success"></i>        <i *ngIf="dianColor === -3" class="fa fa-minus-circle fa-rotate-90 text-success"></i>    </div>    <div class="d-inline m-1" matTooltip="Adq: {{lib.traducirEstado(status.ptesaStatus)}}">        <i *ngIf="ptesaColor === 0" class="fa fa-circle-thin"></i>        <i *ngIf="ptesaColor === 1" class="fa fa-circle text-danger"></i>        <i *ngIf="ptesaColor === 2" class="fa fa-circle text-warning"></i>        <i *ngIf="ptesaColor === 3" class="fa fa-circle text-success"></i>    </div></div></div>'
+    var COMPONENTS = [{'name': 'ActivarUsuarioComponent', 'selector': 'app-activar-usuario'},{'name': 'AjustesComponent', 'selector': 'app-ajustes'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AyudaComponent', 'selector': 'app-ayuda'},{'name': 'BarrasComponent', 'selector': 'app-barras'},{'name': 'BuscadorEmisionComponent', 'selector': 'app-buscador-emision'},{'name': 'BuscadorRastreadorComponent', 'selector': 'app-buscador-rastreador'},{'name': 'BuscadorRecepcionComponent', 'selector': 'app-buscador-recepcion'},{'name': 'CargafeComponent', 'selector': 'app-cargafe'},{'name': 'ContenidoAyudaComponent', 'selector': 'app-contenido-ayuda'},{'name': 'EmisionComponent', 'selector': 'app-emision'},{'name': 'EmisionfComponent', 'selector': 'app-emisionf'},{'name': 'FilasComponent', 'selector': 'app-filas'},{'name': 'IndiceComponent', 'selector': 'app-indice'},{'name': 'InfopieComponent', 'selector': 'app-infopie'},{'name': 'InicioComponent', 'selector': 'app-inicio'},{'name': 'LibraryComponent', 'selector': 'app-library'},{'name': 'LineasComponent', 'selector': 'app-lineas'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'Navbar0Component', 'selector': 'app-navbar0'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'PdfviewerComponent', 'selector': 'app-pdfviewer'},{'name': 'PieComponent', 'selector': 'app-pie'},{'name': 'PrecargaComponent', 'selector': 'app-precarga'},{'name': 'RastreadorComponent', 'selector': 'app-rastreador'},{'name': 'RecepcionComponent', 'selector': 'app-recepcion'},{'name': 'RecordarcontrasenaComponent', 'selector': 'app-recordarcontrasena'},{'name': 'RedirectorComponent', 'selector': 'app-redirector'},{'name': 'StatusComponent', 'selector': 'app-status'},{'name': 'SwitchCompanyComponent', 'selector': 'app-switch-company'},{'name': 'TarjetasComponent', 'selector': 'app-tarjetas'},{'name': 'UsuariosComponent', 'selector': 'app-usuarios'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'StatusComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+                   
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'StatusComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

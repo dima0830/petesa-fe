@@ -1,0 +1,33 @@
+<div class="row">
+    <div class="col-sm-6 offset-sm-3 py-2 shadow-lg" style="background-color: #ffffff; max-height: 100vh; overflow-y: auto;">
+        <!-- <div class="col-sm-6 offset-sm-3 py-2 shadow-lg" style="background-color: #ffffff; max-height: 100vh; overflow-y: auto;"> -->
+        <h5 class="card-header text-center mb-3"><span class="fa fa-exchange"></span> Seleccionar Obligado <br> <small class="textoAyuda">Seleccione la(s) sucursal(es) con la(s) que operará</small> </h5>
+        <form [formGroup]="BranchesGroup" (ngSubmit)="setBrachOffices()">
+
+            <div *ngFor="let company of companies; let ci = index" class="list-group mb-2">
+                <a class="list-group-item list-group-item-action">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1" style=" color: #00427a;"> {{ company.name }}</h5>
+                        <small>Nit: {{ company.idNumber }}</small>
+                    </div>
+                    <div class="mb-1">
+                        <ul class="list-group list-group-flush">
+                            <li *ngFor="let branchOffice of company.branches; let bi = index;" class="list-group-item">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="{{ branchOffice.branchId }}" formControlName="{{ branchOffice.branchId }}">
+                                    <label class="form-check-label" for="{{ branchOffice.branchId }}" style="cursor: pointer;">
+                                            <span class="fa fa-chevron-right" [ngStyle]="{'color': branchOffice.color}"></span>{{ branchOffice.name }} 
+                                        </label>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </a>
+            </div>
+
+            <div class="text-center">
+                <button [disabled]="BranchesGroup.invalid" type="submit" class="btn btn-primary">Activar</button>
+            </div>
+        </form>
+    </div>
+</div>

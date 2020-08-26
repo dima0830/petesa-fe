@@ -1,0 +1,43 @@
+<div class="table-responsive shadow">
+    <table class="table table-hover" aria-describedby="Resultados">
+        <thead>
+            <tr class="fondoGrisClaro">
+                <th scope="col" style="border-right: solid 1px #ffffff;">No. Documento</th>
+                <th scope="col" style="border-right: solid 1px #ffffff;">Fecha</th>
+                <th scope="col" style="border-right: solid 1px #ffffff;">Adquiriente</th>
+                <th scope="col" style="border-right: solid 1px #ffffff;">Estado</th>
+                <th scope="col" style="border-right: solid 1px #ffffff;" class="text-right">Impuestos</th>
+                <th scope="col" class="text-right">Total</th>
+            </tr>
+        </thead>
+        <tbody [@cardAnimation]="invoicesSentArray.length">
+            <tr *ngFor="let factura of invoicesSentArray" (click)="setDocumentId($event, factura.documentId)">
+                <td class="celda">
+                    <strong> {{ factura.documentNumber }} <span class="fa fa-external-link-square text-light" ></span></strong>
+                </td>
+                <!-- <td class="celda">
+                    {{ factura.deliveryDate | date }}
+                </td> -->
+                <td class="celda">
+                    <!-- {{ '2020-01-10' | date }} -->
+                </td>
+                <td class="celda">
+                    <div class="razonSocialEllipsisTabla">{{ factura.buyerName }}</div>
+                    <small class="card-subtitle text-muted ">{{ libr.convTipoDocumento(factura.buyerDocType) }} {{ factura.buyerDocNumber }} </small>
+                </td>
+                <td class="celda">
+                    <div class="badge badge-pill badge-light p-1">
+                        <app-status [status]="factura.status"></app-status>
+                    </div>
+                </td>
+                <td class="celda text-right">
+                    <div matTooltip="IVA" matTooltipPosition="right">${{ factura.ivaTaxAmount | number:'1.0-2'}}</div>
+                    <div *ngIf="factura.incTaxAmount > 0" matTooltip="INC" matTooltipPosition="right">${{ factura.incTaxAmount | number:'1.0-2'}}</div>
+                </td>
+                <td class="celda text-right">
+                    <strong> ${{ factura.totalAmount | number:'1.0-2'}}</strong>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

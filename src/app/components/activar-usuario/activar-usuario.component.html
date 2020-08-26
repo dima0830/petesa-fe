@@ -1,0 +1,170 @@
+<div *ngIf="err500" class="alert alert-danger mt-3 animated wobble" role="alert">
+    <div class="d-inline-block p-2 align-middle">
+        <img src="./assets/img/ic_err500.svg" alt="" style="max-width: 90px;">
+    </div>
+    <div class="d-inline-block p-2 align-middle">
+        <h4 class="text-danger m-0">ERROR INTERNO DEL SERVIDOR!</h4>
+        <p class="p-0 m-0">El servidor no ha respondido de la manera esperada. <br> <small class="text-muted"> Por favor póngase en contacto con el departamento de operaciones de Ptesa.</small></p>
+    </div>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+</div>
+
+<div class="jumbotron jumbotron-fluid  px-5 shadow-lg my-5">
+
+    <div class="row">
+        <div class="col-sm-6">
+            <h1 style="color: #00427a; text-shadow: 5px 5px 7px rgba(0,0,0,0.3);">
+                Activar Usuario
+            </h1>
+            <hr>
+            <p class="lead text-dark">
+                Liderando la transformación del país en materia de facturación electrónica, desde el año 2011.
+            </p>
+        </div>
+
+        <div class="col-sm-6">
+            <div class="row">
+                <div class="col-sm-8 offset-sm-2">
+                    <div class="alert alert-dark" style="background-color: rgba(248, 249, 250, 0.8); border-radius: 0">
+                        <div class="text-center mb-2">
+                            <img src="assets/img/logo_fe.png" alt="Facturación Electrónica Ptesa" style="max-width: 70%; opacity: 0.9">
+                        </div>
+
+                        <form #formularioActiva="ngForm" (ngSubmit)="userActivate()" novalidate>
+                            <div style="opacity: 0;">
+                                <input type='text' name='email'>
+                                <input type='password' name='password'>
+                            </div>
+                            <div style="position: relative">
+                                <div class="border border-primary text-center p-2 pt-3 mt-0 mb-4" style="position: relative;">
+                                    <div class="p-1 text-primary " style="font-size: 11px; display: inline-block; background-color: rgba(248, 249, 250, 0.8); position: absolute; top: 0; left: 50%; transform: translate(-50%, -50%); ">Identificación:</div>
+                                    <div class="my-2"><small class="text-danger"><span class="fa fa-list-alt" aria-hidden="true"></span> Complete todos los campos.</small></div>
+                                    <div class="input-group shadow mt-0">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text bg-primary text-light" style="border-width: 0; border-radius: 0"><span class="fa fa-user"></span></div>
+                                        </div>
+                                        <input type="text" class="form-control" placeholder="Nombre" style="border-width: 0; border-radius: 0" name="firstName" [(ngModel)]="firstName" #firstNameR="ngModel" required minlength="3" [autofocus]="true" [ngClass]="{'is-invalid': (firstNameR.errors?.required || firstNameR.errors?.minlength)  && firstNameR.touched}">
+                                    </div>
+                                    <div *ngIf="(firstNameR.errors?.required || firstNameR.errors?.minlength) && firstNameR.touched" class="invalid-feedback d-block">
+                                        Ingrese su nombre.
+                                    </div>
+
+                                    <div class="input-group shadow my-3">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text bg-primary text-light" style="border-width: 0; border-radius: 0"><span class="fa fa-user"></span></div>
+                                        </div>
+                                        <input type="text" class="form-control" placeholder="Apellido" style="border-width: 0; border-radius: 0" name="lastName" [(ngModel)]="lastName" #lastNameR="ngModel" required minlength="3" [ngClass]="{'is-invalid': (lastNameR.errors?.required || lastNameR.errors?.minlength)  && lastNameR.touched}">
+                                    </div>
+                                    <div *ngIf="(lastNameR.errors?.required || firstNameR.errors?.minlength) && lastNameR.touched" class="invalid-feedback d-block">
+                                        Ingrese su apellido.
+                                    </div>
+                                </div>
+
+                                <div class="border border-primary text-center p-2 pt-3 mt-0 " style="position: relative;">
+                                    <div class="p-1 text-primary " style="font-size: 11px; display: inline-block; background-color: rgba(248, 249, 250, 0.8); position: absolute; top: 0; left: 50%; transform: translate(-50%, -50%); ">Seguridad:</div>
+                                    <div class="text-center small mb-2 text-muted">
+                                        <strong>La nueva contraseña debe:</strong> <br> Tener una longitud de 8 caracteres o superior. Estar formada por minúsculas, mayúsculas, al menos un número y un carácter especial.
+                                    </div>
+                                    <div class="input-group shadow mt-3">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text bg-primary text-light" style="border-width: 0; border-radius: 0"><span class="fa fa-key"></span></div>
+                                        </div>
+                                        <input (keyup)="comparePwds()" type="password" class="form-control" placeholder="Asignar Contraseña" style="border-width: 0;  border-radius: 0" name="contra" [(ngModel)]="contra" #passwordR="ngModel" required pattern="^.*(?=.{8,})((?=.*[!@#$%^&*()\-_=+{};:,<.>]){1})(?=.*\d)((?=.*[a-z]){1})((?=.*[A-Z]){1}).*$"
+                                            [ngClass]="{'is-invalid': (passwordR.errors?.required || passwordR.errors?.minlength)  && passwordR.touched}">
+                                    </div>
+                                    <div *ngIf="passwordR.errors?.required && passwordR.touched" class="invalid-feedback d-block">
+                                        Asigne una contraseña.
+                                    </div>
+                                    <div *ngIf="passwordR.errors?.pattern && passwordR.touched" class="invalid-feedback d-block">
+                                        La contraseña no cumple con el formato.
+                                    </div>
+
+
+                                    <div class="input-group shadow mt-3">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text bg-primary text-light" style="border-width: 0; border-radius: 0"><span class="fa fa-key"></span></div>
+                                        </div>
+                                        <input (keyup)="comparePwds()" type="password" class="form-control" placeholder="Confirmar Contraseña" style="border-width: 0; border-radius: 0" name="passwordConf" [(ngModel)]="passwordConf" #passwordConfR="ngModel" required [ngClass]="{'is-invalid': (passwordConfR.errors?.required  && passwordConfR.touched) || !samePwd}">
+                                    </div>
+                                    <div *ngIf="passwordConfR.errors?.required && passwordConfR.touched" class="invalid-feedback d-block">
+                                        Confirme la contraseña.
+                                    </div>
+                                    <div *ngIf="!samePwd" class="invalid-feedback d-block">
+                                        Contraseñas diferentes.
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12 text-center my-3">
+                                        <button [disabled]="formularioActiva.invalid || !samePwd" type="submit" class="btn btn-primary">Activar / Ingresar</button>
+                                    </div>
+                                </div>
+                                <div *ngIf="precargaAct" class="fondoGrisClaro animated fadeIn fast" style="position: absolute; width:100%; height:100%; top:0; left: 0;">
+                                    <app-precarga></app-precarga>
+                                </div>
+
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="confirmModal" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color: #dadada; border-bottom: solid 2px #007bff">
+                <h2 class="modal-title" style="color: #00427a"><span class="fa fa-user fa-lg"></span> Usuario <small class="text-primary">Activado</small></h2>
+            </div>
+            <div class="modal-body text-center">
+                <h1 class="text-success"><span class="fa fa-check" aria-hidden="true"></span></h1>
+                <p>El nuevo usuario está listo para hacer uso del sistema de Facturación Electrónica.</p>
+            </div>
+            <div class="modal-footer">
+                <button (click)="logout()" type="button" class="btn btn-primary">Iniciar Sesión</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="yaActivadoModal" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color: #dadada; border-bottom: solid 2px #007bff">
+                <h2 class="modal-title text-danger">Activado Previamente</h2>
+            </div>
+            <div class="modal-body text-center">
+                <h1 class="text-danger"><span class="fa fa-reply" aria-hidden="true"></span></h1>
+                <p>El vínculo al que accedió ya fue usado para activar el usuario.</p>
+                <small class="text-muted">Si no recuerda la contraseña asignada, haga click en el botón "Iniciar" y siga el vínculo "¿Olvidó su contraseña?"</small>
+            </div>
+            <div class="modal-footer">
+                <button (click)="logout()" type="button" class="btn btn-primary">Iniciar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="expiraModal" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color: #dadada; border-bottom: solid 2px #007bff">
+                <h2 class="modal-title text-danger" style="color: #00427a"><span class="fa fa-clock-o" aria-hidden="true"></span> El Vínculo Expiró!</h2>
+            </div>
+            <div class="modal-body text-center">
+                <h1 class="text-danger"><span class="fa fa-exclamation-triangle" aria-hidden="true"></span></h1>
+                <p>El vínculo al que está tratando de acceder expiró el: <br>{{ fechaVencimiento | date: 'medium'}}</p>
+            </div>
+            <div class="modal-footer">
+                <button (click)="logout()" type="button" class="btn btn-primary">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-infopie></app-infopie>

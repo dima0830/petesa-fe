@@ -1,0 +1,82 @@
+<div class="container">
+    <form (ngSubmit)="enviarFormulario(loginForm)" #loginForm="ngForm">
+        <div class="row">
+            <div class="col-xl-5">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="mb-2">
+                            <div class="form-group">
+                                <label for="inputPassword4 " class="linkPtesa">Empresa(s) autorizada(s):</label>
+                                <select class="form-control form-control-lg" name="supplierId" [(ngModel)]="documentsDataModel.supplierId" #supplierId="ngModel" required [ngClass]="{'is-invalid': supplierId.errors?.required && supplierId.touched}" (ngModelChange)="modelChange()" autofocus>
+                                    <option value="">Seleccione una empresa...</option>
+                                    <option *ngFor="let supplier of arrSuppliers" value="{{supplier.id}} ">{{supplier.name}}</option>
+                                </select>
+                            </div>
+                            <div *ngIf="supplierId.errors?.required && supplierId.touched " class="invalid-feedback d-block ">
+                                Debe seleccionar una empresa autorizada.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="form-group ">
+                    <label for="inputPassword4 " class="linkPtesa ">Estado del proceso:</label>
+                    <select class="form-control form-control-lg" name="status" [(ngModel)]="documentsDataModel.status" (ngModelChange)="modelChange()">
+                        <option value="-1">Todos</option>
+                        <option value="0">Procesando</option>
+                        <option value="1">Finalizado</option>
+                        <option value="2">Error</option>
+                    </select>
+                </div>
+                <div class="form-group ">
+                    <label for="inputPassword4 " class="linkPtesa" (ngModelChange)="modelChange()">Nombre del archivo:</label>
+                    <input type="text " class="form-control form-control-lg " name="fileName " [(ngModel)]="documentsDataModel.fileName" (ngModelChange)="modelChange()">
+                </div>
+                <div class="form-group ">
+                    <label for="inputPassword4 " class="linkPtesa" (ngModelChange)="modelChange()">Track ID:</label>
+                    <input type="text " class="form-control form-control-lg " name="trackId" [(ngModel)]="documentsDataModel.trackId" (ngModelChange)="modelChange()">
+                </div>
+            </div>
+            <div class="col-sm-7 ">
+                <div>
+                    <div class="row ">
+                        <div class="col-sm-12 ">
+                            <div class="linkPtesa ">Fecha de carga:</div>
+                        </div>
+                        <div class="col-xl-7 text-center ">
+                            <ngb-datepicker #dp3 (select)="onDateSelection($event) " [displayMonths]="1 " [dayTemplate]="t3 " outsideDays="hidden " [(startDate)]="mesInicial " class="animated fadeIn bg-white ">
+                            </ngb-datepicker>
+                            <ng-template #t3 let-date let-focused="focused " style="width: 100% ">
+                                <span class="custom-day" [class.focused]="focused" [class.range]="isRange(date)" [class.faded]="isHovered(date) || isInside(date) " (mouseenter)="hoveredDate=date " (mouseleave)="hoveredDate=null ">
+                            {{ date.day }}
+                          </span>
+                            </ng-template>
+                            <button type="button" class="btn btn-link text-danger mb-2 linkPtesa text-left " (click)="clearDate() "><span class="fa fa-chevron-right "></span> Limpiar</button>
+                        </div>
+                        <div class="col-xl-5 ">
+                            <div>
+                                <h5 class="text-muted font-weight-light text-center ">
+                                    Selección Rápida
+                                </h5>
+                                <button type="button" class="btn btn-link btn-block mb-2 linkPtesa text-left" (click)="selHoy(dp3) "><span class="fa fa-chevron-right "></span> Hoy</button>
+                                <button type="button" class="btn btn-link btn-block mb-2 linkPtesa text-left" (click)="selAyer(dp3) "><span class="fa fa-chevron-right "></span> Ayer</button>
+                                <button type="button" class="btn btn-link btn-block mb-2 linkPtesa text-left" (click)="sel7dias(dp3) "><span class="fa fa-chevron-right "></span> Últimos 7 Días</button>
+                                <button type="button" class="btn btn-link btn-block mb-2 linkPtesa text-left" (click)="sel30dias(dp3) "><span class="fa fa-chevron-right "></span> Últimos 30 Días</button>
+                                <button type="button" class="btn btn-link btn-block mb-2 linkPtesa text-left" (click)="selMesPasado(dp3) "><span class="fa fa-chevron-right "></span> Mes Pasado</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        <hr>
+        <div class="row ">
+            <div class="col-sm-12 text-right ">
+                <button *ngIf="withCriteria " type="button " class="btn btn-light btn-lg text-danger mr-3 shadow-sm animated fadeIn " (click)="resetFilters() "><span [ngClass]="{ 'txt-danger': !withoutCriteria} " class="fa fa-eraser fa-fw "></span></button>
+                <button type="submit" [disabled]="loginForm.invalid" class="btn btn-warning btn-lg shadow-sm"><span *ngIf="withCriteria " class="badge badge-pill badge-danger p-1 animated zoomIn fast " matTooltip="eee " style="position: absolute; top: -10px; right: 0;"><span class="fa fa-filter fa-fw "></span></span><span class="fa fa-search fa-fw "></span></button>
+            </div>
+        </div>
+    </form>
+</div>

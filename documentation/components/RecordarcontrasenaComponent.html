@@ -1,0 +1,1096 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>portalfe documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">portalfe documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>RecordarcontrasenaComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/components/recordarcontrasena/recordarcontrasena.component.ts</code>
+</p>
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-recordarcontrasena</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./recordarcontrasena.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./recordarcontrasena.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#cadenaVencimiento">cadenaVencimiento</a>
+                            </li>
+                            <li>
+                                <a href="#contra">contra</a>
+                            </li>
+                            <li>
+                                <a href="#env">env</a>
+                            </li>
+                            <li>
+                                <a href="#err500">err500</a>
+                            </li>
+                            <li>
+                                <a href="#fechaVencimiento">fechaVencimiento</a>
+                            </li>
+                            <li>
+                                <a href="#idUser">idUser</a>
+                            </li>
+                            <li>
+                                <a href="#passwordConf">passwordConf</a>
+                            </li>
+                            <li>
+                                <a href="#precargaAct">precargaAct</a>
+                            </li>
+                            <li>
+                                <a href="#samePwd">samePwd</a>
+                            </li>
+                            <li>
+                                <a href="#token">token</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#comparePwds">comparePwds</a>
+                            </li>
+                            <li>
+                                <a href="#logout">logout</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit">ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#setPwd">setPwd</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(serv: <a href="../injectables/ResetPwdService.html">ResetPwdService</a>, activatedRoute: <a href="https://angular.io/api/router/ActivatedRoute" target="_blank">ActivatedRoute</a>, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>, _ga: <a href="../injectables/GoogleAnalyticsService.html">GoogleAnalyticsService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/components/recordarcontrasena/recordarcontrasena.component.ts:27</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>serv</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ResetPwdService.html" target="_self" >ResetPwdService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>activatedRoute</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/router/ActivatedRoute" target="_blank" >ActivatedRoute</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/router/Router" target="_blank" >Router</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>_ga</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/GoogleAnalyticsService.html" target="_self" >GoogleAnalyticsService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="comparePwds"></a>
+                    <span class="name">
+                        <b>
+                            comparePwds
+                        </b>
+                        <a href="#comparePwds"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>comparePwds()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="95"
+                            class="link-to-prism">src/app/components/recordarcontrasena/recordarcontrasena.component.ts:95</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="logout"></a>
+                    <span class="name">
+                        <b>
+                            logout
+                        </b>
+                        <a href="#logout"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>logout()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="103"
+                            class="link-to-prism">src/app/components/recordarcontrasena/recordarcontrasena.component.ts:103</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <b>
+                            ngOnInit
+                        </b>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="35"
+                            class="link-to-prism">src/app/components/recordarcontrasena/recordarcontrasena.component.ts:35</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setPwd"></a>
+                    <span class="name">
+                        <b>
+                            setPwd
+                        </b>
+                        <a href="#setPwd"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>setPwd()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="57"
+                            class="link-to-prism">src/app/components/recordarcontrasena/recordarcontrasena.component.ts:57</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="cadenaVencimiento"></a>
+                        <span class="name">
+                            <b>
+                            cadenaVencimiento</b>
+                            <a href="#cadenaVencimiento"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/components/recordarcontrasena/recordarcontrasena.component.ts:20</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="contra"></a>
+                        <span class="name">
+                            <b>
+                            contra</b>
+                            <a href="#contra"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>null</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>null</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/components/recordarcontrasena/recordarcontrasena.component.ts:16</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="env"></a>
+                        <span class="name">
+                            <b>
+                            env</b>
+                            <a href="#env"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>environment</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/components/recordarcontrasena/recordarcontrasena.component.ts:26</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="err500"></a>
+                        <span class="name">
+                            <b>
+                            err500</b>
+                            <a href="#err500"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>false</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/components/recordarcontrasena/recordarcontrasena.component.ts:27</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="fechaVencimiento"></a>
+                        <span class="name">
+                            <b>
+                            fechaVencimiento</b>
+                            <a href="#fechaVencimiento"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank" >Date</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/components/recordarcontrasena/recordarcontrasena.component.ts:22</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="idUser"></a>
+                        <span class="name">
+                            <b>
+                            idUser</b>
+                            <a href="#idUser"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>null</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>null</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/components/recordarcontrasena/recordarcontrasena.component.ts:19</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="passwordConf"></a>
+                        <span class="name">
+                            <b>
+                            passwordConf</b>
+                            <a href="#passwordConf"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>null</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>null</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/components/recordarcontrasena/recordarcontrasena.component.ts:17</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="precargaAct"></a>
+                        <span class="name">
+                            <b>
+                            precargaAct</b>
+                            <a href="#precargaAct"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>false</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/components/recordarcontrasena/recordarcontrasena.component.ts:24</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="samePwd"></a>
+                        <span class="name">
+                            <b>
+                            samePwd</b>
+                            <a href="#samePwd"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>true</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/components/recordarcontrasena/recordarcontrasena.component.ts:21</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="token"></a>
+                        <span class="name">
+                            <b>
+                            token</b>
+                            <a href="#token"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>null</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>null</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/components/recordarcontrasena/recordarcontrasena.component.ts:18</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import { environment } from &#x27;src/environments/environment&#x27;;
+import { ResetPwdService } from &#x27;../../services/reset-pwd.service&#x27;;
+import { ActivatedRoute, Router } from &#x27;@angular/router&#x27;;
+import { GoogleAnalyticsService } from &#x27;src/app/services/google-analytics.service&#x27;;
+
+declare var $: any;
+
+@Component({
+  selector: &#x27;app-recordarcontrasena&#x27;,
+  templateUrl: &#x27;./recordarcontrasena.component.html&#x27;,
+  styleUrls: [&#x27;./recordarcontrasena.component.css&#x27;]
+})
+export class RecordarcontrasenaComponent implements OnInit {
+  // https://secfevalpruebas.ptesa.com.co:8443/#/recordarcontrasena?t&#x3D;Prrtp1FSVe9guZMjzFxctLDYUwZj-YIJ&amp;f&#x3D;20200406193252&amp;ua&#x3D;2
+  contra &#x3D; null;
+  passwordConf &#x3D; null;
+  token &#x3D; null;
+  idUser &#x3D; null;
+  cadenaVencimiento: string;
+  samePwd &#x3D; true;
+  fechaVencimiento: Date;
+
+  precargaAct &#x3D; false;
+
+  env &#x3D; environment;
+  err500 &#x3D; false;
+
+  constructor( private serv: ResetPwdService,
+                private activatedRoute: ActivatedRoute,
+                private router: Router,
+                private _ga: GoogleAnalyticsService
+             ) { }
+
+  ngOnInit() {
+    this.activatedRoute.queryParams.subscribe( parametro &#x3D;&gt; {
+      if(parametro.t &amp;&amp; parametro.ua &amp;&amp; parametro.f){
+        this.token &#x3D; parametro.t;
+        this.idUser &#x3D; parametro.ua;
+        this.cadenaVencimiento &#x3D; parametro.f;
+        const tiempoAhora &#x3D; new Date();
+        const anio &#x3D; this.cadenaVencimiento.substring(0, 4);
+        const mes &#x3D; +this.cadenaVencimiento.substring(4, 6) - 1;
+        const dia &#x3D; this.cadenaVencimiento.substring(6, 8);
+        const hora &#x3D; this.cadenaVencimiento.substring(8, 10);
+        const minuto &#x3D; this.cadenaVencimiento.substring(10, 12);
+        const segundo &#x3D; this.cadenaVencimiento.substring(12, 14);
+        this.fechaVencimiento &#x3D; new Date(+anio, +mes, +dia, +hora, +minuto, +segundo, 0);
+        if ( this.fechaVencimiento &lt; tiempoAhora) {
+          $(&#x27;#expiraModal&#x27;).modal(&#x27;show&#x27;);
+        }
+      } else {
+        this.router.navigate([&#x27;/&#x27;]);
+      }
+    });
+  }
+  setPwd(){
+    const paramsPwd &#x3D; {
+      idUser: this.idUser,
+      password: this.contra,
+      token: this.token
+    }
+    this.precargaAct &#x3D; true;
+    this.serv.connectService(paramsPwd).subscribe( (dato: any) &#x3D;&gt; {
+      console.log(dato);
+      if(dato){
+        if(dato.code &#x3D;&#x3D;&#x3D; 0){
+          this.contra &#x3D; null;
+          this.passwordConf &#x3D; null;
+          // Proceso exitoso... abre ventana de confirmación de activación
+          $(&#x27;#confirmModal&#x27;).modal(&#x27;show&#x27;);
+          this.precargaAct &#x3D; false;
+          this._ga.eventEmitter(&#x27;Usuarios&#x27;, &#x27;Recordar contraseña&#x27;, &#x27;Correctos&#x27;, this.idUser.toString(), 1);
+        }else{
+          this.router.navigate([&#x27;/&#x27;]);
+        }
+      }else{
+        this.router.navigate([&#x27;/&#x27;]);
+      }
+    },error &#x3D;&gt; {
+      window.scrollTo(0, 0);
+      const errorStatus &#x3D; error.status;
+      if ( errorStatus &#x3D;&#x3D;&#x3D; 400 ){ // ya activado
+        $(&#x27;#expiradoModal&#x27;).modal(&#x27;show&#x27;);
+      }
+      if ( errorStatus &#x3D;&#x3D;&#x3D; 500){
+        this.err500 &#x3D; true;
+      }
+      this.precargaAct &#x3D; false;
+      this.contra &#x3D; null;
+      this.passwordConf &#x3D; null;
+      this._ga.eventEmitter(&#x27;Usuarios&#x27;, &#x27;Recordar contraseña&#x27;, &#x27;Con Error&#x27;, this.idUser.toString(), 1);
+    });
+  }
+  comparePwds(){
+    if ( this.contra &#x3D;&#x3D;&#x3D; this.passwordConf){
+      this.samePwd &#x3D; true;
+    } else {
+      this.samePwd &#x3D; false;
+    }
+  }
+
+  logout(){
+    $(&#x27;#confirmModal&#x27;).modal(&#x27;hide&#x27;);
+    $(&#x27;#expiraModal&#x27;).modal(&#x27;hide&#x27;);
+    $(&#x27;#expiradoModal&#x27;).modal(&#x27;hide&#x27;);
+    this.env.isLoggedIn &#x3D; false;
+    this.router.navigate([&#x27;/&#x27;]);
+  }
+
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div *ngIf&#x3D;&quot;err500&quot; class&#x3D;&quot;alert alert-danger mt-3 animated wobble&quot; role&#x3D;&quot;alert&quot;&gt;
+    &lt;div class&#x3D;&quot;d-inline-block p-2 align-middle&quot;&gt;
+        &lt;img src&#x3D;&quot;./assets/img/ic_err500.svg&quot; alt&#x3D;&quot;&quot; style&#x3D;&quot;max-width: 90px;&quot;&gt;
+    &lt;/div&gt;
+    &lt;div class&#x3D;&quot;d-inline-block p-2 align-middle&quot;&gt;
+        &lt;h4 class&#x3D;&quot;text-danger m-0&quot;&gt;ERROR INTERNO DEL SERVIDOR!&lt;/h4&gt;
+        &lt;p class&#x3D;&quot;p-0 m-0&quot;&gt;El servidor no ha respondido de la manera esperada. &lt;br&gt; &lt;small class&#x3D;&quot;text-muted&quot;&gt; Por favor póngase en contacto con el departamento de operaciones de Ptesa.&lt;/small&gt;&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;close&quot; data-dismiss&#x3D;&quot;alert&quot; aria-label&#x3D;&quot;Close&quot;&gt;
+            &lt;span aria-hidden&#x3D;&quot;true&quot;&gt;&amp;times;&lt;/span&gt;
+        &lt;/button&gt;
+&lt;/div&gt;
+
+&lt;div class&#x3D;&quot;container-fluid&quot;&gt;
+    &lt;div class&#x3D;&quot;row my-5&quot;&gt;
+        &lt;div class&#x3D;&quot;col-sm-4 offset-sm-4&quot;&gt;
+            &lt;div class&#x3D;&quot;alert alert-dark shadow&quot; style&#x3D;&quot;background-color: rgba(248, 249, 250, 0.8); border-radius: 0&quot;&gt;
+                &lt;div class&#x3D;&quot;text-center mb-2&quot;&gt;
+                    &lt;img src&#x3D;&quot;assets/img/logo_fe.png&quot; alt&#x3D;&quot;Facturación Electrónica Ptesa&quot; style&#x3D;&quot;max-width: 70%; opacity: 0.9&quot;&gt;
+                &lt;/div&gt;
+
+                &lt;form #formularioPasswd&#x3D;&quot;ngForm&quot; (ngSubmit)&#x3D;&quot;setPwd()&quot; novalidate&gt;
+                    &lt;div style&#x3D;&quot;opacity: 0;&quot;&gt;
+                        &lt;input type&#x3D;&#x27;text&#x27; name&#x3D;&#x27;email&#x27;&gt;
+                        &lt;input type&#x3D;&#x27;password&#x27; name&#x3D;&#x27;password&#x27;&gt;
+                    &lt;/div&gt;
+                    &lt;div style&#x3D;&quot;position: relative&quot;&gt;
+                        &lt;div class&#x3D;&quot;border border-primary text-center p-2 pt-3 mt-0 &quot; style&#x3D;&quot;position: relative;&quot;&gt;
+                            &lt;div *ngIf&#x3D;&quot;!precargaAct&quot; class&#x3D;&quot;p-1 text-primary &quot; style&#x3D;&quot;font-size: 11px; display: inline-block; background-color: rgba(248, 249, 250, 0.8); position: absolute; top: 0; left: 50%; transform: translate(-50%, -50%); &quot;&gt;Asigne una nueva contraseña:&lt;/div&gt;
+                            &lt;div class&#x3D;&quot;text-center small mb-2 text-muted&quot;&gt;
+                                &lt;strong&gt;La nueva contraseña debe:&lt;/strong&gt; &lt;br&gt; Tener una longitud de 8 caracteres o superior. Estar formada por minúsculas, mayúsculas, al menos un número y un carácter especial.
+                            &lt;/div&gt;
+                            &lt;div class&#x3D;&quot;input-group shadow mt-3&quot;&gt;
+                                &lt;div class&#x3D;&quot;input-group-prepend&quot;&gt;
+                                    &lt;div class&#x3D;&quot;input-group-text bg-primary text-light&quot; style&#x3D;&quot;border-width: 0; border-radius: 0&quot;&gt;&lt;i class&#x3D;&quot;fa fa-key&quot;&gt;&lt;/i&gt;&lt;/div&gt;
+                                &lt;/div&gt;
+                                &lt;input (keyup)&#x3D;&quot;comparePwds()&quot; type&#x3D;&quot;password&quot; class&#x3D;&quot;form-control&quot; placeholder&#x3D;&quot;Asignar Contraseña&quot; style&#x3D;&quot;border-width: 0;  border-radius: 0&quot; name&#x3D;&quot;contra&quot; [(ngModel)]&#x3D;&quot;contra&quot; #passwordR&#x3D;&quot;ngModel&quot; required pattern&#x3D;&quot;^.*(?&#x3D;.{8,})((?&#x3D;.*[!@#$%^&amp;*()\-_&#x3D;+{};:,&lt;.&gt;]){1})(?&#x3D;.*\d)((?&#x3D;.*[a-z]){1})((?&#x3D;.*[A-Z]){1}).*$&quot;
+                                    [ngClass]&#x3D;&quot;{&#x27;is-invalid&#x27;: (passwordR.errors?.required || passwordR.errors?.minlength)  &amp;&amp; passwordR.touched}&quot;&gt;
+                            &lt;/div&gt;
+                            &lt;div *ngIf&#x3D;&quot;passwordR.errors?.required &amp;&amp; passwordR.touched&quot; class&#x3D;&quot;invalid-feedback d-block&quot;&gt;
+                                Asigne una contraseña.
+                            &lt;/div&gt;
+                            &lt;div *ngIf&#x3D;&quot;passwordR.errors?.pattern &amp;&amp; passwordR.touched&quot; class&#x3D;&quot;invalid-feedback d-block&quot;&gt;
+                                La contraseña no cumple con el formato.
+                            &lt;/div&gt;
+
+
+                            &lt;div class&#x3D;&quot;input-group shadow mt-3&quot;&gt;
+                                &lt;div class&#x3D;&quot;input-group-prepend&quot;&gt;
+                                    &lt;div class&#x3D;&quot;input-group-text bg-primary text-light&quot; style&#x3D;&quot;border-width: 0; border-radius: 0&quot;&gt;&lt;i class&#x3D;&quot;fa fa-key&quot;&gt;&lt;/i&gt;&lt;/div&gt;
+                                &lt;/div&gt;
+                                &lt;input (keyup)&#x3D;&quot;comparePwds()&quot; type&#x3D;&quot;password&quot; class&#x3D;&quot;form-control&quot; placeholder&#x3D;&quot;Confirmar Contraseña&quot; style&#x3D;&quot;border-width: 0; border-radius: 0&quot; name&#x3D;&quot;passwordConf&quot; [(ngModel)]&#x3D;&quot;passwordConf&quot; #passwordConfR&#x3D;&quot;ngModel&quot; required [ngClass]&#x3D;&quot;{&#x27;is-invalid&#x27;: (passwordConfR.errors?.required  &amp;&amp; passwordConfR.touched) || !samePwd}&quot;&gt;
+                            &lt;/div&gt;
+                            &lt;div *ngIf&#x3D;&quot;passwordConfR.errors?.required &amp;&amp; passwordConfR.touched&quot; class&#x3D;&quot;invalid-feedback d-block&quot;&gt;
+                                Confirme la contraseña.
+                            &lt;/div&gt;
+                            &lt;div *ngIf&#x3D;&quot;!samePwd&quot; class&#x3D;&quot;invalid-feedback d-block&quot;&gt;
+                                Contraseñas diferentes.
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;div class&#x3D;&quot;row&quot;&gt;
+                            &lt;div class&#x3D;&quot;col-sm-12 text-center my-3&quot;&gt;
+                                &lt;button [disabled]&#x3D;&quot;formularioPasswd.invalid || !samePwd&quot; type&#x3D;&quot;submit&quot; class&#x3D;&quot;btn btn-primary&quot;&gt;Confirmar&lt;/button&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;div *ngIf&#x3D;&quot;precargaAct&quot; class&#x3D;&quot;fondoGrisClaro animated fadeIn fast&quot; style&#x3D;&quot;position: absolute; width:100%; height:100%; top:0; left: 0;&quot;&gt;
+                            &lt;app-precarga&gt;&lt;/app-precarga&gt;
+                        &lt;/div&gt;
+
+                    &lt;/div&gt;
+                &lt;/form&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+
+&lt;div class&#x3D;&quot;modal fade&quot; id&#x3D;&quot;confirmModal&quot; data-backdrop&#x3D;&quot;static&quot; tabindex&#x3D;&quot;-1&quot; role&#x3D;&quot;dialog&quot; aria-labelledby&#x3D;&quot;exampleModalCenterTitle&quot; aria-hidden&#x3D;&quot;true&quot;&gt;
+    &lt;div class&#x3D;&quot;modal-dialog modal-dialog-centered&quot; role&#x3D;&quot;document&quot;&gt;
+        &lt;div class&#x3D;&quot;modal-content&quot;&gt;
+            &lt;div class&#x3D;&quot;modal-header&quot; style&#x3D;&quot;background-color: #dadada; border-bottom: solid 2px #007bff&quot;&gt;
+                &lt;h2 class&#x3D;&quot;modal-title&quot; style&#x3D;&quot;color: #00427a&quot;&gt;&lt;i class&#x3D;&quot;fa fa-key fa-lg&quot;&gt;&lt;/i&gt; Contraseña &lt;small class&#x3D;&quot;text-primary&quot;&gt;Asignada&lt;/small&gt;&lt;/h2&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;modal-body text-center&quot;&gt;
+                &lt;h1 class&#x3D;&quot;text-success&quot;&gt;&lt;i class&#x3D;&quot;fa fa-check&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/i&gt;&lt;/h1&gt;
+                &lt;p&gt;Su contraseña ha sido restablecida satisfactoriamente.&lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;modal-footer&quot;&gt;
+                &lt;button (click)&#x3D;&quot;logout()&quot; type&#x3D;&quot;button&quot; class&#x3D;&quot;btn btn-primary&quot;&gt;Iniciar Sesión&lt;/button&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+
+&lt;div class&#x3D;&quot;modal fade&quot; id&#x3D;&quot;expiraModal&quot; data-backdrop&#x3D;&quot;static&quot; tabindex&#x3D;&quot;-1&quot; role&#x3D;&quot;dialog&quot; aria-labelledby&#x3D;&quot;exampleModalCenterTitle&quot; aria-hidden&#x3D;&quot;true&quot;&gt;
+    &lt;div class&#x3D;&quot;modal-dialog modal-dialog-centered&quot; role&#x3D;&quot;document&quot;&gt;
+        &lt;div class&#x3D;&quot;modal-content&quot;&gt;
+            &lt;div class&#x3D;&quot;modal-header&quot; style&#x3D;&quot;background-color: #dadada; border-bottom: solid 2px #007bff&quot;&gt;
+                &lt;h2 class&#x3D;&quot;modal-title text-danger&quot; style&#x3D;&quot;color: #00427a&quot;&gt;&lt;i class&#x3D;&quot;fa fa-clock-o&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/i&gt; El Vínculo Expiró!&lt;/h2&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;modal-body text-center&quot;&gt;
+                &lt;h1 class&#x3D;&quot;text-danger&quot;&gt;&lt;i class&#x3D;&quot;fa fa-exclamation-triangle&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/i&gt;&lt;/h1&gt;
+                &lt;p&gt;El vínculo al que está tratando de acceder expiró el: &lt;br&gt;{{ fechaVencimiento | date: &#x27;medium&#x27;}}&lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;modal-footer&quot;&gt;
+                &lt;button (click)&#x3D;&quot;logout()&quot; type&#x3D;&quot;button&quot; class&#x3D;&quot;btn btn-primary&quot;&gt;Cerrar&lt;/button&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class&#x3D;&quot;modal fade&quot; id&#x3D;&quot;expiradoModal&quot; data-backdrop&#x3D;&quot;static&quot; tabindex&#x3D;&quot;-1&quot; role&#x3D;&quot;dialog&quot; aria-labelledby&#x3D;&quot;exampleModalCenterTitle&quot; aria-hidden&#x3D;&quot;true&quot;&gt;
+    &lt;div class&#x3D;&quot;modal-dialog modal-dialog-centered&quot; role&#x3D;&quot;document&quot;&gt;
+        &lt;div class&#x3D;&quot;modal-content&quot;&gt;
+            &lt;div class&#x3D;&quot;modal-header&quot; style&#x3D;&quot;background-color: #dadada; border-bottom: solid 2px #007bff&quot;&gt;
+                &lt;h2 class&#x3D;&quot;modal-title text-danger&quot;&gt;No Válido&lt;/h2&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;modal-body text-center&quot;&gt;
+                &lt;h1 class&#x3D;&quot;text-danger&quot;&gt;&lt;i class&#x3D;&quot;fa fa-reply&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/i&gt;&lt;/h1&gt;
+                &lt;p&gt;El vínculo al que accedió ya fue usado previamente.&lt;/p&gt;
+                &lt;small class&#x3D;&quot;text-muted&quot;&gt;Si no recuerda la contraseña asignada, haga click en el botón &quot;Iniciar&quot; y siga el vínculo &quot;¿Olvidó su contraseña?&quot;&lt;/small&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;modal-footer&quot;&gt;
+                &lt;button (click)&#x3D;&quot;logout()&quot; type&#x3D;&quot;button&quot; class&#x3D;&quot;btn btn-primary&quot;&gt;Iniciar&lt;/button&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;app-infopie&gt;&lt;/app-infopie&gt;</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./recordarcontrasena.component.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss"></code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div *ngIf="err500" class="alert alert-danger mt-3 animated wobble" role="alert">    <div class="d-inline-block p-2 align-middle">        <img src="./assets/img/ic_err500.svg" alt="" style="max-width: 90px;">    </div>    <div class="d-inline-block p-2 align-middle">        <h4 class="text-danger m-0">ERROR INTERNO DEL SERVIDOR!</h4>        <p class="p-0 m-0">El servidor no ha respondido de la manera esperada. <br> <small class="text-muted"> Por favor póngase en contacto con el departamento de operaciones de Ptesa.</small></p>    </div>    <button type="button" class="close" data-dismiss="alert" aria-label="Close">            <span aria-hidden="true">&times;</span>        </button></div><div class="container-fluid">    <div class="row my-5">        <div class="col-sm-4 offset-sm-4">            <div class="alert alert-dark shadow" style="background-color: rgba(248, 249, 250, 0.8); border-radius: 0">                <div class="text-center mb-2">                    <img src="assets/img/logo_fe.png" alt="Facturación Electrónica Ptesa" style="max-width: 70%; opacity: 0.9">                </div>                <form #formularioPasswd="ngForm" (ngSubmit)="setPwd()" novalidate>                    <div style="opacity: 0;">                        <input type=\'text\' name=\'email\'>                        <input type=\'password\' name=\'password\'>                    </div>                    <div style="position: relative">                        <div class="border border-primary text-center p-2 pt-3 mt-0 " style="position: relative;">                            <div *ngIf="!precargaAct" class="p-1 text-primary " style="font-size: 11px; display: inline-block; background-color: rgba(248, 249, 250, 0.8); position: absolute; top: 0; left: 50%; transform: translate(-50%, -50%); ">Asigne una nueva contraseña:</div>                            <div class="text-center small mb-2 text-muted">                                <strong>La nueva contraseña debe:</strong> <br> Tener una longitud de 8 caracteres o superior. Estar formada por minúsculas, mayúsculas, al menos un número y un carácter especial.                            </div>                            <div class="input-group shadow mt-3">                                <div class="input-group-prepend">                                    <div class="input-group-text bg-primary text-light" style="border-width: 0; border-radius: 0"><i class="fa fa-key"></i></div>                                </div>                                <input (keyup)="comparePwds()" type="password" class="form-control" placeholder="Asignar Contraseña" style="border-width: 0;  border-radius: 0" name="contra" [(ngModel)]="contra" #passwordR="ngModel" required pattern="^.*(?=.{8,})((?=.*[!@#$%^&*()\-_=+{};:,<.>]){1})(?=.*\d)((?=.*[a-z]){1})((?=.*[A-Z]){1}).*$"                                    [ngClass]="{\'is-invalid\': (passwordR.errors?.required || passwordR.errors?.minlength)  && passwordR.touched}">                            </div>                            <div *ngIf="passwordR.errors?.required && passwordR.touched" class="invalid-feedback d-block">                                Asigne una contraseña.                            </div>                            <div *ngIf="passwordR.errors?.pattern && passwordR.touched" class="invalid-feedback d-block">                                La contraseña no cumple con el formato.                            </div>                            <div class="input-group shadow mt-3">                                <div class="input-group-prepend">                                    <div class="input-group-text bg-primary text-light" style="border-width: 0; border-radius: 0"><i class="fa fa-key"></i></div>                                </div>                                <input (keyup)="comparePwds()" type="password" class="form-control" placeholder="Confirmar Contraseña" style="border-width: 0; border-radius: 0" name="passwordConf" [(ngModel)]="passwordConf" #passwordConfR="ngModel" required [ngClass]="{\'is-invalid\': (passwordConfR.errors?.required  && passwordConfR.touched) || !samePwd}">                            </div>                            <div *ngIf="passwordConfR.errors?.required && passwordConfR.touched" class="invalid-feedback d-block">                                Confirme la contraseña.                            </div>                            <div *ngIf="!samePwd" class="invalid-feedback d-block">                                Contraseñas diferentes.                            </div>                        </div>                        <div class="row">                            <div class="col-sm-12 text-center my-3">                                <button [disabled]="formularioPasswd.invalid || !samePwd" type="submit" class="btn btn-primary">Confirmar</button>                            </div>                        </div>                        <div *ngIf="precargaAct" class="fondoGrisClaro animated fadeIn fast" style="position: absolute; width:100%; height:100%; top:0; left: 0;">                            <app-precarga></app-precarga>                        </div>                    </div>                </form>            </div>        </div>    </div></div><div class="modal fade" id="confirmModal" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">    <div class="modal-dialog modal-dialog-centered" role="document">        <div class="modal-content">            <div class="modal-header" style="background-color: #dadada; border-bottom: solid 2px #007bff">                <h2 class="modal-title" style="color: #00427a"><i class="fa fa-key fa-lg"></i> Contraseña <small class="text-primary">Asignada</small></h2>            </div>            <div class="modal-body text-center">                <h1 class="text-success"><i class="fa fa-check" aria-hidden="true"></i></h1>                <p>Su contraseña ha sido restablecida satisfactoriamente.</p>            </div>            <div class="modal-footer">                <button (click)="logout()" type="button" class="btn btn-primary">Iniciar Sesión</button>            </div>        </div>    </div></div><div class="modal fade" id="expiraModal" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">    <div class="modal-dialog modal-dialog-centered" role="document">        <div class="modal-content">            <div class="modal-header" style="background-color: #dadada; border-bottom: solid 2px #007bff">                <h2 class="modal-title text-danger" style="color: #00427a"><i class="fa fa-clock-o" aria-hidden="true"></i> El Vínculo Expiró!</h2>            </div>            <div class="modal-body text-center">                <h1 class="text-danger"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i></h1>                <p>El vínculo al que está tratando de acceder expiró el: <br>{{ fechaVencimiento | date: \'medium\'}}</p>            </div>            <div class="modal-footer">                <button (click)="logout()" type="button" class="btn btn-primary">Cerrar</button>            </div>        </div>    </div></div><div class="modal fade" id="expiradoModal" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">    <div class="modal-dialog modal-dialog-centered" role="document">        <div class="modal-content">            <div class="modal-header" style="background-color: #dadada; border-bottom: solid 2px #007bff">                <h2 class="modal-title text-danger">No Válido</h2>            </div>            <div class="modal-body text-center">                <h1 class="text-danger"><i class="fa fa-reply" aria-hidden="true"></i></h1>                <p>El vínculo al que accedió ya fue usado previamente.</p>                <small class="text-muted">Si no recuerda la contraseña asignada, haga click en el botón "Iniciar" y siga el vínculo "¿Olvidó su contraseña?"</small>            </div>            <div class="modal-footer">                <button (click)="logout()" type="button" class="btn btn-primary">Iniciar</button>            </div>        </div>    </div></div><app-infopie></app-infopie></div>'
+    var COMPONENTS = [{'name': 'ActivarUsuarioComponent', 'selector': 'app-activar-usuario'},{'name': 'AjustesComponent', 'selector': 'app-ajustes'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AyudaComponent', 'selector': 'app-ayuda'},{'name': 'BarrasComponent', 'selector': 'app-barras'},{'name': 'BuscadorEmisionComponent', 'selector': 'app-buscador-emision'},{'name': 'BuscadorRastreadorComponent', 'selector': 'app-buscador-rastreador'},{'name': 'BuscadorRecepcionComponent', 'selector': 'app-buscador-recepcion'},{'name': 'CargafeComponent', 'selector': 'app-cargafe'},{'name': 'ContenidoAyudaComponent', 'selector': 'app-contenido-ayuda'},{'name': 'EmisionComponent', 'selector': 'app-emision'},{'name': 'EmisionfComponent', 'selector': 'app-emisionf'},{'name': 'FilasComponent', 'selector': 'app-filas'},{'name': 'IndiceComponent', 'selector': 'app-indice'},{'name': 'InfopieComponent', 'selector': 'app-infopie'},{'name': 'InicioComponent', 'selector': 'app-inicio'},{'name': 'LibraryComponent', 'selector': 'app-library'},{'name': 'LineasComponent', 'selector': 'app-lineas'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'Navbar0Component', 'selector': 'app-navbar0'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'PdfviewerComponent', 'selector': 'app-pdfviewer'},{'name': 'PieComponent', 'selector': 'app-pie'},{'name': 'PrecargaComponent', 'selector': 'app-precarga'},{'name': 'RastreadorComponent', 'selector': 'app-rastreador'},{'name': 'RecepcionComponent', 'selector': 'app-recepcion'},{'name': 'RecordarcontrasenaComponent', 'selector': 'app-recordarcontrasena'},{'name': 'RedirectorComponent', 'selector': 'app-redirector'},{'name': 'StatusComponent', 'selector': 'app-status'},{'name': 'SwitchCompanyComponent', 'selector': 'app-switch-company'},{'name': 'TarjetasComponent', 'selector': 'app-tarjetas'},{'name': 'UsuariosComponent', 'selector': 'app-usuarios'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'RecordarcontrasenaComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+                   
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'RecordarcontrasenaComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

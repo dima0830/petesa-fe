@@ -1,0 +1,120 @@
+<div class="container-fluid mb-5">
+    <div class="row animated fadeIn fast" style="animation-delay: 0.5s;">
+        <div class="col-lg-4 col-md-12">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="card mb-3 mt-5" style="border: 0">
+                        <div class="card-header" style="background-color: #ffffff;">
+                            <div class="p-0 m-0" style="font-size: 18px; color: #00427a; font-weight: bold;">
+                                <span class="fa fa-user fa-fw" aria-hidden="true"></span> Usuario autorizado:
+                            </div>
+                        </div>
+                        <div class="card-body p-2">
+                            <h5 class="card-title m-0">{{ userData.name }} {{ userData.surname }}</h5>
+                            <p class="card-text">{{ userData.email }}</p>
+                            <hr>
+                            <div class="text-right">
+                                <a class="inline paso1" [routerLink]="['/ajustes']"><span class="fa fa-cogs" aria-hidden="true"></span> Ajustes</a>
+                            </div>
+                        </div>
+                        <div class="px-2 mt-3">
+                            <button *ngIf="env.usesMultipleBranches" (click)="cambiarCompany()" class="btn btn-link" style="font-size: 18px; color: #00427a; font-weight: bold;"> <span class="fa fa-magic"></span> Sucursales autorizadas:</button>
+                            <p *ngIf="!env.usesMultipleBranches" class="m-0" style="font-size: 18px; color: #00427a; font-weight: bold;"> <span class="fa fa-magic"></span> Sucursal autorizada:</p>
+                        </div>
+                        <div class="card-body p-1 mb-2 paso2" style="max-height: 8500px; overflow: auto;">
+                            <div *ngFor="let company of companies; let ci = index" class="list-group mb-1 p-0">
+                                <a class="list-group-item list-group-item-action" style="border: 0;">
+                                    <div class="mb-0" style=" color: #00427a;">{{ company.name }}</div>
+                                    <small>Nit: {{ company.idNumber }}</small>
+                                    <div class="mb-1">
+                                        <ul class="list-group list-group-flush">
+                                            <li *ngFor="let branchOffice of company.branches; let bi = index" class="list-group-item" style="border: 0;">
+                                                <div>
+                                                    <span class="fa fa-chevron-right" [ngStyle]="{'color': branchOffice.color}"></span> <span [ngClass]="{'tachado': !currentBranches.includes(branchOffice.branchId)}">{{ branchOffice.name }}</span>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-8 col-md-12">
+
+            <div class="jumbotron jumbotron-fluid animated fadeIn fast pt-5 pb-5">
+                <div class="container">
+                    <h1 style="text-shadow: 4px 4px 8px rgba(0,0,0,0.3); color: #00427a;">Bienvenido(a) al sistema, <span class="text-primary">{{ userData.name }}!</span></h1>
+                    <p class="lead">La facturación electrónica contribuye a agilizar los procesos de venta y por lo tanto optimiza el flujo de caja de su empresa. Adicionalmente, contribuye al medio ambiente al disminuir el uso de recursos en su organización.​</p>
+                </div>
+
+            </div>
+
+            <div class="card" style="border:0">
+                <div class="card-header" style="font-size: 18px; color: #00427a; background-color: #ffffff; border: 0;">
+                    <span class="fa fa-star fa-fw" aria-hidden="true"></span> Características de nuestra plataforma:
+                </div>
+                <div class="card-body">
+                    <div class="row text-center mx-2" style="color: #00427a;">
+                        <div (mouseover)="setFeature( 0 )" class="col-xl-3 col-lg-4 col-md-6 animated zoomIn faster ic-inicio" style="animation-delay: 1s;">
+                            <div class="my-2" style="font-size: 22px;">Segura</div>
+                            <img class="w-75 icono" src="./assets/img/ic_seguro.svg" alt="">
+                        </div>
+                        <div (mouseover)="setFeature( 1 )" class="col-xl-3 col-lg-4 col-md-6 animated zoomIn faster ic-inicio" style="animation-delay: 1.2s;">
+                            <div class="my-2" style="font-size: 22px;">Ágil</div>
+                            <img class="w-75" src="assets/img/ic_rapido.svg" alt="">
+                        </div>
+                        <div (mouseover)="setFeature( 2 )" class="col-xl-3 col-lg-4 col-md-6 animated zoomIn faster ic-inicio" style="animation-delay: 1.4s;">
+                            <div class="my-2" style="font-size: 22px;">Escalable</div>
+                            <img class="w-75" src="assets/img/ic_escalable.svg" alt="">
+                        </div>
+                        <div (mouseover)="setFeature( 3 )" class="col-xl-3 col-lg-4 col-md-6 animated zoomIn faster ic-inicio" style="animation-delay: 1.6s;">
+                            <div class="my-2" style="font-size: 22px;">Multiusuario</div>
+                            <img class="w-75" src="assets/img/ic_usuarios.svg" alt="">
+                        </div>
+                    </div>
+                    <div class="alert alert-light animated fadeIn faster" role="alert" style="animation-delay: 1.8s;">
+                        {{ actualFeature }}
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-4">
+                <div class="col-sm-6">
+                    <div class="card h-100 shadow">
+                        <div class="card-header fondoGrisClaro" style="font-size: 18px;">
+                            <span class="fa fa-book fa-fw" aria-hidden="true"></span> Documentación y normatividad:
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item"><a href=""><span class="fa fa-dot-circle-o" aria-hidden="true"></span> Decreto único tributario 1625 de 2016.</a></li>
+                                <li class="list-group-item"><a href="https://www.dian.gov.co/fizcalizacioncontrol/herramienconsulta/FacturaElectronica/InformacionTecnica/Paginas/anexostecnicos.aspx" target="_blank" rel="noopener noreferrer"><span class="fa fa-dot-circle-o" aria-hidden="true"></span> Anexo técnico de factura electrónica de venta.</a></li>
+                                <li class="list-group-item"><a href="https://www.dian.gov.co/fizcalizacioncontrol/herramienconsulta/FacturaElectronica/InformacionTecnica/Paginas/documentosapoyo.aspx" target="_blank" rel="noopener noreferrer"><span class="fa fa-dot-circle-o" aria-hidden="true"></span> Documentos de apoyo​</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="card h-100 shadow">
+                        <div class="card-header bg-warning" style="font-size: 18px;">
+                            <span class="fa fa-ambulance" aria-hidden="true"></span> Soporte Ptesa
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">¿Problemas con su facturación electrónica?</h5>
+                            <p class="card-text">Póngase en contacto con nuestro departamento de operaciones:</p>
+                            <h5 class="card-text"><span class="fa fa-phone-square" aria-hidden="true"></span> 642-00-03 <small class="text-muted">Ext. 2730 / 2732</small></h5>
+                            <div class="text-right">
+                                <a href="mailto:soporte@ptesa.com" class="btn btn-warning"><span class="fa fa-envelope" aria-hidden="true"></span> Enviar correo</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-infopie></app-infopie>

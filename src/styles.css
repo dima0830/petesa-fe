@@ -1,0 +1,206 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,700&display=swap');
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+/* 
+PRIMERO DEFINIMOS LOS ESTILOS PARA PANTALLAS MAS PEQUEÑAS
+A MEDIDA QUE SE INCLUYEN LOS MEDIA QUERIES SE VAN DEFINIENDO LAS CONDICIONES A MEDIDA QUE CADA PANTALLA CRECE 
+*/
+
+body {
+    padding-top: 60px;
+    background-color: #ffffff;
+    margin: 0;
+    font-weight: 300;
+    min-height: 100vh;
+    position: relative;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: 'Nunito Sans', sans-serif !important;
+    font-weight: 700 !important;
+}
+
+label {
+    margin-bottom: 0;
+}
+
+.textoAyuda {
+    font-size: 12px;
+    line-height: 13px;
+}
+
+.mt-n1 {
+    margin-top: -5.25rem !important;
+}
+
+.manito {
+    cursor: pointer;
+}
+
+.card {
+    overflow: hidden;
+    border-radius: 0;
+    z-index: 100;
+}
+
+.tooltip-rojo {
+    background: #b71c1c;
+    font-size: 28px;
+    z-index: 2000 !important;
+}
+
+.fondoAzulPtesa {
+    background-color: #00427a;
+    color: #FFFFFF !important
+}
+
+.fondoAzulClarito {
+    background-color: #d5dde9;
+}
+
+.fondoGrisOscuro {
+    background-color: #343a40;
+    color: rgb(194, 194, 194)
+}
+
+.fondoGrisClaro {
+    background-color: rgb(218, 218, 218);
+    color: #00427a;
+}
+
+.card-header:first-child {
+    border-radius: 0;
+}
+
+
+/* .fondoBuscador {
+    background-image: url('/assets/img/imagenBuscarDocumentos.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+} */
+
+#contenedorCargaArchivos {
+    width: 100%;
+    height: 100%;
+    color: #00427a;
+    padding: 30px;
+    margin: 0;
+    background-color: #ffffff;
+    /* border: dashed 2px #383082; */
+    text-align: center;
+    cursor: pointer;
+    font-weight: 300;
+}
+
+#contenedorCargaArchivos:hover {
+    background-color: #f8f9fa
+}
+
+.botonPie {
+    cursor: pointer;
+}
+
+.botonPie:hover {
+    color: rgb(230, 230, 230)
+}
+
+.modal-content {
+    border-radius: 0;
+}
+
+.modal-header {
+    border-radius: 0;
+}
+
+.ngb-dp-weekday {
+    color: #383082 !important;
+    font-style: normal !important;
+    font-weight: 700;
+}
+
+.linkPtesa {
+    color: #00427a;
+}
+
+.dropdown-menu {
+    z-index: 1000000 !important;
+}
+
+.elipsisMonolinea {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.btn {
+    border-radius: 0;
+}
+
+.jumbotron {
+    background-color: #ffffff !important;
+    margin: 0px;
+    padding-top: 30px;
+    padding-bottom: 5px;
+    position: relative;
+    /* padding: 0px */
+}
+
+.navbar-brand img {
+    max-height: 40px
+}
+
+p.lead {
+    font-size: 10px;
+}
+
+.btn-help {
+    color: #ffffff;
+    position: fixed;
+    z-index: 200;
+    bottom: 30px;
+    right: 0px;
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    border-radius: 15px;
+    font-size: 18px;
+    background-color: #ffc107;
+}
+
+.btn-help:hover {
+    color: #ffffff;
+    background-color: #e0a800;
+    opacity: 1;
+}
+
+.hideOnSmall {
+    display: none;
+}
+
+
+/* ==================== MEDIA QUERIES VARIANTES FROM MOBILE FIRST ======================================================*/
+
+@media (min-width: 768px) {
+    .navbar-brand img {
+        max-height: 50px
+    }
+    p.lead {
+        font-size: 14px;
+    }
+}
+
+@media (min-width: 992px) {
+    .navbar-brand img {
+        max-height: 50px
+    }
+    p.lead {
+        font-size: 20px;
+    }
+    .hideOnSmall {
+        display: block;
+    }
+}

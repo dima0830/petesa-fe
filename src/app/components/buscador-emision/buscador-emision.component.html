@@ -1,0 +1,156 @@
+<div class="container">
+    <form (ngSubmit)="enviarFormulario(loginForm)" #loginForm="ngForm">
+        <div class="row">
+            <div class="col-xl-4">
+                <div class="list-group text-center">
+                    <a (click)="muestraDocumento()" class="list-group-item list-group-item-action manito" [ngClass]="{'fondoAzulPtesa': visibilidadBuscador.documento}">
+                        <div>
+                            <p class=" mb-1 ">DOCUMENTO </p>
+                        </div>
+                        <div class="textoAyuda ">Prefijos, Número de Factura, Afectación por Notas Débito/Crédito.</div>
+                    </a>
+                    <a (click)="muestraEmpresa() " class="list-group-item list-group-item-action manito" [ngClass]="{'fondoAzulPtesa': visibilidadBuscador.empresa}">
+                        <div>
+                            <p class="mb-1 ">ADQUIRIENTE </p>
+                        </div>
+                        <div class="textoAyuda ">Nombre, Razón Social, Tipo de Identificación, Número de Identificación.</div>
+                    </a>
+                    <a (click)="muestraFecha() " class="list-group-item list-group-item-action manito" [ngClass]="{'fondoAzulPtesa': visibilidadBuscador.fecha}">
+                        <div>
+                            <p class="mb-1 ">FECHA</p>
+                        </div>
+                        <div class="textoAyuda ">Rangos de Fecha de Emisión.</div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-xl-8 ">
+
+                <div [hidden]="!visibilidadBuscador.documento" id="criteriosDocumento ">
+                    <div class="animated fadeIn ">
+                        <div class="form-row mt-4 ">
+                            <!-- <div class="form-group col-md-4 ">
+                                <label for="inputEmail4" class="text-muted">Tipo:</label>
+                                <select class="form-control form-control-lg" name="prefix" [(ngModel)]="filters.invoiceFilterRequest.document.prefix" (ngModelChange)="modelChange()">
+                                    <option value="">Facturas</option>
+                                </select>
+                            </div> -->
+                            <!-- <div class="form-group col-md-3 ">
+                                <label for="inputEmail4" class="text-muted">Prefijo:</label>
+                                <select class="form-control form-control-lg" name="prefix" [(ngModel)]="filters.invoiceFilterRequest.document.prefix" (ngModelChange)="modelChange()">
+                                    <option value="">Todos</option>
+                                </select>
+                            </div> -->
+                            <div class="form-group col-md-12 ">
+                                <label for="inputPassword4 " class="text-muted ">No. Documento:</label>
+                                <input type="number " class="form-control form-control-lg " id="inputPassword4 " placeholder="Documento... " name="number" [(ngModel)]="filters.invoiceFilterRequest.document.number" (ngModelChange)="modelChange()">
+                            </div>
+                        </div>
+
+                        <div class="row my-4 ">
+                            <!-- <div class="col-sm-6 ">
+                                <div class="text-muted mb-3 ">Afectación de Factura Por:</div>
+                                <div class="custom-control custom-switch">
+                                    <input type="checkbox" class="custom-control-input" name="hasDebitNote" id="customSwitch1" [(ngModel)]="filters.invoiceFilterRequest.document.hasDebitNote" (ngModelChange)="modelChange()">
+                                    <label class="custom-control-label" for="customSwitch1">Nota(s) Débito</label>
+                                </div>
+                                <div class="custom-control custom-switch">
+                                    <input type="checkbox" class="custom-control-input" name="hasCreditNote" id="customSwitch2" [(ngModel)]="filters.invoiceFilterRequest.document.hasCreditNote" (ngModelChange)="modelChange()">
+                                    <label class="custom-control-label" for="customSwitch2">Nota(s) Crédito</label>
+                                </div>
+                            </div> -->
+                            <div class="col-sm-6 ">
+                                <div class="text-muted mb-0 ">Estado del Documento:</div>
+                                <select class="form-control form-control-lg " name="status" [(ngModel)]="filters.invoiceFilterRequest.document.status" (ngModelChange)="modelChange()">
+                                    <option value="-1">Todos</option>
+                                    <option value="3005">Aceptado por la DIAN</option>
+                                    <option value="3007">Aceptado por la DIAN con Notificaciones</option>
+                                    <option value="3006">Rechazado por la DIAN</option>
+                                    <option value="3010">Enviado al adquiriente</option>
+                                    <option value="3012">Aceptado por el adquiriente</option>
+                                    <option value="3014">Rechazado por el adquiriente</option>
+                                </select>
+                                <!-- <hr>
+                                <div class="custom-control custom-switch">
+                                    <input type="checkbox" class="custom-control-input" name="hasCreditNote" id="customSwitch3">
+                                    <label class="custom-control-label" for="customSwitch3">Solo Aceptadas Dian</label>
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div [hidden]="!visibilidadBuscador.empresa " id="criteriosAdquiriente ">
+                    <div class="animated fadeIn ">
+                        <label class="text-muted mt-4 ">Ingrese nombre, razón social o número de documento.</label>
+
+                        <div class="input-group flex-nowrap">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text " id="addon-wrapping"><span class="fa fa-search"></span></span>
+                            </div>
+                            <input id="buscaEmpresa " type="text " class="form-control form-control-lg" placeholder="Razón Social / No. Identificacion" name="query" [(ngModel)]="filters.invoiceFilterRequest.buyer.query" (ngModelChange)="modelChange()">
+                        </div>
+                    </div>
+                </div>
+
+                <div [hidden]="!visibilidadBuscador.fecha " id="criteriosAdquiriente ">
+                    <div class="row mt-4">
+                        <div class="col-sm-7 text-center">
+                            <ngb-datepicker #dp (select)="onDateSelection($event)" [displayMonths]="1" [dayTemplate]="t" outsideDays="hidden" [(startDate)]="mesInicial" class="animated fadeIn bg-white">
+                            </ngb-datepicker>
+
+                            <ng-template #t let-date let-focused="focused" style="width: 100%">
+                                <span class="custom-day" [class.focused]="focused" [class.range]="isRange(date)" [class.faded]="isHovered(date) || isInside(date)" (mouseenter)="hoveredDate = date" (mouseleave)="hoveredDate = null">
+                                    {{ date.day }}
+                                </span>
+                            </ng-template>
+                            <button type="button" class="btn btn-link text-danger mb-2 linkPtesa text-left" (click)="clearDate()"><span class="fa fa-chevron-right"></span> Limpiar</button>
+                            <hr>
+                        </div>
+                        <div class="col-sm-5">
+                            <div>
+                                <h5 class="text-muted font-weight-light text-center">
+                                    Selección Rápida
+                                </h5>
+
+                                <button type="button" class="btn btn-link btn-block mb-2 linkPtesa text-left" (click)="selHoy(dp)"><span class="fa fa-chevron-right"></span> Hoy</button>
+                                <button type="button" class="btn btn-link btn-block mb-2 linkPtesa text-left" (click)="selAyer(dp)"><span class="fa fa-chevron-right"></span> Ayer</button>
+                                <button type="button" class="btn btn-link btn-block mb-2 linkPtesa text-left" (click)="sel7dias(dp)"><span class="fa fa-chevron-right"></span> Últimos 7 Días</button>
+                                <button type="button" class="btn btn-link btn-block mb-2 linkPtesa text-left" (click)="sel30dias(dp)"><span class="fa fa-chevron-right"></span> Últimos 30 Días</button>
+                                <button type="button" class="btn btn-link btn-block mb-2 linkPtesa text-left" (click)="selMesPasado(dp)"><span class="fa fa-chevron-right"></span> Mes Pasado</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-sm-6 form-inline">
+                <div class="form-group">
+                    <select class="form-control border-0 fondoGrisClaro" name="fieldOrder" [(ngModel)]="filters.invoiceFilterRequest.options.fieldOrder">
+                        <option value="FECHA">Fecha de emisión</option>
+                        <option value="DOC">No. de documento</option>
+                        <option value="VALOR">Valor</option>
+                        <option value="ADQ">Adquiriente</option>
+                    </select>
+                </div>
+
+                <div class="form-group ml-1">
+                    <select class="form-control border-0 fondoGrisClaro" name="order" [(ngModel)]="filters.invoiceFilterRequest.options.order">
+                        <option value="ASC">Ascendente</option>
+                        <option value="DESC" selected>Descendente</option>
+                        
+                    </select>
+                </div>
+            </div>
+            <div class="col-sm-6 text-right">
+                <button *ngIf="withCriteria" type="button" class="btn btn-light btn-lg text-danger mr-3 shadow-sm animated fadeIn" (click)="resetFilters()"><span [ngClass]="{'txt-danger': !withoutCriteria}" class="fa fa-eraser fa-fw"></span></button>
+                <button type="submit" class="btn btn-warning btn-lg shadow-sm"><span *ngIf="withCriteria" class="badge badge-pill badge-danger p-1 animated zoomIn fast" matTooltip="eee" style="position: absolute; top: -10px; right: 0;"><span class="fa fa-filter fa-fw"></span></span><span class="fa fa-search fa-fw"></span></button>
+            </div>
+        </div>
+
+    </form>
+</div>

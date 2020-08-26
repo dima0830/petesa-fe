@@ -1,0 +1,81 @@
+<div class="card h-100 shadow" style="border: none;">
+    <div class="card-header" style="font-size: 18px; background-color: rgb(218, 218, 218); color: #00427a; position: relative; border-bottom:none">
+        <div class="row">
+            <div class="col-8 p-0">
+                <div *ngIf="env.overallPermissions.showOutboundDocumentDetails" (click)="setDocumentId($event, factura.documentId)" matTooltip="Ver detalles" style="cursor: pointer"><strong> <span class="align-middle ml-0 pl-0"> {{ factura.documentNumber }} </span> <span class="fa fa-external-link-square text-light align-middle" ></span></strong>
+                </div>
+                <div *ngIf="!env.overallPermissions.showOutboundDocumentDetails"><strong> <span class="align-middle ml-0 pl-0"> {{ factura.documentNumber }} </span> </strong>
+                </div>
+            </div>
+            <div class="col-4 text-right p-0">
+                <div class="badge badge-pill badge-light p-1">
+                    <app-status [status]="factura.status"></app-status>
+                </div>
+            </div>
+        </div>
+        <!-- <div style="transform: rotate(180deg);  position: absolute; top: -10px; left: -7px; font-size: 7px !important;">
+            <span class="material-icons" [ngStyle]="{'color': libr.getBranchColor(randomBranchId())}">signal_cellular_4_bar</span>
+        </div> -->
+    </div>
+
+    <div class="card-body text-dark pt-1">
+        <div class="row p-2">
+            <div *ngIf="factura.deliveryDate !== null" class="col-sm-6 text-left p-0 textoAyuda">
+                <span class="fa fa-calendar-o fa-fw"></span> {{ factura.deliveryDate | date }}
+            </div>
+            <!-- <div class="col-sm-6 text-left p-0 textoAyuda">
+                <span class="fa fa-calendar-o fa-fw"></span> {{ '2020-01-10' | date }}
+            </div> -->
+            <div *ngIf="factura.dueDate !== null" class="col-sm-6 text-right p-0 textoAyuda">
+                <span class="fa fa-calendar-times-o fa-fw"></span> {{ factura.dueDate | date }}
+            </div>
+            <!-- <div class="col-sm-6 text-right p-0 textoAyuda">
+                <span class="fa fa-calendar-times-o fa-fw"></span> {{ '2020-02-15' | date }}
+            </div> -->
+        </div>
+
+
+        <p class="card-title mt-3 text-center text-truncate">{{ factura.buyerName }} <br> <small class="card-subtitle text-muted ">{{ libr.convTipoDocumento(factura.buyerDocType) }} {{ factura.buyerDocNumber }}</small></p>
+
+        <!-- <p class="card-text text-center py-3 lead">${{ factura.totalAmount | number:'1.0-2' }}</p> -->
+        <p class="card-text text-center py-3 lead">${{ factura.totalAmount | number:'1.0-2'}}</p>
+        <div class="row bg-light mb-1 ">
+            <div class="col card-text text-left ">V. Bruto:</div>
+            <div class="col card-text text-right text-muted">${{ factura.subTotalAmount | number:'1.0-2' }}</div>
+        </div>
+        <div class="row bg-light mb-1 ">
+            <div class="col card-text text-left ">IVA:</div>
+            <div class="col card-text text-right text-muted">${{ factura.ivaTaxAmount | number:'1.0-2' }}</div>
+        </div>
+        <div *ngIf="factura.incTaxAmount > 0" class="row bg-light mb-1 ">
+            <div class="col card-text text-left ">INC:</div>
+            <div class="colcard-text text-right text-muted">${{ factura.incTaxAmount | number:'1.0-2' }}</div>
+        </div>
+    </div>
+    <div class="card-footer ">
+        <ul class="nav nav-pills">
+            <!-- <li *ngIf="factura.hasSupportsDocs" class="nav-item ml-auto">
+                <a class="nav-link" matTooltip="Con Soportes" matTooltipPosition="above"><span class="fa fa-paperclip"></span></a>
+            </li> -->
+        </ul>
+    </div>
+
+
+    <!-- <ul class="nav nav-pills">
+            <li *ngIf="factura.modifiers.debitNotes" class="nav-item dropup">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">ND</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#" *ngFor="let nd of factura.modifiers.debitNotes">{{ nd.noteNumber }} (${{ nd.noteAmount | number:'1.0-2' }})</a>
+                </div>
+            </li>
+            &nbsp;
+            <li *ngIf="factura.modifiers.creditNotes" class="nav-item dropup">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">NC</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#" *ngFor="let nc of factura.modifiers.creditNotes">{{ nc.noteNumber }} (${{ nc.noteAmount | number:'1.0-2' }})</a>
+                </div>
+            </li>
+            <li class="nav-item ml-auto" *ngIf="factura.hasSupportDocs=='1'">
+                <a class="nav-link" matTooltip="Con Soportes" matTooltipPosition="above"><span class="fa fa-paperclip"></span></a>
+            </li>
+        </ul> -->

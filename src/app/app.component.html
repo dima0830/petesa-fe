@@ -1,0 +1,15 @@
+<app-navbar [permissionsDriver]="permissionsDriver"></app-navbar>
+<router-outlet></router-outlet>
+
+<div *ngIf="changeCompany" class="changeCompany animated fadeIn faster">
+    <div class="h-100" style="position: relative;">
+        <div style="width:100%; position: absolute; top:50%; left:50%; transform: translate(-50%, -50%);">
+            <app-switch-company></app-switch-company>
+        </div>
+        <!-- <app-navbar0></app-navbar0> -->
+
+        <button type="button" class="close m-4" (click)="closeChangeCompany()" style="z-index: 3000 !important;">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+</div>

@@ -1,0 +1,94 @@
+<div *ngIf="err500" class="alert alert-danger mt-3 animated wobble" role="alert">
+    <div class="d-inline-block p-2 align-middle">
+        <img src="./assets/img/ic_err500.svg" alt="" style="max-width: 90px;">
+    </div>
+    <div class="d-inline-block p-2 align-middle">
+        <h4 class="text-danger m-0">ERROR INTERNO DEL SERVIDOR!</h4>
+        <p class="p-0 m-0">El servidor no ha respondido de la manera esperada. <br> <small class="text-muted"> Por favor póngase en contacto con el departamento de operaciones de Ptesa.</small></p>
+    </div>
+</div>
+
+<div class="jumbotron jumbotron-fluid animated fadeIn fast">
+    <div class="container">
+        <h1 style="color: #00427a;">Emisión <small class="text-muted">Cargar Documentos</small> </h1>
+        <p class="lead">Genere Documentos Fiscales Electrónicos, mediante la carga de archivos de Microsoft® Excel® (xls, xlsx)</p>
+    </div>
+</div>
+
+<div class="container-fluid my-5 h-100">
+    <div class="p-0 m-0">
+        <hr>
+        <div class="row">
+            <div class="col-sm-12">
+                <button [routerLink]="['/e']" class="btn btn-warning shadow-sm ml-2" matTooltip="Volver"><span class="fa fa-arrow-left fa-fw"></span></button>
+            </div>
+        </div>
+        <hr>
+    </div>
+
+    <div class="row card-group">
+        <div class="col-sm-8 mb-3">
+            <form (ngSubmit)="enviarArchivo(loadForm)" #loadForm="ngForm" novalidate>
+                <div class="mb-2">
+                    <select class="form-control form-control-lg" name="supplierId" [(ngModel)]="selectedSuplier" #supplierId="ngModel" required [ngClass]="{'is-invalid': supplierId.errors?.required && supplierId.touched}">
+                        <option value="">Seleccione un proveedor...</option>
+                        <option *ngFor="let supplier of arrSuppliers" value="{{supplier.id}}">{{supplier.name}}</option>
+                    </select>
+                    <div *ngIf="supplierId.errors?.required && supplierId.touched" class="invalid-feedback d-block">
+                        Debe seleccionar el proveedor que emitirá documentos.
+                    </div>
+                </div>
+                <div class="card shadow h-100">
+                    <div class="card-body">
+                        <div *ngIf="cargando">
+                            <app-precarga></app-precarga>
+                        </div>
+                        <div *ngIf="!cargando && !answer" class="animated fadeIn">
+                            <label for="archivoCarga" id="contenedorCargaArchivos">
+                            <h1 [ngClass]="{'animated bounce infinite': !file64}"><span class="fa fa-cloud-upload fa-3x"></span></h1>
+                            <div class="lead">Click para seleccionar un documento</div>
+                            <div style="font-size: 11px">(Formatos permitidos: .xlsx / .xml / .txt / .ubl21 / .apiros / .cfp / .pgp / .ptm)</div>
+                            <div id="contenedorNombreArchivoCargado"></div>
+                            <div id="contenedorBotonCargarArchivo" style="text-align: center;">
+                                <br>
+                                <button *ngIf="file64" (click)="loadFile()" id="botonCargarArchivo" type="submit" class="btn btn-success" [disabled]="loadForm.invalid"><strong>Cargar Archivo:</strong>  <br> {{ filename }}</button>
+                            </div>
+                        </label>
+                            <div>
+                                <input id="archivoCarga" type="file" style="opacity: 0" accept=".xlsx, .xml, .txt, .ubl21, .apiros, .cfp, .pgp, .ptm" (change)="changeListener($event)" required>
+                            </div>
+                        </div>
+                        <div *ngIf="answer" class="text-center animated fadeIn">
+                            <div class="alert alert-success" role="alert">
+                                <button (click)="resetProcess()" type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                                <p>
+                                    <img src="./assets/img/ic_track.png" alt="Track I.D.">
+                                </p>
+                                <h4 class="alert-heading">Track ID</h4>
+                                <h2 class="display-1">{{ trackId }}</h2>
+                                <hr>
+                                <p class="mb-0 text-muted"><strong>Nota:</strong><br> Conserve este identificador para realizar posteriores consultas al proceso de emisión de Factura Electrónica.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-sm-4 mb-3">
+            <div class="card h-100 border-0">
+                <div class="text-center mt-2">
+                    <img src="./assets/img/PlantillaExcel.jpg" class="card-img-top" alt="Plantilla de Facturación Electrónica" style="max-width: 60%">
+                </div>
+                <div class="card-body">
+                    <p class="card-text"><small class="text-muted">Ptesa le ofrece una plantilla de excel, la cual le permitirá reemplazar los valores iniciales por los datos que requiera su organización.</small></p>
+                    <p class="text-center"> <button class="btn btn-outline-secondary"><span class="fa fa-download"></span> Descargar Plantilla</button></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-infopie></app-infopie>
+<button *ngIf="env.overallPermissions.showTrackSearch" type="button" [routerLink]="['/rastreador']" class="btn btn-circle btn-xl-1 text-light shadow animated fadeInRight fast paso9" matTooltip="Rastreador" matTooltipPosition="left"><span class="fa fa-bullseye fa-lg"></span> 
+</button>

@@ -1,0 +1,14 @@
+.basicLoader {
+    font-size: 20px;
+    text-align: center;
+    /* position: absolute;
+    top: 50%;
+    left: 50%; */
+    color: #b8b8b8;
+    /* transform: translate(-50%, -50%); */
+    background-repeat: no-repeat, repeat;
+    background-size: 50%;
+    background-position: center;
+    background-image: url('/assets/img/logoPtesaSimpleAzul.svg');
+    display: inline-block;
+}

@@ -1,0 +1,258 @@
+<div *ngIf="err500" class="alert alert-danger mt-3 animated wobble" role="alert">
+    <div class="d-inline-block p-2 align-middle">
+        <img src="./assets/img/ic_err500.svg" alt="" style="max-width: 90px;">
+    </div>
+    <div class="d-inline-block p-2 align-middle">
+        <h4 class="text-danger m-0">ERROR INTERNO DEL SERVIDOR!</h4>
+        <p class="p-0 m-0">El servidor no ha respondido de la manera esperada. <br> <small class="text-muted"> Por favor póngase en contacto con el departamento de operaciones de Ptesa.</small></p>
+    </div>
+</div>
+<div class="jumbotron jumbotron-fluid animated fadeIn fast">
+    <div class="container">
+        <h1 style="color: #00427a;">Recepción <small class="text-muted">Factura Electrónica </small> </h1>
+        <p class="lead text-muted">Consulte y filtre de manera ágil y fácil todos sus documentos electrónicos recibidos.</p>
+    </div>
+</div>
+
+
+<div class="container-fluid" style="min-height: 50vh">
+
+    <div class="p-0 m-0">
+        <hr id="tope">
+        <div class="row">
+            <div class="col-sm-6">
+                <button class="btn btn-warning btn-lg shadow-sm ml-2" [disabled]="preloader" matTooltip="Filtrar documentos recibidos" data-toggle="modal" data-target="#modalBuscadorEmision" style="position: relative;"><span *ngIf="withCriteria" matTooltip="Filtros activos" matTooltipPosition="after" class="badge badge-pill badge-danger p-1 animated zoomIn fast" style="position: absolute; top: -10px; right: -10px;"><span class="fa fa-filter fa-fw"></span></span><span class="fa fa-search fa-fw"></span></button>
+                <div class="btn-group btn-group ml-2" role="group">
+                    <button *ngIf="!displayModeList" class="btn btn-lg btn-primary fondoAzulPtesa" [disabled]="preloader" matTooltip="Ver filas" (click)="changeviewMode()" style="border-radius: 0; color: #565758"><span class="fa fa-list fa-lg"></span></button>
+                    <button *ngIf="displayModeList" class="btn btn-lg btn-primary fondoAzulPtesa" [disabled]="preloader" matTooltip="Ver tarjetas" (click)="changeviewMode()" style="border-radius: 0; color: #565758"><span class="fa fa-th fa-lg"></span></button>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <!-- <div class="text-right" role="group">
+                    <button (click)="resultsDownload()" class="btn btn-warning btn-lg shadow-sm mr-2" [disabled]="preloader || totalResults === '0'" matTooltip="Descargar Resultados (Excel)"><span *ngIf="!resultsDownloadProcess" class="fa fa-download fa-fw"></span><span *ngIf="resultsDownloadProcess" class="fa fa-spinner fa-pulse fa-fw"></span></button>
+                </div> -->
+            </div>
+        </div>
+        <hr>
+    </div>
+    <app-precarga *ngIf="preloader" class="animated fadeIn faster"></app-precarga>
+    <div *ngIf="!preloader">
+        <div class="text-center text-muted mb-3">Documentos: {{ totalResults }}</div>
+        <div *ngIf="totalResults > 0" class="text-center my-4">
+            <pagination-controls (pageChange)="pageChanged($event)" directionLinks="true" previousLabel="Anterior" nextLabel="Siguiente"></pagination-controls>
+        </div>
+        <div *ngIf="displayModeList" class="animated fadeIn">
+            <app-filas style="cursor: pointer;" [invoicesSentArray]="invoicesSentArray" (transportDocumentId)="showTableDetails($event)"></app-filas>
+        </div>
+
+
+        <div [ngClass]="{'shower': !displayModeList, 'hidder': displayModeList}">
+            <div class="row" [@cardAnimation]="invoicesSentArray.length">
+                <div class="col-xl-3 col-lg-4 col-md-6 mb-4" *ngFor="let factura of invoicesSentArray | paginate: { itemsPerPage: maxResultsPerPage, currentPage: currentPage, totalItems: totalResults }">
+                    <app-tarjetas class="animated fadeIn" style="animation-delay: 0.5s;" [factura]="factura" (transportDocumentId)="showTableDetails($event)"></app-tarjetas>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="totalResults > 0" class="text-center my-4">
+            <pagination-controls (pageChange)="pageChanged($event)" directionLinks="true" previousLabel="Anterior" nextLabel="Siguiente"></pagination-controls>
+        </div>
+        <div *ngIf="totalResults === '0' || totalResults === 0" class="row mt-3 mb-4">
+            <div class="col-sm-6 offset-sm-3 text-center text-secondary">
+                <h3><span class="fa fa-exclamation-triangle fa-3x"></span></h3>
+                <h5>No se encontraron facturas recibidas.</h5>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- Modal Buscador -->
+<div class="modal fade" id="modalBuscadorEmision" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color: #dadada; border-bottom: solid 2px #007bff">
+                <!-- <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5> -->
+
+                <h2 class="modal-title" style="color: #00427a"><span class="fa fa-search fa-lg"></span> Buscador <small class="text-primary">Documentos Recibidos</small></h2>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+            </div>
+            <div class="modal-body">
+                <app-buscador-recepcion (pasarParametros)="getParameters($event)"></app-buscador-recepcion>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Detalle -->
+<div class="modal fade" id="modalDetalleDocumento" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color: #dadada; border-bottom: solid 2px #007bff">
+
+                <h2 class="modal-title" style="color: #00427a"><span class="fa fa-search fa-lg"></span> Detalle <small class="text-primary">Documento Recibido</small></h2>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body vh-100" style="position: relative;">
+                <div *ngIf="!detailPreloader" class="py-2 shadow" [ngClass]="{'bg-secondary': currentStatus === 3010 || currentStatus === 3011, 'bg-success': currentStatus === 3012, 'bg-danger': currentStatus === 3014, 'bg-warning': currentStatus !== 3010 && currentStatus !== 3011 && currentStatus !== 3012 && currentStatus !== 3013 && currentStatus !== 3014}"
+                    style="color: #ffffff; width: 200px; transform: rotate(-45deg); position:absolute; top:20px; left: -55px; text-align: center; line-height: 1; z-index: 55555555555555;">
+                    <span style="font-size: 11px;">Estado:</span><br> <span><strong>{{libr.convEstadoDoc(currentStatus)}}</strong></span>
+                </div>
+                <div *ngIf="detailPreloader">
+                    <app-precarga></app-precarga>
+                </div>
+                <div *ngIf="(currentStatus === 3012 &&  3 > rejectReason.length )" class="text-center my-4">
+                    &nbsp;
+                </div>
+
+                <div *ngIf="!detailPreloader && currentStatus === 3014" class="row justify-content-center animated bounce fast">
+                    <div class="col-7">
+                        <div class="alert alert-danger" role="alert">
+                            <h5 class="alert-heading m-0">Motivo de rechazo:</h5>
+                            <hr class="my-1">
+                            <p class="m-0">{{ rejectReason }}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div *ngIf="!detailPreloader && currentStatus === 3012 && rejectReason.length > 2" class="row justify-content-center animated bounce fast">
+                    <div class="col-7">
+                        <div class="alert alert-light" role="alert">
+                            <h5 class="alert-heading m-0"><span class="fa fa-commenting" aria-hidden="true"></span> Comentarios:</h5>
+                            <hr class="my-1">
+                            <p class="m-0">{{ rejectReason }}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div *ngIf="!detailPreloader && currentStatus === 3011" class="row my-4">
+                    <div class="col-sm-6 offset-sm-3">
+                        <div class="row">
+                            <div class="col">
+                                <button (click)="confirmAcept()" class="btn btn-success btn-block rounded-pill shadow" [disabled]="rejetcOpen"><span class="fa fa-thumbs-up" aria-hidden="true"></span> ACEPTAR</button>
+                            </div>
+                            <div class="col">
+                                <button (click)="confirmReject()" class="btn btn-danger btn-block rounded-pill shadow" [disabled]="aprovedOpen"><span class="fa fa-thumbs-down" aria-hidden="true"></span> RECHAZAR</button>
+                            </div>
+                        </div>
+
+                        <div *ngIf="rejetcOpen">
+                            <div class="row mt-3 animated bounce fast">
+                                <div class="col-sm-12">
+                                    <div class="form-group text-center text-danger mb-0">
+                                        <label for="ta1">*Motivo de rechazo:</label>
+                                        <textarea class="form-control border border-danger" id="ta1" rows="2" style="resize: none;" name="rejectReason" [(ngModel)]="rejectReason" #reason="ngModel" required [ngClass]="{'is-invalid': reason.errors?.required  && reason.touched}"></textarea>
+                                    </div>
+                                    <div *ngIf="reason.errors?.required && reason.touched" class="invalid-feedback d-block">
+                                        Ingrese la razón para rechazar el documento.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-sm-6 offset-sm-3">
+                                    <div class="row">
+                                        <div class="col">
+                                            <button (click)="cancelReject()" class="btn btn-secondary btn-sm btn-block rounded-pill shadow animated slideInLeft fast">Cancelar</button>
+                                        </div>
+                                        <div class="col">
+                                            <button [disabled]="reason.errors?.required" (click)="rechazarDocumento()" class="btn btn-danger btn-sm btn-block rounded-pill shadow animated slideInRight faster">Confirmar</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div *ngIf="aprovedOpen">
+                            <div class="row mt-3 animated bounce fast">
+                                <div class="col-sm-12">
+                                    <div class="form-group text-center text-secondary mb-0">
+                                        <label for="ta1"><span class="fa fa-commenting" aria-hidden="true"></span> Comentarios: <small class="text-muted">(Opcional)</small></label>
+                                        <textarea class="form-control border border-secondary" id="ta1" rows="2" style="resize: none;" name="rejectReason" [(ngModel)]="rejectReason" #comments="ngModel"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-sm-6 offset-sm-3">
+                                    <div class="row">
+                                        <div class="col">
+                                            <button (click)="cancelAcept()" class="btn btn-secondary btn-sm btn-block rounded-pill shadow animated slideInLeft fast">Cancelar</button>
+                                        </div>
+                                        <div class="col">
+                                            <button (click)="aprobarDocumento()" class="btn btn-success btn-sm btn-block rounded-pill shadow animated slideInRight faster">Confirmar</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                    </div>
+                </div>
+
+                <div *ngIf="!detailPreloader " class="row ">
+                    <div class="col-xl-9 col-lg-8 m-0 p-0 ">
+                        <app-pdfviewer *ngIf="pdfBase64 " [cadenaB64]=" 'data:application/pdf;base64,'+pdfBase64 " [zoomPdf]="zoomPdf "></app-pdfviewer>
+                    </div>
+
+                    <!-- Columna derecha -->
+                    <div class="col-xl-3 col-lg-4 p-1 m-0 ">
+                        <div class="animated fadeInRight faster" *ngIf="env.overallPermissions.showOutboundDocumentsDownload ">
+                            <div class="border border-primary text-center p-2 pt-3 mt-0 " style="position: relative; ">
+                                <div class="p-1 text-primary " style="font-size: 11px; display: inline-block; background-color: #ffffff; position: absolute; top: 0; left: 50%; transform: translate(-50%, -50%); "><span class="fa fa-download "></span> Descargas:</div>
+                                <button (click)="graphRepresentationDownload() " class="btn btn-primary btn-block " style="border-radius: 0; "><span *ngIf="!loaderPdf ">PDF</span><span *ngIf="loaderPdf "><span class="fa fa-spinner fa-pulse fa-fw "></span></span>    </button>
+                                <button *ngIf="signedUbl " (click)="signedUblDownload() " class="btn btn-primary btn-block " style="border-radius: 0; "><span *ngIf="!loaderSignedUbl "> UBL / XML <br><span style="font-size: 11px;
+                        ">Firmado</span></span><span *ngIf="loaderSignedUbl "><span class="fa fa-spinner fa-3x fa-pulse fa-fw "></span></span></button>
+                                <button *ngIf="unsignedUbl " class="btn btn-primary btn-block " style="border-radius: 0; ">UBL / XML <br><span style="font-size: 11px; ">Sin Firmar</span></button>
+
+                                <div *ngIf="arrApplicationResponseDocs.length> 0" style="position: relative;">
+                                    <div class="p-1 text-primary mt-3" style="font-size: 11px;">Respuestas DIAN <br>Application Response:</div>
+                                    <ul class="list-group">
+                                        <li *ngFor="let appResp of arrApplicationResponseDocs; let i = index" (click)="appResponseDownload(i)" class="list-group-item" style="background-color: #f0f0f0;"> <button class="btn btn-link">AR-{{ appResp.docName }}</button></li>
+                                    </ul>
+                                    <div *ngIf="loaderAR" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(255, 255, 255, 0.7); color: #00427a">
+                                        <div class="afinarCentro">
+                                            <span class="fa fa-spinner fa-pulse fa-3x fa-fw"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div *ngIf="arrAttachedDocs.length > 0" style="position: relative;">
+                                    <div class="p-1 text-primary mt-3" style="font-size: 11px;">Sobre Electrónico: <br>Attached Documents</div>
+                                    <ul class="list-group">
+                                        <li *ngFor="let attachedDoc of arrAttachedDocs; let j = index" (click)="attachedDocumentsDownload(j)" class="list-group-item" style="background-color: #f0f0f0;"> <button class="btn btn-link">AD-{{ attachedDoc.docName}}</button></li>
+                                    </ul>
+                                    <div *ngIf="loaderAD" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(255, 255, 255, 0.7); color: #00427a">
+                                        <div class="afinarCentro">
+                                            <span class="fa fa-spinner fa-pulse fa-3x fa-fw"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div *ngIf="arrBillingDocumentAttachementDocs.length > 0" style="position: relative;">
+                                    <div class="p-1 text-primary mt-3" style="font-size: 11px;">Soportes:</div>
+                                    <ul class="list-group">
+                                        <li *ngFor="let soporte of arrBillingDocumentAttachementDocs; let k = index" (click)="billDocAttDocDownload(k)" class="list-group-item" style="background-color: #f0f0f0;"> <button class="btn btn-link">{{ soporte.docName }}</button></li>
+                                    </ul>
+                                    <div *ngIf="loaderAtt" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(255, 255, 255, 0.7); color: #00427a">
+                                        <div class="afinarCentro">
+                                            <span class="fa fa-spinner fa-pulse fa-3x fa-fw"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-infopie></app-infopie>

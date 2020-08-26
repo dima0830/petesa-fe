@@ -1,0 +1,28 @@
+<!-- <nav class="navbar navbar-expand fixed-bottom navbar-dark fondoAzulPtesa shadow-lg animated fadeInUp fast" style="border-top: solid 4px black;">
+    <div class="navbar-collapse collapse">
+        <ul class="navbar-nav animated tada" style="animation-delay: 1s;">
+
+            <li *ngIf="env.overallPermissions.showOutboundSearch" class="nav-item">
+                <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#modalBuscadorEmision">
+                    <span class="fa fa-search fa-lg"></span> Buscar
+                </button>
+            </li>
+            <li *ngIf="env.overallPermissions.showOutboundOperate" class="nav-item">
+                <button class="btn btn-outline-warning ml-3" [routerLink]="['/e','cargar']"><span class="fa fa-pencil-square-o fa-lg"></span> Emitir</button>
+            </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="#"><span class="fa fa-ambulance fa-lg"></span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#"><span class="fa fa-info-circle fa-lg"></span></a>
+            </li>
+        </ul>
+    </div>
+</nav> -->
+
+<button *ngIf="env.overallPermissions.showOutboundOperate" type="button" [routerLink]="['/e','cargar']" class="btn btn-circle btn-xl-1 text-light shadow animated fadeInRight fast" matTooltip="Emitir documento" matTooltipPosition="left"><span class="fa fa-paper-plane fa-lg"></span>
+</button>
+<button *ngIf="env.overallPermissions.showTrackSearch" type="button" [routerLink]="['/rastreador']" class="btn btn-circle btn-xl-2 text-light shadow animated fadeInRight fast" matTooltip="Rastreador" matTooltipPosition="left"><span class="fa fa-bullseye fa-lg"></span> 
+</button>

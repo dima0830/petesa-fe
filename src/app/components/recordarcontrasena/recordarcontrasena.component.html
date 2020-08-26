@@ -1,0 +1,131 @@
+<div *ngIf="err500" class="alert alert-danger mt-3 animated wobble" role="alert">
+    <div class="d-inline-block p-2 align-middle">
+        <img src="./assets/img/ic_err500.svg" alt="" style="max-width: 90px;">
+    </div>
+    <div class="d-inline-block p-2 align-middle">
+        <h4 class="text-danger m-0">ERROR INTERNO DEL SERVIDOR!</h4>
+        <p class="p-0 m-0">El servidor no ha respondido de la manera esperada. <br> <small class="text-muted"> Por favor póngase en contacto con el departamento de operaciones de Ptesa.</small></p>
+    </div>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+</div>
+
+<div class="container-fluid">
+    <div class="row my-5">
+        <div class="col-sm-4 offset-sm-4">
+            <div class="alert alert-dark shadow" style="background-color: rgba(248, 249, 250, 0.8); border-radius: 0">
+                <div class="text-center mb-2">
+                    <img src="assets/img/logo_fe.png" alt="Facturación Electrónica Ptesa" style="max-width: 70%; opacity: 0.9">
+                </div>
+
+                <form #formularioPasswd="ngForm" (ngSubmit)="setPwd()" novalidate>
+                    <div style="opacity: 0;">
+                        <input type='text' name='email'>
+                        <input type='password' name='password'>
+                    </div>
+                    <div style="position: relative">
+                        <div class="border border-primary text-center p-2 pt-3 mt-0 " style="position: relative;">
+                            <div *ngIf="!precargaAct" class="p-1 text-primary " style="font-size: 11px; display: inline-block; background-color: rgba(248, 249, 250, 0.8); position: absolute; top: 0; left: 50%; transform: translate(-50%, -50%); ">Asigne una nueva contraseña:</div>
+                            <div class="text-center small mb-2 text-muted">
+                                <strong>La nueva contraseña debe:</strong> <br> Tener una longitud de 8 caracteres o superior. Estar formada por minúsculas, mayúsculas, al menos un número y un carácter especial.
+                            </div>
+                            <div class="input-group shadow mt-3">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text bg-primary text-light" style="border-width: 0; border-radius: 0"><span class="fa fa-key"></span></div>
+                                </div>
+                                <input (keyup)="comparePwds()" type="password" class="form-control" placeholder="Asignar Contraseña" style="border-width: 0;  border-radius: 0" name="contra" [(ngModel)]="contra" #passwordR="ngModel" required pattern="^.*(?=.{8,})((?=.*[!@#$%^&*()\-_=+{};:,<.>]){1})(?=.*\d)((?=.*[a-z]){1})((?=.*[A-Z]){1}).*$"
+                                    [ngClass]="{'is-invalid': (passwordR.errors?.required || passwordR.errors?.minlength)  && passwordR.touched}">
+                            </div>
+                            <div *ngIf="passwordR.errors?.required && passwordR.touched" class="invalid-feedback d-block">
+                                Asigne una contraseña.
+                            </div>
+                            <div *ngIf="passwordR.errors?.pattern && passwordR.touched" class="invalid-feedback d-block">
+                                La contraseña no cumple con el formato.
+                            </div>
+
+
+                            <div class="input-group shadow mt-3">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text bg-primary text-light" style="border-width: 0; border-radius: 0"><span class="fa fa-key"></span></div>
+                                </div>
+                                <input (keyup)="comparePwds()" type="password" class="form-control" placeholder="Confirmar Contraseña" style="border-width: 0; border-radius: 0" name="passwordConf" [(ngModel)]="passwordConf" #passwordConfR="ngModel" required [ngClass]="{'is-invalid': (passwordConfR.errors?.required  && passwordConfR.touched) || !samePwd}">
+                            </div>
+                            <div *ngIf="passwordConfR.errors?.required && passwordConfR.touched" class="invalid-feedback d-block">
+                                Confirme la contraseña.
+                            </div>
+                            <div *ngIf="!samePwd" class="invalid-feedback d-block">
+                                Contraseñas diferentes.
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12 text-center my-3">
+                                <button [disabled]="formularioPasswd.invalid || !samePwd" type="submit" class="btn btn-primary">Confirmar</button>
+                            </div>
+                        </div>
+                        <div *ngIf="precargaAct" class="fondoGrisClaro animated fadeIn fast" style="position: absolute; width:100%; height:100%; top:0; left: 0;">
+                            <app-precarga></app-precarga>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="confirmModal" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color: #dadada; border-bottom: solid 2px #007bff">
+                <h2 class="modal-title" style="color: #00427a"><span class="fa fa-key fa-lg"></span> Contraseña <small class="text-primary">Asignada</small></h2>
+            </div>
+            <div class="modal-body text-center">
+                <h1 class="text-success"><span class="fa fa-check" aria-hidden="true"></span></h1>
+                <p>Su contraseña ha sido restablecida satisfactoriamente.</p>
+            </div>
+            <div class="modal-footer">
+                <button (click)="logout()" type="button" class="btn btn-primary">Iniciar Sesión</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="expiraModal" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color: #dadada; border-bottom: solid 2px #007bff">
+                <h2 class="modal-title text-danger" style="color: #00427a"><span class="fa fa-clock-o" aria-hidden="true"></span> El Vínculo Expiró!</h2>
+            </div>
+            <div class="modal-body text-center">
+                <h1 class="text-danger"><span class="fa fa-exclamation-triangle" aria-hidden="true"></span></h1>
+                <p>El vínculo al que está tratando de acceder expiró el: <br>{{ fechaVencimiento | date: 'medium'}}</p>
+            </div>
+            <div class="modal-footer">
+                <button (click)="logout()" type="button" class="btn btn-primary">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="expiradoModal" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color: #dadada; border-bottom: solid 2px #007bff">
+                <h2 class="modal-title text-danger">No Válido</h2>
+            </div>
+            <div class="modal-body text-center">
+                <h1 class="text-danger"><span class="fa fa-reply" aria-hidden="true"></span></h1>
+                <p>El vínculo al que accedió ya fue usado previamente.</p>
+                <small class="text-muted">Si no recuerda la contraseña asignada, haga click en el botón "Iniciar" y siga el vínculo "¿Olvidó su contraseña?"</small>
+            </div>
+            <div class="modal-footer">
+                <button (click)="logout()" type="button" class="btn btn-primary">Iniciar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-infopie></app-infopie>

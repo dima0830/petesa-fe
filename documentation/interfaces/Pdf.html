@@ -1,0 +1,228 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>portalfe documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">portalfe documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content interface">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li>Interfaces</li>
+  <li>Pdf</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/services/servicioprueba.service.ts</code>
+        </p>
+
+
+
+        <section>
+            <h3 id="index">Index</h3>
+            <table class="table table-sm table-bordered index-table">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Properties</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                        <a href="#pdf">pdf</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+
+
+            <section>
+                <h3 id="inputs">Properties</h3>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="pdf"></a>
+                                        <span class="name"><b>pdf</b><a href="#pdf"><span class="icon ion-ios-link"></span></a></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>pdf:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+            </section>
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
+import { HttpClient } from &#x27;@angular/common/http&#x27;; 
+import { Observable } from &#x27;rxjs&#x27;;
+
+@Injectable({
+  providedIn: &#x27;root&#x27;
+})
+export class ServiciopruebaService {
+  constructor( private http: HttpClient ) {
+    console.log(&#x27;servicio listo&#x27;, this.pdfs);
+   }
+  pdfBase64: string;
+
+  conectarFuentePDF2() {
+    return this.http.post(&#x27;http://localhost:8888/angular.php&#x27;, &#x27;{}&#x27;);
+  }
+
+  
+
+
+
+
+
+
+
+
+
+
+  private pdfs: Pdf[] &#x3D; [
+    // tslint:disable-next-line: max-line-length
+    { pdf: &#x27;data:application/pdf;base64,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IDAwMDAwIG4gCjAwMDAwMDAyMzQgMDAwMDAgbiAKMDAwMDAwMDM1NyAwMDAwMCBuIAowMDAwMDAxNjk0IDAwMDAwIG4gCjAwMDAwMDE4NjIgMDAwMDAgbiAKMDAwMDAwMDQ1NCAwMDAwMCBuIAowMDAwMDAxNjczIDAwMDAwIG4gCjAwMDAwMDE4MTIgMDAwMDAgbiAKMDAwMDAwMjI0MyAwMDAwMCBuIAowMDAwMDAyNDk1IDAwMDAwIG4gCjAwMDAwMDY2OTMgMDAwMDAgbiAKMDAwMDAwNjcxNCAwMDAwMCBuIAowMDAwMDA2Nzk1IDAwMDAwIG4gCjAwMDAwMDY4NDggMDAwMDAgbiAKMDAwMDAwNjg3NSAwMDAwMCBuIAowMDAwMDA2OTE3IDAwMDAwIG4gCjAwMDAwMDY5MzYgMDAwMDAgbiAKdHJhaWxlcgo8PCAvU2l6ZSAyMSAvUm9vdCAxMSAwIFIgL0luZm8gMSAwIFIgL0lEIFsgPDM2YTRhNGNjODMzMWY1NzBkNzQ0Mzk0YWI4ZWQ5NzhmPgo8MzZhNGE0Y2M4MzMxZjU3MGQ3NDQzOTRhYjhlZDk3OGY+IF0gPj4Kc3RhcnR4cmVmCjcxMDAKJSVFT0YK&#x27;}
+  ];
+
+  conectarFuentePDF() {
+    return this.pdfs[0];
+  }
+}
+
+export interface Pdf {
+  pdf: string;
+}</code></pre>
+    </div>
+</div>
+
+
+                   
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
+            var COMPODOC_CURRENT_PAGE_URL = 'Pdf.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

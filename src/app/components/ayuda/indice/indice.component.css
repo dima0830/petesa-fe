@@ -1,0 +1,13 @@
+.card {
+    border: 0;
+}
+
+.card-header {
+    background-color: #ffffff;
+    color: red !important;
+}
+
+.btn-link {
+    color: #00427a;
+    font-weight: bold;
+}

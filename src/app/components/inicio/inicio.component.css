@@ -1,0 +1,22 @@
+.ic-inicio {
+    opacity: 1;
+    cursor: pointer;
+    transition: 0.5s
+}
+
+.ic-inicio:hover {
+    opacity: 0.8;
+}
+
+.icono {
+    fill: blue;
+}
+
+.icono:hover {
+    fill: red;
+}
+
+.tachado {
+    text-decoration: line-through;
+    opacity: 0.4;
+}

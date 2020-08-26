@@ -1,0 +1,2243 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>portalfe documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">portalfe documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>BuscadorEmisionComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/components/buscador-emision/buscador-emision.component.ts</code>
+</p>
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-buscador-emision</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./buscador-emision.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./buscador-emision.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#anioActual">anioActual</a>
+                            </li>
+                            <li>
+                                <a href="#calendario">calendario</a>
+                            </li>
+                            <li>
+                                <a href="#d">d</a>
+                            </li>
+                            <li>
+                                <a href="#filters">filters</a>
+                            </li>
+                            <li>
+                                <a href="#fromDate">fromDate</a>
+                            </li>
+                            <li>
+                                <a href="#hoveredDate">hoveredDate</a>
+                            </li>
+                            <li>
+                                <a href="#mesActual">mesActual</a>
+                            </li>
+                            <li>
+                                <a href="#mesInicial">mesInicial</a>
+                            </li>
+                            <li>
+                                <a href="#toDate">toDate</a>
+                            </li>
+                            <li>
+                                <a href="#visibilidadBuscador">visibilidadBuscador</a>
+                            </li>
+                            <li>
+                                <a href="#withCriteria">withCriteria</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#clearDate">clearDate</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#daysInMonth">daysInMonth</a>
+                            </li>
+                            <li>
+                                <a href="#enviarFormulario">enviarFormulario</a>
+                            </li>
+                            <li>
+                                <a href="#isHovered">isHovered</a>
+                            </li>
+                            <li>
+                                <a href="#isInside">isInside</a>
+                            </li>
+                            <li>
+                                <a href="#isRange">isRange</a>
+                            </li>
+                            <li>
+                                <a href="#modelChange">modelChange</a>
+                            </li>
+                            <li>
+                                <a href="#muestraDocumento">muestraDocumento</a>
+                            </li>
+                            <li>
+                                <a href="#muestraEmpresa">muestraEmpresa</a>
+                            </li>
+                            <li>
+                                <a href="#muestraFecha">muestraFecha</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit">ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#onDateSelection">onDateSelection</a>
+                            </li>
+                            <li>
+                                <a href="#resetFilters">resetFilters</a>
+                            </li>
+                            <li>
+                                <a href="#sel30dias">sel30dias</a>
+                            </li>
+                            <li>
+                                <a href="#sel7dias">sel7dias</a>
+                            </li>
+                            <li>
+                                <a href="#selAyer">selAyer</a>
+                            </li>
+                            <li>
+                                <a href="#selHoy">selHoy</a>
+                            </li>
+                            <li>
+                                <a href="#selMesPasado">selMesPasado</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Outputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#estadoFiltro">estadoFiltro</a>
+                            </li>
+                            <li>
+                                <a href="#pasarParametros">pasarParametros</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(calendar: NgbCalendar)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/components/buscador-emision/buscador-emision.component.ts:33</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>calendar</td>
+                                                  
+                                                        <td>
+                                                                    <code>NgbCalendar</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+    <section>
+    <h3 id="outputs">Outputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="estadoFiltro"></a>
+                        <b>estadoFiltro</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://angular.io/api/core/EventEmitter" target="_blank" >EventEmitter</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/components/buscador-emision/buscador-emision.component.ts:15</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="pasarParametros"></a>
+                        <b>pasarParametros</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://angular.io/api/core/EventEmitter" target="_blank" >EventEmitter</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/components/buscador-emision/buscador-emision.component.ts:14</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="clearDate"></a>
+                    <span class="name">
+                        <b>
+                            clearDate
+                        </b>
+                        <a href="#clearDate"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>clearDate()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="217"
+                            class="link-to-prism">src/app/components/buscador-emision/buscador-emision.component.ts:217</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="daysInMonth"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
+                            daysInMonth
+                        </b>
+                        <a href="#daysInMonth"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>daysInMonth(month, year)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="224"
+                            class="link-to-prism">src/app/components/buscador-emision/buscador-emision.component.ts:224</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>month</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>year</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="enviarFormulario"></a>
+                    <span class="name">
+                        <b>
+                            enviarFormulario
+                        </b>
+                        <a href="#enviarFormulario"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>enviarFormulario(form: <a href="https://angular.io/api/forms/NgForm" target="_blank">NgForm</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="87"
+                            class="link-to-prism">src/app/components/buscador-emision/buscador-emision.component.ts:87</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>form</td>
+                                    <td>
+                                                <code><a href="https://angular.io/api/forms/NgForm" target="_blank" >NgForm</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isHovered"></a>
+                    <span class="name">
+                        <b>
+                            isHovered
+                        </b>
+                        <a href="#isHovered"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>isHovered(date: NgbDate)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="132"
+                            class="link-to-prism">src/app/components/buscador-emision/buscador-emision.component.ts:132</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>date</td>
+                                    <td>
+                                            <code>NgbDate</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isInside"></a>
+                    <span class="name">
+                        <b>
+                            isInside
+                        </b>
+                        <a href="#isInside"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>isInside(date: NgbDate)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="137"
+                            class="link-to-prism">src/app/components/buscador-emision/buscador-emision.component.ts:137</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>date</td>
+                                    <td>
+                                            <code>NgbDate</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isRange"></a>
+                    <span class="name">
+                        <b>
+                            isRange
+                        </b>
+                        <a href="#isRange"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>isRange(date: NgbDate)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="142"
+                            class="link-to-prism">src/app/components/buscador-emision/buscador-emision.component.ts:142</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>date</td>
+                                    <td>
+                                            <code>NgbDate</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="modelChange"></a>
+                    <span class="name">
+                        <b>
+                            modelChange
+                        </b>
+                        <a href="#modelChange"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>modelChange()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="102"
+                            class="link-to-prism">src/app/components/buscador-emision/buscador-emision.component.ts:102</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="muestraDocumento"></a>
+                    <span class="name">
+                        <b>
+                            muestraDocumento
+                        </b>
+                        <a href="#muestraDocumento"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>muestraDocumento()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="60"
+                            class="link-to-prism">src/app/components/buscador-emision/buscador-emision.component.ts:60</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="muestraEmpresa"></a>
+                    <span class="name">
+                        <b>
+                            muestraEmpresa
+                        </b>
+                        <a href="#muestraEmpresa"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>muestraEmpresa()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="69"
+                            class="link-to-prism">src/app/components/buscador-emision/buscador-emision.component.ts:69</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="muestraFecha"></a>
+                    <span class="name">
+                        <b>
+                            muestraFecha
+                        </b>
+                        <a href="#muestraFecha"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>muestraFecha()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="78"
+                            class="link-to-prism">src/app/components/buscador-emision/buscador-emision.component.ts:78</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <b>
+                            ngOnInit
+                        </b>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="45"
+                            class="link-to-prism">src/app/components/buscador-emision/buscador-emision.component.ts:45</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onDateSelection"></a>
+                    <span class="name">
+                        <b>
+                            onDateSelection
+                        </b>
+                        <a href="#onDateSelection"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onDateSelection(date: NgbDate)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="119"
+                            class="link-to-prism">src/app/components/buscador-emision/buscador-emision.component.ts:119</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>date</td>
+                                    <td>
+                                            <code>NgbDate</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="resetFilters"></a>
+                    <span class="name">
+                        <b>
+                            resetFilters
+                        </b>
+                        <a href="#resetFilters"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>resetFilters()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="47"
+                            class="link-to-prism">src/app/components/buscador-emision/buscador-emision.component.ts:47</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="sel30dias"></a>
+                    <span class="name">
+                        <b>
+                            sel30dias
+                        </b>
+                        <a href="#sel30dias"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>sel30dias(dp: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="183"
+                            class="link-to-prism">src/app/components/buscador-emision/buscador-emision.component.ts:183</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>dp</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="sel7dias"></a>
+                    <span class="name">
+                        <b>
+                            sel7dias
+                        </b>
+                        <a href="#sel7dias"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>sel7dias(dp: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="170"
+                            class="link-to-prism">src/app/components/buscador-emision/buscador-emision.component.ts:170</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>dp</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selAyer"></a>
+                    <span class="name">
+                        <b>
+                            selAyer
+                        </b>
+                        <a href="#selAyer"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>selAyer(dp: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="157"
+                            class="link-to-prism">src/app/components/buscador-emision/buscador-emision.component.ts:157</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>dp</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selHoy"></a>
+                    <span class="name">
+                        <b>
+                            selHoy
+                        </b>
+                        <a href="#selHoy"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>selHoy(dp: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="146"
+                            class="link-to-prism">src/app/components/buscador-emision/buscador-emision.component.ts:146</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>dp</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selMesPasado"></a>
+                    <span class="name">
+                        <b>
+                            selMesPasado
+                        </b>
+                        <a href="#selMesPasado"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>selMesPasado(dp: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="195"
+                            class="link-to-prism">src/app/components/buscador-emision/buscador-emision.component.ts:195</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>dp</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="anioActual"></a>
+                        <span class="name">
+                            <b>
+                            anioActual</b>
+                            <a href="#anioActual"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>this.d.getFullYear()</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/components/buscador-emision/buscador-emision.component.ts:28</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="calendario"></a>
+                        <span class="name">
+                            <b>
+                            calendario</b>
+                            <a href="#calendario"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>NgbCalendar</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/components/buscador-emision/buscador-emision.component.ts:33</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="d"></a>
+                        <span class="name">
+                            <b>
+                            d</b>
+                            <a href="#d"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>new Date()</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/components/buscador-emision/buscador-emision.component.ts:26</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="filters"></a>
+                        <span class="name">
+                            <b>
+                            filters</b>
+                            <a href="#filters"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>new FilterDocument()</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/components/buscador-emision/buscador-emision.component.ts:23</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="fromDate"></a>
+                        <span class="name">
+                            <b>
+                            fromDate</b>
+                            <a href="#fromDate"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>NgbDate</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/components/buscador-emision/buscador-emision.component.ts:30</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="hoveredDate"></a>
+                        <span class="name">
+                            <b>
+                            hoveredDate</b>
+                            <a href="#hoveredDate"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>NgbDate</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/components/buscador-emision/buscador-emision.component.ts:29</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="mesActual"></a>
+                        <span class="name">
+                            <b>
+                            mesActual</b>
+                            <a href="#mesActual"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>this.d.getMonth() + 1</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/components/buscador-emision/buscador-emision.component.ts:27</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="mesInicial"></a>
+                        <span class="name">
+                            <b>
+                            mesInicial</b>
+                            <a href="#mesInicial"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/components/buscador-emision/buscador-emision.component.ts:32</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="toDate"></a>
+                        <span class="name">
+                            <b>
+                            toDate</b>
+                            <a href="#toDate"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>NgbDate</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/components/buscador-emision/buscador-emision.component.ts:31</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="visibilidadBuscador"></a>
+                        <span class="name">
+                            <b>
+                            visibilidadBuscador</b>
+                            <a href="#visibilidadBuscador"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>{
+    documento: true,
+    empresa: false,
+    fecha: false
+  }</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/components/buscador-emision/buscador-emision.component.ts:17</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="withCriteria"></a>
+                        <span class="name">
+                            <b>
+                            withCriteria</b>
+                            <a href="#withCriteria"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>false</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/components/buscador-emision/buscador-emision.component.ts:25</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit, Output, EventEmitter } from &#x27;@angular/core&#x27;;
+import { NgbDate, NgbCalendar } from &#x27;@ng-bootstrap/ng-bootstrap&#x27;;
+import { FilterDocument } from &#x27;../../models/documento-filtro.model&#x27;;
+import { NgForm } from &#x27;@angular/forms&#x27;;
+
+
+
+@Component({
+  selector: &#x27;app-buscador-emision&#x27;,
+  templateUrl: &#x27;./buscador-emision.component.html&#x27;,
+  styleUrls: [&#x27;./buscador-emision.component.css&#x27;]
+})
+export class BuscadorEmisionComponent implements OnInit {
+  @Output() pasarParametros &#x3D; new EventEmitter();
+  @Output() estadoFiltro &#x3D; new EventEmitter();
+
+  visibilidadBuscador &#x3D; {
+    documento: true,
+    empresa: false,
+    fecha: false
+  };
+
+  filters &#x3D; new FilterDocument();
+
+  withCriteria &#x3D; false;
+  d &#x3D; new Date();
+  mesActual &#x3D; this.d.getMonth() + 1;
+  anioActual &#x3D; this.d.getFullYear();
+  hoveredDate: NgbDate;
+  fromDate: NgbDate;
+  toDate: NgbDate;
+  mesInicial: object;
+  calendario: NgbCalendar;
+
+  constructor(calendar: NgbCalendar) {
+    this.calendario &#x3D; calendar;
+    this.fromDate &#x3D; null;
+    this.toDate &#x3D; null;
+    this.mesInicial &#x3D; {
+      year: this.anioActual,
+      month: this.mesActual
+    };
+  }
+
+  ngOnInit() {
+  }
+  resetFilters(){
+    // Limpia todos los filtros del formulario
+    this.filters.invoiceFilterRequest.document.prefix &#x3D; &#x27;&#x27;;
+    this.filters.invoiceFilterRequest.document.number &#x3D; &#x27;&#x27;;
+    this.filters.invoiceFilterRequest.document.hasDebitNote &#x3D; false;
+    this.filters.invoiceFilterRequest.document.hasCreditNote &#x3D; false;
+    this.filters.invoiceFilterRequest.document.status &#x3D; -1;
+    this.filters.invoiceFilterRequest.buyer.query &#x3D; &#x27;&#x27;;
+    this.fromDate &#x3D; null;
+    this.toDate &#x3D; null;
+    this.modelChange();
+  }
+
+  muestraDocumento() {
+    // Maneja visibilidad de pestaña DOCUMENTO
+    this.visibilidadBuscador &#x3D; {
+      documento: true,
+      empresa: false,
+      fecha: false
+    };
+  }
+
+  muestraEmpresa() {
+    // Maneja visibilidad de pestaña OBLIGADO A FACTURAR
+    this.visibilidadBuscador &#x3D; {
+      documento: false,
+      empresa: true,
+      fecha: false
+    };
+  }
+
+  muestraFecha() {
+    // Maneja visibilidad de pestaña FECHAS
+    this.visibilidadBuscador &#x3D; {
+      documento: false,
+      empresa: false,
+      fecha: true
+    };
+  }
+
+  enviarFormulario(form: NgForm) {
+    // Transfiere datos al componente padre: emisionComponent para procesarlos.
+    this.filters.invoiceFilterRequest.date.begin &#x3D; &#x27;&#x27;;
+    this.filters.invoiceFilterRequest.date.end &#x3D; &#x27;&#x27;;
+    if( this.fromDate &amp;&amp; !this.toDate){
+      this.filters.invoiceFilterRequest.date.begin &#x3D; this.fromDate.year + &#x27;-&#x27; + this.fromDate.month + &#x27;-&#x27; + this.fromDate.day;
+      this.filters.invoiceFilterRequest.date.end &#x3D; this.fromDate.year + &#x27;-&#x27; + this.fromDate.month + &#x27;-&#x27; + this.fromDate.day;
+    }
+    if( this.fromDate &amp;&amp; this.toDate){
+      this.filters.invoiceFilterRequest.date.begin &#x3D; this.fromDate.year + &#x27;-&#x27; + this.fromDate.month + &#x27;-&#x27; + this.fromDate.day;
+      this.filters.invoiceFilterRequest.date.end &#x3D; this.toDate.year + &#x27;-&#x27; + this.toDate.month + &#x27;-&#x27; + this.toDate.day;
+    }
+    this.pasarParametros.emit({passValue: this.filters, withCriteria: this.withCriteria});
+  }
+
+  modelChange(){
+    // Verifica si el modelo de datos original cambia.
+    // Se usa para saber si existe algún criterio activo en el formulario.
+    if( this.filters.invoiceFilterRequest.document.prefix.length &#x3D;&#x3D;&#x3D; 0 &amp;&amp;
+        this.filters.invoiceFilterRequest.document.number.length &#x3D;&#x3D;&#x3D; 0 &amp;&amp;
+        !this.filters.invoiceFilterRequest.document.hasCreditNote &amp;&amp;
+        !this.filters.invoiceFilterRequest.document.hasDebitNote &amp;&amp;
+        this.filters.invoiceFilterRequest.document.status.toString() &#x3D;&#x3D;&#x3D; &#x27;-1&#x27; &amp;&amp;
+        this.filters.invoiceFilterRequest.buyer.query.length &#x3D;&#x3D;&#x3D; 0 &amp;&amp;
+        !this.fromDate
+    ){
+      this.withCriteria &#x3D; false;
+    } else {
+      this.withCriteria &#x3D; true;
+    }
+  }
+
+  onDateSelection(date: NgbDate) {
+    // Llamado de callback al selecionar una fecha en el calendario
+    if (!this.fromDate &amp;&amp; !this.toDate) {
+      this.fromDate &#x3D; date;
+    } else if (this.fromDate &amp;&amp; !this.toDate &amp;&amp; date.after(this.fromDate)) {
+      this.toDate &#x3D; date;
+    } else {
+      this.toDate &#x3D; null;
+      this.fromDate &#x3D; date;
+    }
+    this.modelChange();
+  }
+
+  isHovered(date: NgbDate) {
+    // Callback al hacer rollover sobre una fecha
+    return this.fromDate &amp;&amp; !this.toDate &amp;&amp; this.hoveredDate &amp;&amp; date.after(this.fromDate) &amp;&amp; date.before(this.hoveredDate);
+  }
+
+  isInside(date: NgbDate) {
+    // Verifica si una fecha se encuentra dentro de un rango establecido.
+    return date.after(this.fromDate) &amp;&amp; date.before(this.toDate);
+  }
+
+  isRange(date: NgbDate) {
+    // Verifica si la fecha seleccionada es un rango o un solo día.
+    return date.equals(this.fromDate) || date.equals(this.toDate) || this.isInside(date) || this.isHovered(date);
+  }
+  selHoy(dp:any){
+    // Selecciona como fecha del día actual
+    this.toDate &#x3D; this.calendario.getToday();
+    this.fromDate &#x3D; this.calendario.getToday();
+    this.mesInicial &#x3D; {
+      year: this.anioActual,
+      month: this.mesActual
+    }
+    dp.navigateTo(this.mesInicial);
+    this.modelChange();
+  }
+  selAyer(dp:any){
+    // Selecciona como fecha el día anterior al actual
+    this.toDate &#x3D; this.calendario.getPrev(this.calendario.getToday(), &#x27;d&#x27;, 1);
+    this.fromDate &#x3D; this.calendario.getPrev(this.calendario.getToday(), &#x27;d&#x27;, 1);
+    this.mesInicial &#x3D; {
+      year: this.anioActual,
+      month: this.mesActual
+    }
+    dp.navigateTo(this.mesInicial);
+    this.modelChange();
+  }
+
+  // OJO: sel7dias() y sel30dias se puede reducir a un solo metodo con nuevo parametro: numDiasAtras
+  sel7dias(dp:any){
+    // Selecciona rango de fechas 30 días antes hasta hoy.
+    this.toDate &#x3D; this.calendario.getToday();
+    this.fromDate &#x3D; this.calendario.getPrev(this.calendario.getToday(), &#x27;d&#x27;, 7);
+    this.mesInicial &#x3D; {
+      year: this.anioActual,
+      month: this.mesActual
+    }
+    dp.navigateTo(this.mesInicial);
+    this.modelChange();
+  }
+
+  // OJO: sel7dias() y sel30dias se puede reducir a un solo metodo con nuevo parametro: numDiasAtras
+  sel30dias( dp: any ){
+    // Selecciona rango de fechas 30 días antes hasta hoy.
+    this.toDate &#x3D; this.calendario.getToday();
+    this.fromDate &#x3D; this.calendario.getPrev(this.calendario.getToday(), &#x27;d&#x27;, 30);
+    this.mesInicial &#x3D; {
+      year: this.anioActual,
+      month: this.mesActual
+    }
+    dp.navigateTo(this.mesInicial);
+    this.modelChange();
+  }
+
+  selMesPasado( dp:any ){
+    // Selecciona desde el primer día hasta el último día del mes anterior al actual.
+    const d &#x3D; new Date();
+    const mesActual &#x3D; d.getMonth() + 1;
+    const mesAnterior &#x3D; mesActual - 1;
+    const anioActual &#x3D; d.getFullYear();
+    const numDiasMesAnterior &#x3D; this.daysInMonth(mesAnterior, anioActual);
+
+    this.fromDate.day &#x3D; 1;
+    this.fromDate.month &#x3D; mesAnterior;
+
+    this.toDate.day &#x3D; numDiasMesAnterior;
+    this.toDate.month &#x3D; mesAnterior;
+
+    this.mesInicial &#x3D; {
+      year: this.anioActual,
+      month: mesAnterior
+    };
+    dp.navigateTo(this.mesInicial);
+    this.modelChange();
+  }
+
+  clearDate(){
+    // Limpia las fechas seleccionadas en el buscador
+    this.fromDate &#x3D; null; 
+    this.toDate &#x3D; null;
+    this.modelChange();
+  }
+
+  private daysInMonth (month, year) {
+    // Devuelve el número de días de un mes específico. Verifica años bisiestos
+    return new Date(year, month, 0).getDate();
+  }
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;container&quot;&gt;
+    &lt;form (ngSubmit)&#x3D;&quot;enviarFormulario(loginForm)&quot; #loginForm&#x3D;&quot;ngForm&quot;&gt;
+        &lt;div class&#x3D;&quot;row&quot;&gt;
+            &lt;div class&#x3D;&quot;col-xl-4&quot;&gt;
+                &lt;div class&#x3D;&quot;list-group text-center&quot;&gt;
+                    &lt;a (click)&#x3D;&quot;muestraDocumento()&quot; class&#x3D;&quot;list-group-item list-group-item-action manito&quot; [ngClass]&#x3D;&quot;{&#x27;fondoAzulPtesa&#x27;: visibilidadBuscador.documento}&quot;&gt;
+                        &lt;div&gt;
+                            &lt;p class&#x3D;&quot; mb-1 &quot;&gt;DOCUMENTO &lt;/p&gt;
+                        &lt;/div&gt;
+                        &lt;div class&#x3D;&quot;textoAyuda &quot;&gt;Prefijos, Número de Factura, Afectación por Notas Débito/Crédito.&lt;/div&gt;
+                    &lt;/a&gt;
+                    &lt;a (click)&#x3D;&quot;muestraEmpresa() &quot; class&#x3D;&quot;list-group-item list-group-item-action manito&quot; [ngClass]&#x3D;&quot;{&#x27;fondoAzulPtesa&#x27;: visibilidadBuscador.empresa}&quot;&gt;
+                        &lt;div&gt;
+                            &lt;p class&#x3D;&quot;mb-1 &quot;&gt;ADQUIRIENTE &lt;/p&gt;
+                        &lt;/div&gt;
+                        &lt;div class&#x3D;&quot;textoAyuda &quot;&gt;Nombre, Razón Social, Tipo de Identificación, Número de Identificación.&lt;/div&gt;
+                    &lt;/a&gt;
+                    &lt;a (click)&#x3D;&quot;muestraFecha() &quot; class&#x3D;&quot;list-group-item list-group-item-action manito&quot; [ngClass]&#x3D;&quot;{&#x27;fondoAzulPtesa&#x27;: visibilidadBuscador.fecha}&quot;&gt;
+                        &lt;div&gt;
+                            &lt;p class&#x3D;&quot;mb-1 &quot;&gt;FECHA&lt;/p&gt;
+                        &lt;/div&gt;
+                        &lt;div class&#x3D;&quot;textoAyuda &quot;&gt;Rangos de Fecha de Emisión.&lt;/div&gt;
+                    &lt;/a&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;col-xl-8 &quot;&gt;
+
+                &lt;div [hidden]&#x3D;&quot;!visibilidadBuscador.documento&quot; id&#x3D;&quot;criteriosDocumento &quot;&gt;
+                    &lt;div class&#x3D;&quot;animated fadeIn &quot;&gt;
+                        &lt;div class&#x3D;&quot;form-row mt-4 &quot;&gt;
+                            &lt;!-- &lt;div class&#x3D;&quot;form-group col-md-4 &quot;&gt;
+                                &lt;label for&#x3D;&quot;inputEmail4&quot; class&#x3D;&quot;text-muted&quot;&gt;Tipo:&lt;/label&gt;
+                                &lt;select class&#x3D;&quot;form-control form-control-lg&quot; name&#x3D;&quot;prefix&quot; [(ngModel)]&#x3D;&quot;filters.invoiceFilterRequest.document.prefix&quot; (ngModelChange)&#x3D;&quot;modelChange()&quot;&gt;
+                                    &lt;option value&#x3D;&quot;&quot;&gt;Facturas&lt;/option&gt;
+                                &lt;/select&gt;
+                            &lt;/div&gt; --&gt;
+                            &lt;!-- &lt;div class&#x3D;&quot;form-group col-md-3 &quot;&gt;
+                                &lt;label for&#x3D;&quot;inputEmail4&quot; class&#x3D;&quot;text-muted&quot;&gt;Prefijo:&lt;/label&gt;
+                                &lt;select class&#x3D;&quot;form-control form-control-lg&quot; name&#x3D;&quot;prefix&quot; [(ngModel)]&#x3D;&quot;filters.invoiceFilterRequest.document.prefix&quot; (ngModelChange)&#x3D;&quot;modelChange()&quot;&gt;
+                                    &lt;option value&#x3D;&quot;&quot;&gt;Todos&lt;/option&gt;
+                                &lt;/select&gt;
+                            &lt;/div&gt; --&gt;
+                            &lt;div class&#x3D;&quot;form-group col-md-12 &quot;&gt;
+                                &lt;label for&#x3D;&quot;inputPassword4 &quot; class&#x3D;&quot;text-muted &quot;&gt;No. Documento:&lt;/label&gt;
+                                &lt;input type&#x3D;&quot;number &quot; class&#x3D;&quot;form-control form-control-lg &quot; id&#x3D;&quot;inputPassword4 &quot; placeholder&#x3D;&quot;Documento... &quot; name&#x3D;&quot;number&quot; [(ngModel)]&#x3D;&quot;filters.invoiceFilterRequest.document.number&quot; (ngModelChange)&#x3D;&quot;modelChange()&quot;&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+
+                        &lt;div class&#x3D;&quot;row my-4 &quot;&gt;
+                            &lt;!-- &lt;div class&#x3D;&quot;col-sm-6 &quot;&gt;
+                                &lt;div class&#x3D;&quot;text-muted mb-3 &quot;&gt;Afectación de Factura Por:&lt;/div&gt;
+                                &lt;div class&#x3D;&quot;custom-control custom-switch&quot;&gt;
+                                    &lt;input type&#x3D;&quot;checkbox&quot; class&#x3D;&quot;custom-control-input&quot; name&#x3D;&quot;hasDebitNote&quot; id&#x3D;&quot;customSwitch1&quot; [(ngModel)]&#x3D;&quot;filters.invoiceFilterRequest.document.hasDebitNote&quot; (ngModelChange)&#x3D;&quot;modelChange()&quot;&gt;
+                                    &lt;label class&#x3D;&quot;custom-control-label&quot; for&#x3D;&quot;customSwitch1&quot;&gt;Nota(s) Débito&lt;/label&gt;
+                                &lt;/div&gt;
+                                &lt;div class&#x3D;&quot;custom-control custom-switch&quot;&gt;
+                                    &lt;input type&#x3D;&quot;checkbox&quot; class&#x3D;&quot;custom-control-input&quot; name&#x3D;&quot;hasCreditNote&quot; id&#x3D;&quot;customSwitch2&quot; [(ngModel)]&#x3D;&quot;filters.invoiceFilterRequest.document.hasCreditNote&quot; (ngModelChange)&#x3D;&quot;modelChange()&quot;&gt;
+                                    &lt;label class&#x3D;&quot;custom-control-label&quot; for&#x3D;&quot;customSwitch2&quot;&gt;Nota(s) Crédito&lt;/label&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt; --&gt;
+                            &lt;div class&#x3D;&quot;col-sm-6 &quot;&gt;
+                                &lt;div class&#x3D;&quot;text-muted mb-0 &quot;&gt;Estado del Documento:&lt;/div&gt;
+                                &lt;select class&#x3D;&quot;form-control form-control-lg &quot; name&#x3D;&quot;status&quot; [(ngModel)]&#x3D;&quot;filters.invoiceFilterRequest.document.status&quot; (ngModelChange)&#x3D;&quot;modelChange()&quot;&gt;
+                                    &lt;option value&#x3D;&quot;-1&quot;&gt;Todos&lt;/option&gt;
+                                    &lt;option value&#x3D;&quot;3005&quot;&gt;Aceptado por la DIAN&lt;/option&gt;
+                                    &lt;option value&#x3D;&quot;3007&quot;&gt;Aceptado por la DIAN con Notificaciones&lt;/option&gt;
+                                    &lt;option value&#x3D;&quot;3006&quot;&gt;Rechazado por la DIAN&lt;/option&gt;
+                                    &lt;option value&#x3D;&quot;3010&quot;&gt;Enviado al adquiriente&lt;/option&gt;
+                                    &lt;option value&#x3D;&quot;3012&quot;&gt;Aceptado por el adquiriente&lt;/option&gt;
+                                    &lt;option value&#x3D;&quot;3014&quot;&gt;Rechazado por el adquiriente&lt;/option&gt;
+                                &lt;/select&gt;
+                                &lt;!-- &lt;hr&gt;
+                                &lt;div class&#x3D;&quot;custom-control custom-switch&quot;&gt;
+                                    &lt;input type&#x3D;&quot;checkbox&quot; class&#x3D;&quot;custom-control-input&quot; name&#x3D;&quot;hasCreditNote&quot; id&#x3D;&quot;customSwitch3&quot;&gt;
+                                    &lt;label class&#x3D;&quot;custom-control-label&quot; for&#x3D;&quot;customSwitch3&quot;&gt;Solo Aceptadas Dian&lt;/label&gt;
+                                &lt;/div&gt; --&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+
+                &lt;div [hidden]&#x3D;&quot;!visibilidadBuscador.empresa &quot; id&#x3D;&quot;criteriosAdquiriente &quot;&gt;
+                    &lt;div class&#x3D;&quot;animated fadeIn &quot;&gt;
+                        &lt;label class&#x3D;&quot;text-muted mt-4 &quot;&gt;Ingrese nombre, razón social o número de documento.&lt;/label&gt;
+
+                        &lt;div class&#x3D;&quot;input-group flex-nowrap&quot;&gt;
+                            &lt;div class&#x3D;&quot;input-group-prepend&quot;&gt;
+                                &lt;span class&#x3D;&quot;input-group-text &quot; id&#x3D;&quot;addon-wrapping&quot;&gt;&lt;i class&#x3D;&quot;fa fa-search&quot;&gt;&lt;/i&gt;&lt;/span&gt;
+                            &lt;/div&gt;
+                            &lt;input id&#x3D;&quot;buscaEmpresa &quot; type&#x3D;&quot;text &quot; class&#x3D;&quot;form-control form-control-lg&quot; placeholder&#x3D;&quot;Razón Social / No. Identificacion&quot; name&#x3D;&quot;query&quot; [(ngModel)]&#x3D;&quot;filters.invoiceFilterRequest.buyer.query&quot; (ngModelChange)&#x3D;&quot;modelChange()&quot;&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+
+                &lt;div [hidden]&#x3D;&quot;!visibilidadBuscador.fecha &quot; id&#x3D;&quot;criteriosAdquiriente &quot;&gt;
+                    &lt;div class&#x3D;&quot;row mt-4&quot;&gt;
+                        &lt;div class&#x3D;&quot;col-sm-7 text-center&quot;&gt;
+                            &lt;ngb-datepicker #dp (select)&#x3D;&quot;onDateSelection($event)&quot; [displayMonths]&#x3D;&quot;1&quot; [dayTemplate]&#x3D;&quot;t&quot; outsideDays&#x3D;&quot;hidden&quot; [(startDate)]&#x3D;&quot;mesInicial&quot; class&#x3D;&quot;animated fadeIn bg-white&quot;&gt;
+                            &lt;/ngb-datepicker&gt;
+
+                            &lt;ng-template #t let-date let-focused&#x3D;&quot;focused&quot; style&#x3D;&quot;width: 100%&quot;&gt;
+                                &lt;span class&#x3D;&quot;custom-day&quot; [class.focused]&#x3D;&quot;focused&quot; [class.range]&#x3D;&quot;isRange(date)&quot; [class.faded]&#x3D;&quot;isHovered(date) || isInside(date)&quot; (mouseenter)&#x3D;&quot;hoveredDate &#x3D; date&quot; (mouseleave)&#x3D;&quot;hoveredDate &#x3D; null&quot;&gt;
+                                    {{ date.day }}
+                                &lt;/span&gt;
+                            &lt;/ng-template&gt;
+                            &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;btn btn-link text-danger mb-2 linkPtesa text-left&quot; (click)&#x3D;&quot;clearDate()&quot;&gt;&lt;i class&#x3D;&quot;fa fa-chevron-right&quot;&gt;&lt;/i&gt; Limpiar&lt;/button&gt;
+                            &lt;hr&gt;
+                        &lt;/div&gt;
+                        &lt;div class&#x3D;&quot;col-sm-5&quot;&gt;
+                            &lt;div&gt;
+                                &lt;h5 class&#x3D;&quot;text-muted font-weight-light text-center&quot;&gt;
+                                    Selección Rápida
+                                &lt;/h5&gt;
+
+                                &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;btn btn-link btn-block mb-2 linkPtesa text-left&quot; (click)&#x3D;&quot;selHoy(dp)&quot;&gt;&lt;i class&#x3D;&quot;fa fa-chevron-right&quot;&gt;&lt;/i&gt; Hoy&lt;/button&gt;
+                                &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;btn btn-link btn-block mb-2 linkPtesa text-left&quot; (click)&#x3D;&quot;selAyer(dp)&quot;&gt;&lt;i class&#x3D;&quot;fa fa-chevron-right&quot;&gt;&lt;/i&gt; Ayer&lt;/button&gt;
+                                &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;btn btn-link btn-block mb-2 linkPtesa text-left&quot; (click)&#x3D;&quot;sel7dias(dp)&quot;&gt;&lt;i class&#x3D;&quot;fa fa-chevron-right&quot;&gt;&lt;/i&gt; Últimos 7 Días&lt;/button&gt;
+                                &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;btn btn-link btn-block mb-2 linkPtesa text-left&quot; (click)&#x3D;&quot;sel30dias(dp)&quot;&gt;&lt;i class&#x3D;&quot;fa fa-chevron-right&quot;&gt;&lt;/i&gt; Últimos 30 Días&lt;/button&gt;
+                                &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;btn btn-link btn-block mb-2 linkPtesa text-left&quot; (click)&#x3D;&quot;selMesPasado(dp)&quot;&gt;&lt;i class&#x3D;&quot;fa fa-chevron-right&quot;&gt;&lt;/i&gt; Mes Pasado&lt;/button&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+
+                    &lt;/div&gt;
+                &lt;/div&gt;
+
+            &lt;/div&gt;
+
+        &lt;/div&gt;
+        &lt;hr&gt;
+        &lt;div class&#x3D;&quot;row&quot;&gt;
+            &lt;div class&#x3D;&quot;col-sm-6 form-inline&quot;&gt;
+                &lt;div class&#x3D;&quot;form-group&quot;&gt;
+                    &lt;select class&#x3D;&quot;form-control border-0 fondoGrisClaro&quot; name&#x3D;&quot;fieldOrder&quot; [(ngModel)]&#x3D;&quot;filters.invoiceFilterRequest.options.fieldOrder&quot;&gt;
+                        &lt;option value&#x3D;&quot;FECHA&quot;&gt;Fecha de emisión&lt;/option&gt;
+                        &lt;option value&#x3D;&quot;DOC&quot;&gt;No. de documento&lt;/option&gt;
+                        &lt;option value&#x3D;&quot;VALOR&quot;&gt;Valor&lt;/option&gt;
+                        &lt;option value&#x3D;&quot;ADQ&quot;&gt;Adquiriente&lt;/option&gt;
+                    &lt;/select&gt;
+                &lt;/div&gt;
+
+                &lt;div class&#x3D;&quot;form-group ml-1&quot;&gt;
+                    &lt;select class&#x3D;&quot;form-control border-0 fondoGrisClaro&quot; name&#x3D;&quot;order&quot; [(ngModel)]&#x3D;&quot;filters.invoiceFilterRequest.options.order&quot;&gt;
+                        &lt;option value&#x3D;&quot;ASC&quot;&gt;Ascendente&lt;/option&gt;
+                        &lt;option value&#x3D;&quot;DESC&quot; selected&gt;Descendente&lt;/option&gt;
+                        
+                    &lt;/select&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;col-sm-6 text-right&quot;&gt;
+                &lt;button *ngIf&#x3D;&quot;withCriteria&quot; type&#x3D;&quot;button&quot; class&#x3D;&quot;btn btn-light btn-lg text-danger mr-3 shadow-sm animated fadeIn&quot; (click)&#x3D;&quot;resetFilters()&quot;&gt;&lt;i [ngClass]&#x3D;&quot;{&#x27;txt-danger&#x27;: !withoutCriteria}&quot; class&#x3D;&quot;fa fa-eraser fa-fw&quot;&gt;&lt;/i&gt;&lt;/button&gt;
+                &lt;button type&#x3D;&quot;submit&quot; class&#x3D;&quot;btn btn-warning btn-lg shadow-sm&quot;&gt;&lt;span *ngIf&#x3D;&quot;withCriteria&quot; class&#x3D;&quot;badge badge-pill badge-danger p-1 animated zoomIn fast&quot; matTooltip&#x3D;&quot;eee&quot; style&#x3D;&quot;position: absolute; top: -10px; right: 0;&quot;&gt;&lt;i class&#x3D;&quot;fa fa-filter fa-fw&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;i class&#x3D;&quot;fa fa-search fa-fw&quot;&gt;&lt;/i&gt;&lt;/button&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+    &lt;/form&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./buscador-emision.component.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.custom-day {
+    text-align: center;
+    padding: 0.185rem 0.25rem;
+    display: inline-block;
+    height: 2rem;
+    width: 2rem;
+}
+
+.custom-day.focused {
+    background-color: #e6e6e6;
+}
+
+.custom-day.range,
+.custom-day:hover {
+    background-color: rgb(2, 117, 216);
+    color: white;
+}
+
+.custom-day.faded {
+    background-color: rgba(2, 117, 216, 0.5);
+}
+
+.list-group-item-action:hover,
+.list-group-item-action:focus {
+    background-color: #00427a;
+    color: #ffffff !important;
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="container">    <form (ngSubmit)="enviarFormulario(loginForm)" #loginForm="ngForm">        <div class="row">            <div class="col-xl-4">                <div class="list-group text-center">                    <a (click)="muestraDocumento()" class="list-group-item list-group-item-action manito" [ngClass]="{\'fondoAzulPtesa\': visibilidadBuscador.documento}">                        <div>                            <p class=" mb-1 ">DOCUMENTO </p>                        </div>                        <div class="textoAyuda ">Prefijos, Número de Factura, Afectación por Notas Débito/Crédito.</div>                    </a>                    <a (click)="muestraEmpresa() " class="list-group-item list-group-item-action manito" [ngClass]="{\'fondoAzulPtesa\': visibilidadBuscador.empresa}">                        <div>                            <p class="mb-1 ">ADQUIRIENTE </p>                        </div>                        <div class="textoAyuda ">Nombre, Razón Social, Tipo de Identificación, Número de Identificación.</div>                    </a>                    <a (click)="muestraFecha() " class="list-group-item list-group-item-action manito" [ngClass]="{\'fondoAzulPtesa\': visibilidadBuscador.fecha}">                        <div>                            <p class="mb-1 ">FECHA</p>                        </div>                        <div class="textoAyuda ">Rangos de Fecha de Emisión.</div>                    </a>                </div>            </div>            <div class="col-xl-8 ">                <div [hidden]="!visibilidadBuscador.documento" id="criteriosDocumento ">                    <div class="animated fadeIn ">                        <div class="form-row mt-4 ">                            <!-- <div class="form-group col-md-4 ">                                <label for="inputEmail4" class="text-muted">Tipo:</label>                                <select class="form-control form-control-lg" name="prefix" [(ngModel)]="filters.invoiceFilterRequest.document.prefix" (ngModelChange)="modelChange()">                                    <option value="">Facturas</option>                                </select>                            </div> -->                            <!-- <div class="form-group col-md-3 ">                                <label for="inputEmail4" class="text-muted">Prefijo:</label>                                <select class="form-control form-control-lg" name="prefix" [(ngModel)]="filters.invoiceFilterRequest.document.prefix" (ngModelChange)="modelChange()">                                    <option value="">Todos</option>                                </select>                            </div> -->                            <div class="form-group col-md-12 ">                                <label for="inputPassword4 " class="text-muted ">No. Documento:</label>                                <input type="number " class="form-control form-control-lg " id="inputPassword4 " placeholder="Documento... " name="number" [(ngModel)]="filters.invoiceFilterRequest.document.number" (ngModelChange)="modelChange()">                            </div>                        </div>                        <div class="row my-4 ">                            <!-- <div class="col-sm-6 ">                                <div class="text-muted mb-3 ">Afectación de Factura Por:</div>                                <div class="custom-control custom-switch">                                    <input type="checkbox" class="custom-control-input" name="hasDebitNote" id="customSwitch1" [(ngModel)]="filters.invoiceFilterRequest.document.hasDebitNote" (ngModelChange)="modelChange()">                                    <label class="custom-control-label" for="customSwitch1">Nota(s) Débito</label>                                </div>                                <div class="custom-control custom-switch">                                    <input type="checkbox" class="custom-control-input" name="hasCreditNote" id="customSwitch2" [(ngModel)]="filters.invoiceFilterRequest.document.hasCreditNote" (ngModelChange)="modelChange()">                                    <label class="custom-control-label" for="customSwitch2">Nota(s) Crédito</label>                                </div>                            </div> -->                            <div class="col-sm-6 ">                                <div class="text-muted mb-0 ">Estado del Documento:</div>                                <select class="form-control form-control-lg " name="status" [(ngModel)]="filters.invoiceFilterRequest.document.status" (ngModelChange)="modelChange()">                                    <option value="-1">Todos</option>                                    <option value="3005">Aceptado por la DIAN</option>                                    <option value="3007">Aceptado por la DIAN con Notificaciones</option>                                    <option value="3006">Rechazado por la DIAN</option>                                    <option value="3010">Enviado al adquiriente</option>                                    <option value="3012">Aceptado por el adquiriente</option>                                    <option value="3014">Rechazado por el adquiriente</option>                                </select>                                <!-- <hr>                                <div class="custom-control custom-switch">                                    <input type="checkbox" class="custom-control-input" name="hasCreditNote" id="customSwitch3">                                    <label class="custom-control-label" for="customSwitch3">Solo Aceptadas Dian</label>                                </div> -->                            </div>                        </div>                    </div>                </div>                <div [hidden]="!visibilidadBuscador.empresa " id="criteriosAdquiriente ">                    <div class="animated fadeIn ">                        <label class="text-muted mt-4 ">Ingrese nombre, razón social o número de documento.</label>                        <div class="input-group flex-nowrap">                            <div class="input-group-prepend">                                <span class="input-group-text " id="addon-wrapping"><i class="fa fa-search"></i></span>                            </div>                            <input id="buscaEmpresa " type="text " class="form-control form-control-lg" placeholder="Razón Social / No. Identificacion" name="query" [(ngModel)]="filters.invoiceFilterRequest.buyer.query" (ngModelChange)="modelChange()">                        </div>                    </div>                </div>                <div [hidden]="!visibilidadBuscador.fecha " id="criteriosAdquiriente ">                    <div class="row mt-4">                        <div class="col-sm-7 text-center">                            <ngb-datepicker #dp (select)="onDateSelection($event)" [displayMonths]="1" [dayTemplate]="t" outsideDays="hidden" [(startDate)]="mesInicial" class="animated fadeIn bg-white">                            </ngb-datepicker>                            <ng-template #t let-date let-focused="focused" style="width: 100%">                                <span class="custom-day" [class.focused]="focused" [class.range]="isRange(date)" [class.faded]="isHovered(date) || isInside(date)" (mouseenter)="hoveredDate = date" (mouseleave)="hoveredDate = null">                                    {{ date.day }}                                </span>                            </ng-template>                            <button type="button" class="btn btn-link text-danger mb-2 linkPtesa text-left" (click)="clearDate()"><i class="fa fa-chevron-right"></i> Limpiar</button>                            <hr>                        </div>                        <div class="col-sm-5">                            <div>                                <h5 class="text-muted font-weight-light text-center">                                    Selección Rápida                                </h5>                                <button type="button" class="btn btn-link btn-block mb-2 linkPtesa text-left" (click)="selHoy(dp)"><i class="fa fa-chevron-right"></i> Hoy</button>                                <button type="button" class="btn btn-link btn-block mb-2 linkPtesa text-left" (click)="selAyer(dp)"><i class="fa fa-chevron-right"></i> Ayer</button>                                <button type="button" class="btn btn-link btn-block mb-2 linkPtesa text-left" (click)="sel7dias(dp)"><i class="fa fa-chevron-right"></i> Últimos 7 Días</button>                                <button type="button" class="btn btn-link btn-block mb-2 linkPtesa text-left" (click)="sel30dias(dp)"><i class="fa fa-chevron-right"></i> Últimos 30 Días</button>                                <button type="button" class="btn btn-link btn-block mb-2 linkPtesa text-left" (click)="selMesPasado(dp)"><i class="fa fa-chevron-right"></i> Mes Pasado</button>                            </div>                        </div>                    </div>                </div>            </div>        </div>        <hr>        <div class="row">            <div class="col-sm-6 form-inline">                <div class="form-group">                    <select class="form-control border-0 fondoGrisClaro" name="fieldOrder" [(ngModel)]="filters.invoiceFilterRequest.options.fieldOrder">                        <option value="FECHA">Fecha de emisión</option>                        <option value="DOC">No. de documento</option>                        <option value="VALOR">Valor</option>                        <option value="ADQ">Adquiriente</option>                    </select>                </div>                <div class="form-group ml-1">                    <select class="form-control border-0 fondoGrisClaro" name="order" [(ngModel)]="filters.invoiceFilterRequest.options.order">                        <option value="ASC">Ascendente</option>                        <option value="DESC" selected>Descendente</option>                                            </select>                </div>            </div>            <div class="col-sm-6 text-right">                <button *ngIf="withCriteria" type="button" class="btn btn-light btn-lg text-danger mr-3 shadow-sm animated fadeIn" (click)="resetFilters()"><i [ngClass]="{\'txt-danger\': !withoutCriteria}" class="fa fa-eraser fa-fw"></i></button>                <button type="submit" class="btn btn-warning btn-lg shadow-sm"><span *ngIf="withCriteria" class="badge badge-pill badge-danger p-1 animated zoomIn fast" matTooltip="eee" style="position: absolute; top: -10px; right: 0;"><i class="fa fa-filter fa-fw"></i></span><i class="fa fa-search fa-fw"></i></button>            </div>        </div>    </form></div></div>'
+    var COMPONENTS = [{'name': 'ActivarUsuarioComponent', 'selector': 'app-activar-usuario'},{'name': 'AjustesComponent', 'selector': 'app-ajustes'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AyudaComponent', 'selector': 'app-ayuda'},{'name': 'BarrasComponent', 'selector': 'app-barras'},{'name': 'BuscadorEmisionComponent', 'selector': 'app-buscador-emision'},{'name': 'BuscadorRastreadorComponent', 'selector': 'app-buscador-rastreador'},{'name': 'BuscadorRecepcionComponent', 'selector': 'app-buscador-recepcion'},{'name': 'CargafeComponent', 'selector': 'app-cargafe'},{'name': 'ContenidoAyudaComponent', 'selector': 'app-contenido-ayuda'},{'name': 'EmisionComponent', 'selector': 'app-emision'},{'name': 'EmisionfComponent', 'selector': 'app-emisionf'},{'name': 'FilasComponent', 'selector': 'app-filas'},{'name': 'IndiceComponent', 'selector': 'app-indice'},{'name': 'InfopieComponent', 'selector': 'app-infopie'},{'name': 'InicioComponent', 'selector': 'app-inicio'},{'name': 'LibraryComponent', 'selector': 'app-library'},{'name': 'LineasComponent', 'selector': 'app-lineas'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'Navbar0Component', 'selector': 'app-navbar0'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'PdfviewerComponent', 'selector': 'app-pdfviewer'},{'name': 'PieComponent', 'selector': 'app-pie'},{'name': 'PrecargaComponent', 'selector': 'app-precarga'},{'name': 'RastreadorComponent', 'selector': 'app-rastreador'},{'name': 'RecepcionComponent', 'selector': 'app-recepcion'},{'name': 'RecordarcontrasenaComponent', 'selector': 'app-recordarcontrasena'},{'name': 'RedirectorComponent', 'selector': 'app-redirector'},{'name': 'StatusComponent', 'selector': 'app-status'},{'name': 'SwitchCompanyComponent', 'selector': 'app-switch-company'},{'name': 'TarjetasComponent', 'selector': 'app-tarjetas'},{'name': 'UsuariosComponent', 'selector': 'app-usuarios'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'BuscadorEmisionComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+                   
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'BuscadorEmisionComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

@@ -1,0 +1,174 @@
+<div *ngIf="err500" class="alert alert-danger mt-3 animated wobble" role="alert">
+    <div class="d-inline-block p-2 align-middle">
+        <img src="./assets/img/ic_err500.svg" alt="" style="max-width: 90px;">
+    </div>
+    <div class="d-inline-block p-2 align-middle">
+        <h4 class="text-danger m-0">ERROR INTERNO DEL SERVIDOR!</h4>
+        <p class="p-0 m-0">El servidor no ha respondido de la manera esperada. <br> <small class="text-muted"> Por favor póngase en contacto con el departamento de operaciones de Ptesa.</small></p>
+    </div>
+</div>
+
+<div class="jumbotron jumbotron-fluid animated fadeIn fast">
+    <div class="container">
+        <h1 style="color: #00427a;">Rastreador <small class="text-muted">Proceso Carga</small> </h1>
+        <p class="lead">Encuentre y revise documentos emitidos previamente. Analice los resultados de la emisión de facturas. Conozca novedades e imprevistos con el proceso.</p>
+    </div>
+</div>
+
+<div class="container-fluid" style="min-height: 50vh">
+    <div class="p-0 m-0">
+        <hr>
+        <div class="row">
+            <div class="col-sm-6">
+                <button [routerLink]="['/e']" class="btn btn-warning shadow-sm mr-2" matTooltip="Volver"><span class="fa fa-arrow-left fa-fw"></span></button>
+                <button class="btn btn-warning shadow-sm" data-toggle="modal" data-target="#modalBuscadorRastreador" style="position: relative;" matTooltip="Rastrear Documento"><span *ngIf="withCriteria" matTooltip="Filtros activos" matTooltipPosition="after" class="badge badge-pill badge-danger p-1 animated zoomIn fast" style="position: absolute; top: -10px; right: -10px;"><span class="fa fa-filter fa-fw"></span></span><span class="fa fa-binoculars" aria-hidden="true"></span> Rastrear Documento</button>
+
+            </div>
+        </div>
+        <hr>
+    </div>
+
+    <div class="p-2 shadow" style="background-color: rgba(0, 0, 0, 0.1); color: rgba(0, 0, 0, 0.5); border: solid 1px rgba(0, 0, 0, 0.12);">
+        <button class="btn btn-link text-secondary py-0 ml-0 pl-0" data-toggle="modal" data-target="#modalBuscadorRastreador"><span class="fa fa-chevron-right text-light"></span><strong> Documentos encontrados:</strong> {{ totalResults }}</button>
+        <button *ngIf="withCriteria" class="btn btn-link text-danger py-0 ml-0 pl-0" data-toggle="modal" data-target="#modalBuscadorRastreador"><span class="fa fa-filter"></span> Filtro(s) Activo(s)</button>
+        <div style="max-height: 48px; overflow: hidden; text-overflow: ellipsis;"><span class="badge badge-pill badge-light text-secondary mr-2"> <span class="fa fa-circle"></span> {{ providerName }}</span>
+        </div>
+    </div>
+
+    <div *ngIf="preloader" class="mt-4">
+        <app-precarga></app-precarga>
+    </div>
+
+    <div *ngIf="!preloader && totalResults !== '0'" class="text-center my-4">
+        <pagination-controls id="paginadorRastreador" (pageChange)="pageChanged($event)" responsive="true" directionLinks="true" previousLabel="Anterior" nextLabel="Siguiente"></pagination-controls>
+    </div>
+    <div *ngIf="!preloader && totalResults !== '0'" class="table-responsive shadow mb-4">
+        <table class="table table-hover" aria-describedby="Resultados Rastreador">
+            <thead>
+                <tr class="bg-light">
+                    <th scope="col">Fecha</th>
+                    <th scope="col">Empresa</th>
+                    <th scope="col">Formato</th>
+                    <th scope="col">Archivo</th>
+                    <th scope="col">Canal</th>
+                    <th scope="col">Track ID</th>
+                    <th scope="col">Estado</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let trackDocument of arrTrackDocuments | paginate: { id:'paginadorRastreador', itemsPerPage: maxResultsPerPage, currentPage: currentPage, totalItems: totalResults }">
+                    <td class="celda">{{ trackDocument.creationDate | date }}</td>
+                    <td class="celda">
+                        {{ trackDocument.supplierName }}
+                    </td>
+                    <td class="celda">
+                        {{ trackDocument.sourceFormat }}
+                    </td>
+                    <td class="celda text-break">
+                        {{ splitFileName(trackDocument.fileName) }}
+                    </td>
+                    <td class="celda">
+                        {{ trackDocument.channelType }}
+
+                    </td>
+
+                    <td class="celda">
+                        {{ trackDocument.trackId }}
+                    </td>
+                    <td class="celda">
+                        <button *ngIf="trackDocument.statusName !== 'Error'" (click)="getTrackId( trackDocument.trackId )" class="btn btn-link text-secondary">{{ convStatus(trackDocument.statusName) }} <span class="fa fa-external-link align-middle"></span></button>                        <button class="btn btn-link text-danger" *ngIf="trackDocument.statusName === 'Error' || trackDocument.totalErrors > 0" (click)="getTrackId( trackDocument.trackId )">{{ trackDocument.statusName }} <span class="fa fa-external-link align-middle"></span></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+    <div *ngIf="!preloader && totalResults !== '0'" class="text-center my-4">
+        <pagination-controls id="paginadorRastreador" (pageChange)="pageChanged($event)" responsive="true" directionLinks="true" previousLabel="Anterior" nextLabel="Siguiente"></pagination-controls>
+    </div>
+</div>
+
+
+<!-- Modal Buscador -->
+<div class="modal fade" id="modalBuscadorRastreador" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color: #dadada; border-bottom: solid 2px #007bff">
+                <h2 class="modal-title" style="color: #00427a"><span class="fa fa-search fa-lg"></span> Rastrear <small class="text-primary">Documentos Cargados</small></h2>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+            </div>
+            <div class="modal-body">
+                <app-buscador-rastreador (pasarParametros)="getParameters($event)"></app-buscador-rastreador>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modalDetalleErrores" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color: #dadada; border-bottom: solid 2px #007bff">
+                <h2 class="modal-title text-danger"><span class="fa fa-exclamation-triangle fa-lg"></span> Errores <small class="text-primary">Documento Cargado</small></h2>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+            </div>
+            <div class="modal-body">
+                <app-precarga *ngIf="preloaderDet"></app-precarga>
+                <div *ngIf="detailed && !preloaderDet">
+                    <div class="my-4 animated fadeIn fast">
+
+                        <h2 class="text-center">Track ID: {{ track.trackId }}</h2>
+
+
+                        <div class="card-text">
+                            <div class="row text-center font-weight-bold mt-4 mb-2">
+                                <div class="col-3">
+                                    CREACIÓN
+                                </div>
+                                <div class="col-3">
+                                    TRACK ID
+                                </div>
+                                <div class="col-3">
+                                    ESTADO
+                                </div>
+                                <div class="col-3">
+                                    ERRORES
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row text-center">
+                                <div class="col-3 separaCols">
+                                    {{ track.creationDatetime | date }}
+                                </div>
+                                <div class="col-3 separaCols">
+                                    {{ track.trackId }}
+                                </div>
+                                <div class="col-3 separaCols">
+                                    {{ convStatus(track.status)}}
+                                </div>
+                                <div class="col-3">
+                                    <div *ngIf="errorsCount === 0">{{ errorsCount }}</div>
+                                    <div *ngIf="errorsCount > 0"><a (click)="showHideErrors()" class="text-danger" style="cursor: pointer;"><strong> {{ errorsCount }} <span *ngIf="!errorsDetail" class="fa fa-eye"></span><span *ngIf="errorsDetail" class="fa fa-eye-slash"></span></strong></a></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div *ngIf="errorsDetail && errorsCount > 0" class="animated fadeIn fast">
+                            <h5 class="card-title mt-4 text-danger in-line animated fadeIn">Errores:</h5>
+                            <ul class="list-group list-group-flush">
+                                <li *ngFor="let error of track.errors" class="small text-muted mb-1" style="list-style: none;"><span class="fa fa-chevron-right text-danger" aria-hidden="true"></span> {{error.detail}}</li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-infopie></app-infopie>
+
+<button *ngIf="env.overallPermissions.showOutboundOperate" type="button" [routerLink]="['/e','cargar']" class="btn btn-circle btn-xl-1 text-light shadow animated fadeInRight fast paso8" matTooltip="Emitir documento" matTooltipPosition="left"><span class="fa fa-paper-plane fa-lg"></span>
+</button>

@@ -1,0 +1,229 @@
+<div class="jumbotron jumbotron-fluid bg-warning animated fadeIn fast mb-0">
+    <div class="container">
+        <h1 class="display-4">Administración <small class="text-muted">Usuarios y Grupos</small> </h1>
+        <p class="lead">Realice emisión y carga de facturas. Encuentre y revise documentos emitidos previamente. Analice los resultados de la emisión de facturas. Conozca novedades e imprevistos con el proceso.</p>
+    </div>
+</div>
+
+
+<div class="container-fluid">
+    <div class="row animatedx fadeInx fastx mt-5" style="animation-delay: 0.5s;">
+        <div class="col-sm-6 mb-5">
+            <div class="card shadow h-100">
+                <div class="card-header fondoAzulPtesa">
+                    <h5><span class="fa fa-user"></span> Usuarios</h5>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title text-right"><button class="btn btn-success" matTooltip="Crear Usuario" (click)="cambioNuevoUsuario()"><span class="material-icons" style="font-size: 36px">person_add</span></button></h5>
+
+
+                    <div class="mb-5 animated fadeIn" *ngIf="nuevoUsuario">
+                        <div class="mb-4">
+                            <h4 class="my-3 text-secondary">Nuevo Usuario</h4>
+                            <small class="form-text text-muted">Complete el siguiente formulario. los campos marcados con (*) son obligatorios. <br><span class="fa fa-envelope-o"></span> Enviaremos un correo electrónico con las instrucciones para asignar la contraseña y activar el usuario.</small>
+                        </div>
+                        <form #formularioUsuario="ngForm" (ngSubmit)="crearUsuario(formularioUsuario)" class="p-2" novalidate>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="email">*E-mail</label>
+                                        <input type="email" class="form-control form-control-lg" name="email" [(ngModel)]="usuario.email" #email="ngModel" [ngClass]="{'is-invalid': (email.errors?.required || email.errors?.email)&&email.touched}" id="email" placeholder="E-mail" required email>
+                                        <div *ngIf="email.errors?.required && email.touched" class="invalid-feedback">
+                                            El e-mail es requerido
+                                        </div>
+                                        <div *ngIf="email.errors?.email && email.touched" class="invalid-feedback">
+                                            Ingrese un e-mail válido.
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="perfil">*Perfil</label>
+                                        <select class="form-control form-control-lg" id="perfil" name="perfil" [(ngModel)]="usuario.perfil" #perfil="ngModel" [ngClass]="{'is-invalid': perfil.errors?.required  && perfil.touched}" required>
+                                            <option value="">Seleccione</option>
+                                            <option value="1">Administrador</option>
+                                        </select>
+                                        <div *ngIf="perfil.errors?.required && perfil.touched" class="invalid-feedback">
+                                            Seleccione un perfil
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="nombre">*Nombre</label>
+                                        <input type="text" class="form-control form-control-lg" id="nombre" placeholder="Nombre" name="nombre" [(ngModel)]="usuario.nombre" #nombre="ngModel" required minlength="3" [ngClass]="{'is-invalid': (nombre.errors?.required || nombre.errors?.minlength)  && nombre.touched}">
+                                        <div *ngIf="nombre.errors?.required && nombre.touched" class="invalid-feedback">
+                                            Ingrese el nombre del usuario
+                                        </div>
+                                        <div *ngIf="nombre.errors?.minlength && nombre.touched" class="invalid-feedback">
+                                            Ingrese al menos 3 caractéres
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="apellido">*Apellido</label>
+                                        <input type="text" class="form-control form-control-lg" id="apellido" placeholder="Apellido" name="apellido" [(ngModel)]="usuario.apellido" #apellido="ngModel" required minlength="3" [ngClass]="{'is-invalid': (apellido.errors?.required || apellido.errors?.minlength)  && apellido.touched}">
+                                        <div *ngIf="apellido.errors?.required && apellido.touched" class="invalid-feedback">
+                                            Ingrese el apellido del usuario
+                                        </div>
+                                        <div *ngIf="apellido.errors?.minlength && apellido.touched" class="invalid-feedback">
+                                            Ingrese al menos 3 caractéres
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="cargo">*Cargo</label>
+                                        <input type="text" class="form-control form-control-lg" id="cargo" placeholder="Cargo" name="cargo" [(ngModel)]="usuario.cargo" #cargo="ngModel" required minlength="3" [ngClass]="{'is-invalid': (cargo.errors?.required || cargo.errors?.minlength)  && cargo.touched}">
+                                        <div *ngIf="cargo.errors?.required && cargo.touched" class="invalid-feedback">
+                                            Ingrese el cargo del usuario
+                                        </div>
+                                        <div *ngIf="cargo.errors?.minlength && cargo.touched" class="invalid-feedback">
+                                            Ingrese al menos 3 caractéres
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="perfil">*Asignar Grupo</label>
+                                        <select class="form-control form-control-lg" id="grupo" name="grupo" [(ngModel)]="usuario.grupo" #grupo="ngModel" [ngClass]="{'is-invalid': grupo.errors?.required  && grupo.touched}" required>
+                                            <option value="">Seleccione</option>
+                                            <option value="1">Recepción Inicial</option>
+                                            <option value="2">Funcionarios Contabilidad</option>
+                                        </select>
+                                        <div *ngIf="grupo.errors?.required && grupo.touched" class="invalid-feedback">
+                                            Seleccione un grupo
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <button [disabled]="formularioUsuario.invalid" type="submit" class="btn btn-success">Crear Usuario</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+
+                    <div class="mb-4">
+                        <h4 class="my-3 text-secondary">Usuarios Registrados <small class="text-muted">(3)</small></h4>
+                    </div>
+                    <ul class="list-group list-group-flush-">
+                        <a href="#" class="list-group-item list-group-item-secondary list-group-item-action py-4">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 class="mb-1 linkPtesa"><span class="fa fa-user-circle fa-lg"></span> Jorge E. Noreña G. <span class="badge badge-pill badge-success">Activo</span></h5>
+                                <small class="text-muted">jorge.norena@ptesa.com</small>
+                            </div>
+                            <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+                            <small class="text-muted">Donec id elit non mi porta.</small>
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action py-4">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 class="mb-1 linkPtesa"><span class="fa fa-user-circle fa-lg"></span> Pedro Pérez G. <span class="badge badge-pill badge-danger">Inactivo</span></h5>
+                                <small class="text-muted">pedro.perez@ptesa.com</small>
+                            </div>
+                            <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+                            <small class="text-muted">Donec id elit non mi porta.</small>
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action py-4">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 class="mb-1 linkPtesa"><span class="fa fa-user-circle fa-lg"></span> María Cárdenas P.. <span class="badge badge-pill badge-success">Activo</span></h5>
+                                <small class="text-muted">maria.cardenas@ptesa.com</small>
+                            </div>
+                            <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+                            <small class="text-muted">Donec id elit non mi porta.</small>
+                        </a>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6 mb-5">
+            <div class="card shadow h-100">
+                <div class="card-header fondoAzulPtesa">
+                    <h5><span class="fa fa-users"></span> Grupos</h5>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title text-right"><button class="btn btn-success" matTooltip="Crear Grupo" (click)="cambioNuevoGrupo()"><span class="material-icons" style="font-size: 36px">group_add</span></button></h5>
+
+                    <div class="mb-5 animated fadeIn" *ngIf="nuevoGrupo">
+                        <div class="mb-4">
+                            <h4 class="my-3 text-secondary">Nuevo Grupo</h4>
+                            <small class="form-text text-muted">Complete el siguiente formulario. los campos marcados con (*) son obligatorios.</small>
+                        </div>
+                        <form #formularioGrupo="ngForm" (ngSubmit)="crearGrupo(formularioGrupo)" class="p-2" novalidate>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label for="nombreGrupo">*Nombre del Grupo</label>
+                                        <input type="text" class="form-control form-control-lg" id="nombreGrupo" name="nombreGrupo" placeholder="Nombre..." [(ngModel)]="grupo.nombreGrupo" #nombreGrupo="ngModel" [ngClass]="{'is-invalid': (nombreGrupo.errors?.required || nombreGrupo.errors?.minlength)  && nombreGrupo.touched}"
+                                            required minlength="3">
+                                        <div *ngIf="nombreGrupo.errors?.required && nombreGrupo.touched" class="invalid-feedback">
+                                            Ingrese un nombre de referencia para el grupo
+                                        </div>
+                                        <div *ngIf="nombreGrupo.errors?.minlength && nombreGrupo.touched" class="invalid-feedback">
+                                            Ingrese al menos 3 caractéres
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label for="descripcionGrupo">*Descripción del Grupo</label>
+                                        <textarea class="form-control form-control-lg" id="descripcionGrupo" rows="3" placeholder="Descripción..." name="descripcionGrupo" [(ngModel)]="grupo.descripcionGrupo" #descripcionGrupo="ngModel" [ngClass]="{'is-invalid': (descripcionGrupo.errors?.required || descripcionGrupo.errors?.minlength)  && descripcionGrupo.touched}"
+                                            required minlength="3"></textarea>
+                                        <div *ngIf="descripcionGrupo.errors?.required && descripcionGrupo.touched" class="invalid-feedback">
+                                            Ingrese una descripción para el grupo
+                                        </div>
+                                        <div *ngIf="descripcionGrupo.errors?.minlength && descripcionGrupo.touched" class="invalid-feedback">
+                                            Ingrese al menos 3 caractéres
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <button [disabled]="formularioGrupo.invalid" type="button" class="btn btn-success">Crear Grupo</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="mb-4">
+                        <h4 class="my-3 text-secondary">Grupos Registrados <small class="text-muted">(2)</small></h4>
+                    </div>
+                    <ul class="list-group">
+                        <a href="#" class="list-group-item list-group-item-action">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 class="mb-1 linkPtesa">Recepción Inicial. <span class="badge badge-pill badge-secondary font-weight-light"><span class="fa fa-user" aria-hidden="true"></span> 2</span>
+                                </h5>
+                            </div>
+                            <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+                            <div class="badge badge-pill bg-light text-primary border border-primary mr-1">jorge.norena@ptesa.com</div>
+                            <div class="badge badge-pill bg-light text-primary border border-primary mr-1">pedro.perez@ptesa.com</div>
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 class="mb-1 linkPtesa">Funcionarios Contabilidad. <span class="badge badge-pill badge-secondary font-weight-light"><span class="fa fa-user" aria-hidden="true"></span> 1</span>
+                                </h5>
+                            </div>
+                            <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+                            <div class="badge badge-pill bg-light text-primary border border-primary mr-1">maria.cardenas@ptesa.com</div>
+                        </a>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<app-infopie></app-infopie>

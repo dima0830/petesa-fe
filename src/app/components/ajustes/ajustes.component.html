@@ -1,0 +1,137 @@
+<div *ngIf="err500" class="alert alert-danger mt-3 animated wobble" role="alert">
+    <div class="d-inline-block p-2 align-middle">
+        <img src="./assets/img/ic_err500.svg" alt="" style="max-width: 90px;">
+    </div>
+    <div class="d-inline-block p-2 align-middle">
+        <h4 class="text-danger m-0">ERROR INTERNO DEL SERVIDOR!</h4>
+        <p class="p-0 m-0">El servidor no ha respondido de la manera esperada. <br> <small class="text-muted"> Por favor póngase en contacto con el departamento de operaciones de Ptesa.</small></p>
+    </div>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+</div>
+
+<div class="jumbotron jumbotron-fluid animated fadeIn fast">
+    <div class="container">
+        <h1 style="color: #00427a;">Ajustes <small class="text-muted">Usuario Autorizado</small> </h1>
+        <p class="lead">Proteja su cuenta y su información. Cambie su contraseña regularmente.</p>
+    </div>
+</div>
+
+<div class="container-fluid animated fadeIn fast" style="min-height: 50vh; animation-delay: 0.5s;">
+    <div class="row">
+
+        <div class="col-sm-6">
+
+        </div>
+
+        <div class="col-md-6">
+            <div class="alert alert-dark" style="background-color: rgba(248, 249, 250, 0.8); border-radius: 0">
+                <h3 class="text-center" style="color: #00427a">
+                    <span class="fa-stack">
+                        <span class="fa fa-unlock-alt fa-stack-1x" style="color: #00427a"></span>
+                    <span class="fa fa-refresh fa-stack-2x fa-spin text-secondary" style="opacity: 0.3;"></span>
+                    </span> Cambiar contraseña
+                </h3>
+
+                <div class="text-center mb-3 ">
+                    <small class="text-center text-muted ">
+                        El proceso de cambio de contraseña obliga a volver iniciar sesión.
+                    </small>
+                </div>
+
+                <form (ngSubmit)="changePassword(changePwdForm)" #changePwdForm="ngForm" novalidate>
+                    <div style="position: relative">
+                        <div class="input-group shadow">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text bg-warning text-dark" style="border-width: 0; border-radius: 0"><span class="fa fa-unlock"></span></div>
+                            </div>
+                            <input type="password" class="form-control" placeholder="Contraseña Actual" style="border-width: 0;  border-radius: 0" name="oldPassword" [(ngModel)]="changePwdRequest.oldPassword" #oldPassword="ngModel" required [ngClass]="{'is-invalid': (oldPassword.errors?.required || oldPassword.errors?.email)  && oldPassword.touched}">
+                        </div>
+                        <div *ngIf="errorPwd" class="invalid-feedback d-block lead">
+                            <h5> Contraseña incorrecta.</h5>
+                        </div>
+                        <div *ngIf="oldPassword.errors?.required && oldPassword.touched" class="invalid-feedback d-block">
+                            Ingrese su contraseña actual.
+                        </div>
+
+                        <hr>
+                        <div class="text-center small mb-2 text-muted">
+                            <strong>La nueva contraseña debe:</strong> <br> Tener una longitud de 8 caracteres o superior. Estar formada por minúsculas, mayúsculas, al menos un número y un carácter especial.
+                        </div>
+                        <div class="input-group shadow">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text bg-warning text-dark" style="border-width: 0; border-radius: 0"><span class="fa fa-unlock-alt"></span></div>
+                            </div>
+                            <input type="password" class="form-control" placeholder="Nueva Contraseña" style="border-width: 0;  border-radius: 0" name="newPassword" [(ngModel)]="changePwdRequest.newPassword" #newPassword="ngModel" required pattern="^.*(?=.{8,})((?=.*[!@#$%^&*()\-_=+{};:,<.>]){1})(?=.*\d)((?=.*[a-z]){1})((?=.*[A-Z]){1}).*$"
+                                [ngClass]="{'is-invalid': (newPassword.errors?.required || newPassword.errors?.email) && newPassword.touched}">
+                        </div>
+                        <div *ngIf="newPassword.errors?.required && newPassword.touched" class="invalid-feedback d-block">
+                            Ingrese la nueva contraseña.
+                        </div>
+                        <div *ngIf="newPassword.errors?.pattern && newPassword.touched" class="invalid-feedback d-block">
+                            No tiene el formato!!!.
+                        </div>
+                        <div class="input-group shadow mt-3">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text bg-warning text-dark" style="border-width: 0; border-radius: 0"><span class="fa fa-unlock-alt"></span></div>
+                            </div>
+                            <input (keyup)="comparePwds()" type="password" class="form-control" placeholder="Confirmar Contraseña" style="border-width: 0;  border-radius: 0" name="confirmPassword" [(ngModel)]="changePwdRequest.confirmPassword" #confirmPassword="ngModel" required
+                                [ngClass]="{'is-invalid': (confirmPassword.errors?.required || confirmPassword.errors?.email)  && confirmPassword.touched}">
+                        </div>
+                        <div *ngIf="!samePwd" class="invalid-feedback d-block">
+                            Contraseñas diferentes.
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-12 text-center my-3">
+                                <button [disabled]="changePwdForm.invalid || !samePwd" type="submit" class="btn btn-primary">Cambiar contraseña</button>
+                            </div>
+                        </div>
+
+                        <div *ngIf="preloader" class="fondoGrisClaro animated fadeIn fast" style="position: absolute; width:100%; height:100%; top:0; left: 0;">
+                            <app-precarga></app-precarga>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="confirmModal" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color: #dadada; border-bottom: solid 2px #007bff">
+                <h2 class="modal-title" style="color: #00427a"><span class="fa fa-unlock-alt fa-lg"></span> Cambiar <small class="text-primary">Contraseña</small></h2>
+            </div>
+            <div class="modal-body text-center">
+                <h1 class="text-success"><span class="fa fa-check" aria-hidden="true"></span></h1>
+                <p>La contraseña ha sido modificada satisfactoriamente.</p>
+            </div>
+            <div class="modal-footer">
+                <button (click)="logout()" type="button" class="btn btn-primary">Iniciar Sesión</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="pwdUsedModal" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color: #dadada; border-bottom: solid 2px #007bff">
+                <h2 class="modal-title text-danger" style="color: #00427a"> Asigne otra contraseña!</h2>
+            </div>
+            <div class="modal-body text-center">
+                <h1 class="text-danger"><span class="fa fa-exclamation-triangle" aria-hidden="true"></span></h1>
+                <p>La contraseña ingresada ha sido usada ultimamente.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-infopie></app-infopie>

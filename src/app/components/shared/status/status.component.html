@@ -1,0 +1,49 @@
+<!-- <div class="text-center">
+    <div class="d-inline m-1" matTooltip="Ptesa: {{status.ptesaStatus}}">
+        <span *ngIf="ptesaColor === 0" class="fa fa-circle-thin"></span>
+        <span *ngIf="ptesaColor === 1" class="fa fa-circle text-danger"></span>
+        <span *ngIf="ptesaColor === 2" class="fa fa-circle text-warning"></span>
+        <span *ngIf="ptesaColor === 3" class="fa fa-circle text-success"></span>
+    </div>
+    <div class="d-inline m-1" matTooltip="Dian: {{status.dianStatus}}">
+        <span *ngIf="dianColor === 0" class="fa fa-circle-thin"></span>
+        <span *ngIf="dianColor === 1" class="fa fa-circle text-danger"></span>
+        <span *ngIf="dianColor === 2" class="fa fa-circle text-warning"></span>
+        <span *ngIf="dianColor === 3" class="fa fa-circle text-success"></span>
+    </div>
+    <div class="d-inline m-1" matTooltip="Adq: {{status.documentStatus}}">
+        <span *ngIf="adqColor === 0" class="fa fa-circle-thin"></span>
+        <span *ngIf="adqColor === 1" class="fa fa-circle text-danger"></span>
+        <span *ngIf="adqColor === 2" class="fa fa-circle text-warning"></span>
+        <span *ngIf="adqColor === 3" class="fa fa-circle text-success"></span>
+    </div>
+</div> -->
+
+<div class="text-center">
+    <div class="d-inline m-1" matTooltip="Ptesa: {{lib.traducirEstado(status.documentStatus)}}">
+        <span *ngIf="adqColor === 0" class="fa fa-circle-thin"></span>
+        <span *ngIf="adqColor === 1" class="fa fa-circle text-danger"></span>
+        <span *ngIf="adqColor === 2" class="fa fa-circle text-warning"></span>
+        <span *ngIf="adqColor === 3" class="fa fa-circle text-success"></span>
+    </div>
+
+
+
+
+
+    <div class="d-inline m-1" matTooltip="Dian: {{lib.traducirEstado(status.dianStatus)}}">
+        <span *ngIf="dianColor === 0" class="fa fa-circle-thin"></span>
+        <span *ngIf="dianColor === 1" class="fa fa-circle text-danger"></span>
+        <span *ngIf="dianColor === 2" class="fa fa-circle text-warning"></span>
+        <span *ngIf="dianColor === 3" class="fa fa-circle text-success"></span>
+        <span *ngIf="dianColor === -3" class="fa fa-minus-circle fa-rotate-90 text-success"></span>
+    </div>
+
+
+    <div class="d-inline m-1" matTooltip="Adq: {{lib.traducirEstado(status.ptesaStatus)}}">
+        <span *ngIf="ptesaColor === 0" class="fa fa-circle-thin"></span>
+        <span *ngIf="ptesaColor === 1" class="fa fa-circle text-danger"></span>
+        <span *ngIf="ptesaColor === 2" class="fa fa-circle text-warning"></span>
+        <span *ngIf="ptesaColor === 3" class="fa fa-circle text-success"></span>
+    </div>
+</div>

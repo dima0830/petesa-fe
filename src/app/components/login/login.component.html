@@ -1,0 +1,137 @@
+<div class="container-fluid p-0" style="height: 90vh; position: relative;">
+    <div class="jumbotron jumbotron-fluid  px-5 mb-0 shadow-lg">
+        <div class="row">
+            <div class="col-lg-6 col-md-12">
+                <div class="d-none d-md-block">
+                    <h1 style="color: #00427a; text-shadow: 5px 5px 7px rgba(0,0,0,0.3);">
+                        Ingrese a la <span class="text-primary">Nueva</span> Generación de <span class="text-primary">Facturación</span> Electrónica con Validación Previa.
+                    </h1>
+                    <hr>
+                    <p class="lead text-dark">
+                        Liderando la transformación del país en materia de facturación electrónica, desde el año 2011.
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-12">
+                <div class="row">
+                    <div class="col-sm-8 offset-sm-2">
+                        <div class="alert alert-dark" style="background-color: rgba(248, 249, 250, 0.8); border-radius: 0">
+                            <div class="text-center mb-2">
+                                <img src="assets/img/logo_fe.png" alt="Facturación Electrónica Ptesa" style="max-width: 70%; opacity: 0.9">
+                            </div>
+
+                            <div *ngIf="loginFailed" class="alert alert-danger text-center p-1 animated shake fast" role="alert" style="border-radius: 0; animation-delay: 0.3s;">
+                                <h3><span class="fa fa-exclamation-triangle"></span></h3>
+                                <p *ngIf="errorStatus === 400" class="mb-0">Datos de acceso incorrectos.</p>
+                                <p *ngIf="errorStatus !== 400" class="mb-0">Ocurrió un error tratando de acceder.</p>
+                            </div>
+                            <form (ngSubmit)="logIn(loginForm)" #loginForm="ngForm" novalidate>
+                                <div style="position: relative">
+                                    <div class="input-group shadow">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text bg-warning text-dark" style="border-width: 0; border-radius: 0"><span class="fa fa-user"></span></div>
+                                        </div>
+                                        <input type="text" class="form-control" placeholder="E-mail / Usuario" style="border-width: 0;  border-radius: 0" name="user" [(ngModel)]="loginRequest.usr" #user="ngModel" required [ngClass]="{'is-invalid': (user.errors?.required || user.errors?.email)  && user.touched}">
+                                    </div>
+                                    <div *ngIf="user.errors?.required && user.touched" class="invalid-feedback d-block">
+                                        Ingrese un e-mail de usuario.
+                                    </div>
+                                    <div *ngIf="user.errors?.email && user.touched" class="invalid-feedback d-block">
+                                        Debe ser e-mail válido.
+                                    </div>
+
+
+                                    <div class="input-group shadow mt-3">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text bg-warning text-dark" style="border-width: 0; border-radius: 0"><span class="fa fa-unlock-alt"></span></div>
+                                        </div>
+                                        <input type="password" class="form-control" placeholder="Contraseña" style="border-width: 0; border-radius: 0" #password="ngModel" name="password" [(ngModel)]="loginRequest.pwd" required [ngClass]="{'is-invalid': password.errors?.required && password.touched}">
+                                    </div>
+                                    <div *ngIf="password.errors?.required && password.touched" class="invalid-feedback d-block">
+                                        Ingrese su contraseña.
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-sm-12 text-right mb-3">
+                                            <button type="button" class="btn btn-link font-s" (click)="openModalRecordar();">¿Olvidó su contraseña?</button>
+                                        </div>
+                                        <div class="col-sm-12 text-center mb-3">
+                                            <button [disabled]="loginForm.invalid" type="submit" class="btn btn-primary">Ingresar</button>
+                                        </div>
+                                    </div>
+                                    <div class="animated fadeIn fast" style="background-color: #ffffff; position: absolute; width:100%; height:100%; top:0; left: 0; z-index: 100;" *ngIf="loginLoading">
+                                        <app-precarga></app-precarga>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="resetPwdModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content text-center">
+            <div class="modal-header text-center" style="background-color: #ffffff; border-bottom: solid 2px #007bff">
+                <h2 class="modal-title" style="color: #00427a">Restablecer Contraseña</h2>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body text-center">
+
+                <div *ngIf="recordarContrasenaLoading">
+                    <app-precarga></app-precarga>
+                </div>
+
+                <div *ngIf="!recordarContrasenaConfirma && !recordarContrasenaError && !recordarContrasenaLoading">
+                    <h1 class="text-primary display-1"><span class="fa fa-question-circle-o" aria-hidden="true"></span></h1>
+                    <form (ngSubmit)="recordarContrasena(recordarForm)" #recordarForm="ngForm" novalidate>
+                        <label>Correo electrónico:</label>
+                        <div class="form-group w-75 mx-auto shadow">
+                            <input type="email" class="form-control shadow" style="border-width: 0;  border-radius: 0; border-bottom: solid 1px #007bff" name="emailRC" [(ngModel)]="emailRecordarContrasena" #emailRC="ngModel" required email [ngClass]="{'is-invalid': (emailRC.errors?.required || emailRC.errors?.email)  && emailRC.touched}">
+                        </div>
+
+                        <div *ngIf="emailRC.errors?.required && emailRC.touched" class="invalid-feedback d-block">
+                            Ingrese un e-mail de usuario.
+                        </div>
+                        <div *ngIf="emailRC.errors?.email && emailRC.touched" class="invalid-feedback d-block">
+                            Debe ser e-mail válido.
+                        </div>
+                        <small class="form-text text-muted mt-2">Ingrese la dirección de correo electrónico registrada en el sistema y haga click en el botón "Enviar Instrucciones"</small>
+                    </form>
+
+                    <div class="modal-footer">
+                        <button [disabled]="recordarForm.invalid" type="button" (click)="recordarContrasena()" class="btn btn-primary">Enviar Instrucciones</button>
+                    </div>
+                </div>
+
+                <div *ngIf="recordarContrasenaConfirma">
+                    <h1 class="text-primary display-1 mb-0 p-0"><span class="fa fa-envelope-o" aria-hidden="true"></span></h1>
+                    <h3 class="m-0 text-primary">Consulte su correo</h3>
+                    <small class="form-text text-muted my-2">Le hemos enviado instrucciones para asignar una nueva contraseña.</small>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+
+                <div *ngIf="recordarContrasenaError">
+                    <h1 class="text-danger display-1 mb-0 p-0"><span class="fa fa-frown-o" aria-hidden="true"></span></h1>
+                    <h3 class="m-0 text-danger">Error</h3>
+                    <small class="form-text text-muted my-2">Es posible que la dirección de correo electrónico ingresada no se encuentre registrada en el sistema.</small>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+<app-infopie></app-infopie>
